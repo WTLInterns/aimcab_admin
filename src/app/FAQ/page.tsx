@@ -1,85 +1,206 @@
-import Head from 'next/head';
+"use client"
+
+import { useState, useRef } from "react"
+import { Plus, Minus } from "lucide-react"
+
+// Assuming Navbar and Footer are in the container folder
+import Navbar from "../../container/component/Navbar"
+import Footer from "../../container/component/Footer"
+
+// FAQ data
+const faqData = [
+  {
+    question: "How do I book a cab?",
+    answer:
+      "You can book a cab through our website or mobile app. Simply enter your pickup and drop-off locations, select the type of cab you want, and confirm your booking.",
+  },
+  {
+    question: "What types of cabs do you offer?",
+    answer:
+      "We offer a range of cabs to suit different needs and budgets, including economy, premium, and luxury cabs. We also offer SUVs and vans for larger groups.",
+  },
+  {
+    question: "How do I pay for my cab ride?",
+    answer:
+      "You can pay for your ride using cash, credit/debit card, or through a digital wallet. Payment options may vary depending on your location.",
+  },
+  {
+    question: "Can I cancel my cab booking?",
+    answer:
+      "Yes, you can cancel your booking at any time before your scheduled pickup time. However, cancellation fees may apply depending on how far in advance you cancel.",
+  },
+  {
+    question: "What if my cab doesn't arrive on time?",
+    answer:
+      "We strive to ensure that all our cabs arrive on time. In the unlikely event that your cab doesn't arrive on time, please contact our customer support team and we'll do our best to resolve the issue.",
+  },
+  {
+    question: "Are your cabs safe?",
+    answer:
+      "Yes, all our cabs are regularly serviced and maintained to ensure they are safe and roadworthy. Our drivers are also trained to prioritize your safety.",
+  },
+  {
+    question: "Do you offer airport pickups?",
+    answer:
+      "Yes, we offer airport pickups and drop-offs at most major airports. You can book your airport transfer through our website or mobile app.",
+  },
+  {
+    question: "Can I book a cab for someone else?",
+    answer:
+      "Yes, you can book a cab for someone else. Just enter their pickup and drop-off locations and provide their contact details so we can get in touch with them if necessary.",
+  },
+  {
+    question: "Do you offer discounts for frequent riders?",
+    answer:
+      "Yes, we offer loyalty discounts for frequent riders. The more you ride with us, the more you can save on your cab fares.",
+  },
+]
+
+// FAQ Item component
+const FAQItem = ({
+  question,
+  answer,
+  isOpen,
+  onClick,
+}: {
+  question: string
+  answer: string
+  isOpen: boolean
+  onClick: () => void
+}) => {
+  // Properly typing the ref with HTMLDivElement
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <div
+      style={{
+        marginTop: "-20px",
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        padding: "20px 20px",
+        marginBottom: "30px",
+        borderRadius: "5px",
+        boxShadow: "0 15px 25px rgba(0, 0, 50, 0.2)",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <button
+        onClick={onClick}
+        style={{
+          width: "100%",
+          backgroundColor: "transparent",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontSize: "16px",
+          color: isOpen ? "#0084e9" : "#111130",
+          fontWeight: 600,
+          border: "none",
+          outline: "none",
+          cursor: "pointer",
+          padding: "10px 0",
+          transition: "color 0.3s ease",
+        }}
+      >
+        {question}
+        {isOpen ? (
+          <Minus style={{ transition: "transform 0.3s ease" }} />
+        ) : (
+          <Plus style={{ transition: "transform 0.3s ease" }} />
+        )}
+      </button>
+      <div
+        ref={contentRef}
+        style={{
+          overflow: "hidden",
+          maxHeight: isOpen
+            ? `${contentRef.current?.scrollHeight}px`
+            : "0",
+          transition: "max-height 0.5s ease",
+          fontSize: "14px",
+          lineHeight: "30px",
+          textAlign: "justify",
+        }}
+      >
+        <p style={{ padding: "10px 0" }}>{answer}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <Head>
-        <title>FAQs - AimCab</title>
-        <meta name="description" content="Frequently asked questions about AimCab's services." />
-      </Head>
+    <div style={{ marginTop: "0px" }}>
+      {/* Navbar Component */}
+      <Navbar />
 
-      <header className="bg-yellow-400 py-6 text-white text-center">
-        <h1 className="text-4xl font-bold">Frequently Asked Questions</h1>
-        <p className="mt-2 text-xl">Get the answers to your common queries regarding AimCab.</p>
-      </header>
+      {/* FAQ Section */}
+      <div
+        style={{
+          padding: "80px 0",
+          maxWidth: "800px",
+          margin: "0 auto",
+        }}
+      >
+        {faqData.map((faq, index) => (
+          <FAQItem
+            key={index}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={openIndex === index}
+            onClick={() => handleToggle(index)}
+          />
+        ))}
+      </div>
 
-      <main className="container mx-auto p-8">
-        <section>
-          <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">General Questions</h2>
+      {/* Footer Component */}
+      <Footer />
 
-          <div className="space-y-6">
-            {/* Question 1 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">How do I book a cab?</h3>
-              <p className="text-gray-600 mt-3">You can book a cab by visiting our website or using our mobile app. Simply enter your pickup and drop-off locations, select the type of vehicle, and confirm your booking.</p>
-            </div>
-
-            {/* Question 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">What payment methods are accepted?</h3>
-              <p className="text-gray-600 mt-3">We accept various payment methods including credit/debit cards, online wallets, and cash payments (in select cities).</p>
-            </div>
-
-            {/* Question 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Can I book a ride in advance?</h3>
-              <p className="text-gray-600 mt-3">Yes, you can book a ride in advance through our website or app. Simply choose your desired pickup time and date during the booking process.</p>
-            </div>
-
-            {/* Question 4 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">How can I cancel my booking?</h3>
-              <p className="text-gray-600 mt-3">You can cancel your booking directly from the "My Bookings" section in the app or website. Please note that cancellation charges may apply depending on the time of cancellation.</p>
-            </div>
-
-            {/* Question 5 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">What types of vehicles are available?</h3>
-              <p className="text-gray-600 mt-3">We offer a variety of vehicles including sedans, SUVs, luxury cars, and more. You can choose the type of vehicle based on your preferences and the size of your group.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-16">
-          <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">Booking & Payment Questions</h2>
-
-          <div className="space-y-6">
-            {/* Booking & Payment Question 1 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Do I need to create an account to book a ride?</h3>
-              <p className="text-gray-600 mt-3">No, you can book a ride as a guest. However, creating an account will allow you to save your preferences and easily manage your bookings.</p>
-            </div>
-
-            {/* Booking & Payment Question 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Is my payment information secure?</h3>
-              <p className="text-gray-600 mt-3">Yes, we use secure encryption technology to process all payments. Your payment information is protected through industry-standard protocols.</p>
-            </div>
-
-            {/* Booking & Payment Question 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">What if I face issues during my ride?</h3>
-              <p className="text-gray-600 mt-3">If you experience any issues during your ride, please contact our support team immediately through the app or website. We will resolve the issue as soon as possible.</p>
-            </div>
-
-            {/* Booking & Payment Question 4 */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Can I get a receipt for my ride?</h3>
-              <p className="text-gray-600 mt-3">Yes, once your ride is completed, a receipt will be sent to your registered email address. You can also download it directly from the app or website.</p>
-            </div>
-          </div>
-        </section>
-      </main>
+      {/* Global Styles */}
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+          from { transform: translateY(20px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Poppins', sans-serif;
+          background-image: url('/images/faq.jpg');  /* Add your image URL here */
+          background-size: cover;  /* Ensure the image covers the entire background */
+          background-position: center;  /* Position the image in the center */
+          background-attachment: fixed;  /* Keep the image fixed as you scroll */
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        @media (max-width: 768px) {
+          .responsive {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+        }
+      `}</style>
     </div>
-  );
+  )
 }
