@@ -179,8 +179,6 @@ export default function Home() {
           </div>
         ) : (
           <section className="py-16 px-4">
-            <h2 className="text-3xl font-semibold text-center">Our Cars</h2>
-            <p className="text-lg text-center mt-4">Choose from a variety of cars based on your preferences.</p>
 
             {/* Responsive grid for car cards */}
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -254,17 +252,6 @@ export default function Home() {
             </div>
           </section>
         )}
-
-        {/* Booking Section */}
-        <section className="bg-[#f7dd85] py-16 text-center">
-          <h2 className="text-3xl font-semibold">Book Your Car</h2>
-          <p className="mt-4 text-lg">Book your preferred car today and make your journey comfortable!</p>
-          <div className="mt-6">
-            <button className="px-6 py-3 bg-gradient-to-r from-[#faa499] to-[#ffc55c] rounded-lg text-white text-xl">
-              Book Now
-            </button>
-          </div>
-        </section>
 
         {/* Footer */}
         <footer className="bg-black text-[#FFC107] py-12">
