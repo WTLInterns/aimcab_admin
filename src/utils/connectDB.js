@@ -16,7 +16,7 @@ const sequelize = new Sequelize({
   password: "Password@181298",
   database: "u364027494_aimcabbo_admin",
   dialectModule: require("mysql2"),
-  benchmark:true,
+  benchmark: true,
   logging: false,  // Turn off logging, set to true to see SQL queries
 });
 
@@ -92,4 +92,4 @@ export const releaseConnection = (connection) => {
 };
 
 // Export the Sequelize instance for use in models
-export { sequelize };
+export { sequelize };  // This is the only export of `sequelize` now
