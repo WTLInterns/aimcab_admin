@@ -139,7 +139,7 @@ export default function Home() {
 
       console.log("Booking response:", res.data)
       setLoadingData({ [index]: false })
-      route.push("/ThankYou")
+      route.push("/Invoice")
     } catch (error) {
       console.error("Error in handleBookNow:", error)
       setLoadingData({ [index]: false })

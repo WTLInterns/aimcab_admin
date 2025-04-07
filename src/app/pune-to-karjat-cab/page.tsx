@@ -1,451 +1,511 @@
-import Head from 'next/head';
-import React from 'react';
-
+"use client"
+import Head from "next/head"
+import BookingForm from "../../components/BookingForm";
+import { gsap } from 'gsap';
+import { useEffect, useRef } from 'react';
 const Page = () => {
+    const headingRef = useRef(null);
+      const paragraphRef = useRef(null);
+      const buttonsRef = useRef(null);
+    
+      useEffect(() => {
+        // Create a timeline for sequential animations
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        
+        // Animate elements one by one
+        tl.from(headingRef.current, {
+          x: -50,
+          opacity: 0,
+          duration: 0.8
+        })
+        .from(paragraphRef.current, {
+          x: -50,
+          opacity: 0,
+          duration: 0.6
+        }, "+=0.2") // starts 0.2s after previous animation ends
+      }, []);
   return (
-    <div>
+    <>
       <Head>
-      
-      <title>Pune to Karjat Cab | Affordable & Reliable Taxi Service</title>
-      <meta name="description" content="Book a Pune to Karjat cab with Aim Cab. Enjoy affordable fares, comfortable rides & easy online booking. One-way & round-trip options available."/>
-      <link rel="canonical" href="https://aimcab.com/pune-to-karjat-cab"/>
-      <meta name="author" content="Aim Cab"/>
-      <meta name="keywords" content="karjat to pune cab, pune to karjat cab fare, karjat to pune share cab, pune to karjat cab, pune to karjat station cab"/>
-      
-     
-      <meta name="robots" content="index, follow"/>
-
-
+        <title>Pune to Karjat Cab Service | Affordable & Comfortable Taxi</title>
+        <meta
+          name="description"
+          content="Book a Pune to Karjat cab with Aim Cab for a comfortable, affordable, and hassle-free ride. Enjoy one-way & round-trip taxi services with professional drivers."
+        />
+        <link rel="canonical" href="https://aimcab.com/Pune-to-Karjat-Cab-Service" />
+        <meta name="author" content="Aim Cab" />
+        <meta
+          name="keywords"
+          content="pune to karjat cab, pune to karjat taxi, karjat to pune cab, cab booking in pune, pune to karjat one way cab, pune to karjat cab fare, pune to karjat travel"
+        />
+        <meta name="robots" content="index, follow" />
       </Head>
 
-      {/* Header */}
-      <header className="bg-green-500 text-white py-4 text-center">
-        <h1 className="text-3xl font-bold">AIMCAB Pune Routes</h1>
-        <p className="mt-2 text-lg">Book your cab and explore Karjat with ease</p>
+      <div>
+      <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
+            AIMCAB Pune Routes
+          </h1>
+          
+          <p 
+            ref={paragraphRef}
+            className="text-xl md:text-2xl mb-8 font-light"
+          >
+            Book your cab and explore Pune with ease
+          </p>
+          
+       
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
       </header>
 
-      {/* Main Title */}
-      <h2 className="text-3xl font-bold mt-4 text-center">
-        Pune to Karjat Cab - Affordable & Comfortable Taxi Service
-      </h2>
+        <h2 className="text-3xl font-bold mt-4 text-center">
+          Pune to Karjat Cab - Affordable & Comfortable Taxi Service
+        </h2>
 
-      {/* Service Description */}
-      <section className="mt-6 p-6">
-        <h3 className="text-2xl font-bold">
-          🚖 Best Pune to Karjat Cab Service at Lowest Price
-        </h3>
-        <p className="mt-4 text-lg">
-          Looking for a <b>Pune to Karjat cab</b> that provides a seamless and budget-friendly ride? <b>Aim Cab</b> offers reliable, affordable, and comfortable taxi services with experienced drivers and well-maintained vehicles, ensuring a hassle-free journey.
-        </p>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>
-            👉 <strong>Lowest Price Guaranteed</strong> – Starting from ₹11/km
-          </li>
-          <li>
-            👉 <strong>Safe & Comfortable Rides</strong> – Professional drivers & sanitized cabs
-          </li>
-          <li>
-            👉 <strong>24/7 Availability</strong> – Book anytime, anywhere
-          </li>
-          <li>
-            👉 <strong>Instant Online Booking</strong> – Quick confirmation at{" "}
-            <a href="https://aimcab.com" className="text-blue-500 underline">
-              aimcab.com
-            </a>
-          </li>
-          <li>
-            👉 <strong>Transparent Pricing</strong> – No hidden charges
-          </li>
-        </ul>
-      </section>
+        <BookingForm />
 
-      {/* Why Choose Aim Cab */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">
-          🏆 Why Choose Aim Cab for Pune to Karjat Taxi Service?
-        </h4><br></br>
-        <p>With over <b>2 lakh happy customers</b>, <b>Aim Cab</b> is a trusted name in outstation travel. Here’s why we are the best Pune to Karjat cab service:</p>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li><b>Reliable & Punctual Service</b> – Your ride will always be on time.</li>
-          <li>
-            <b>Budget-Friendly Pricing</b> – Get the lowest Pune to Karjat cab fare with no extra charges.
-          </li>
-          <li>
-            <b>Multiple Car Options</b> – Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers.
-          </li>
-          <li>
-            <b>One-Way & Round-Trip Cabs</b> – Flexible travel plans to suit your needs.
-          </li>
-          <li>
-            <b>Easy Payment Options</b> – Pay via cash, UPI, or online modes.
-          </li>
-          <li>
-            <b>Customized Packages</b> – For individuals, families, and corporate clients.
-          </li>
-          <li>
-            <b>24/7 Customer Support</b> – Assistance available anytime.
-          </li>
-        </ul>
-        <h4 className="mt-4"><b>🚖 Experience a stress-free ride with Aim Cab!
-        </b></h4>
-      </section>
-
-      {/* Cab Fare & Booking Details */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🚖 Pune to Karjat Cab Fare & Booking Details</h4>
-        <table className="mt-4 w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Cab Type</th>
-              <th className="border border-gray-300 p-2">Price (₹/KM)</th>
-              <th className="border border-gray-300 p-2">Best For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 p-2">Sedan (Dzire, Etios)</td>
-              <td className="border border-gray-300 p-2">₹11/km</td>
-              <td className="border border-gray-300 p-2">Budget-friendly travel</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2">SUV (Ertiga, Xylo)</td>
-              <td className="border border-gray-300 p-2">₹14/km</td>
-              <td className="border border-gray-300 p-2">Family trips & extra luggage space</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2">Luxury (Innova Crysta)</td>
-              <td className="border border-gray-300 p-2">₹18/km</td>
-              <td className="border border-gray-300 p-2">Premium comfort & business travel</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2">Tempo Traveller</td>
-              <td className="border border-gray-300 p-2">₹25/km</td>
-              <td className="border border-gray-300 p-2">Group trips & office outings</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      {/* Estimated Fare */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">💰 Estimated Pune to Karjat Taxi Fare</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>
-            <strong>Sedan:</strong> ₹1,800 - ₹2,500
-          </li>
-          <li>
-            <strong>SUV:</strong> ₹2,800 - ₹3,500
-          </li>
-          <li>
-            <strong>Luxury:</strong> ₹3,800 - ₹4,500
-          </li>
-        </ul>
-        <p className="mt-4 text-lg">
-          📍 Toll charges are extra and may vary based on route conditions.
-        </p>
-      </section>
-
-      {/* Travel Guide */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🌟 Pune to Karjat Travel Guide</h4>
-        <div className="mt-4">
-          <h4 className="text-xl font-semibold">🏞️ Pune to Karjat Distance by Car & Route Details</h4>
-          <p className="mt-2 text-lg">
-            ⏳ Travel Duration: Approximately 2.5 to 3 hours, depending on traffic.
+        {/* Best Cab Service Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg">
+          <h2 className="text-3xl font-extrabold text-[#76453B]">
+            🚖 Best Pune to Karjat Cab Service at <span className="text-red-600">Lowest Price</span>
+          </h2>
+          <p className="mt-4 text-lg bg-white p-4 rounded-lg shadow-sm">
+            Looking for a Pune to Karjat cab that provides a seamless and budget-friendly ride? <strong className="text-blue-600">Aim Cab</strong> offers reliable, affordable, and comfortable taxi services with experienced drivers and well-maintained vehicles, ensuring a hassle-free journey.
           </p>
-          <p className="mt-2 text-lg">
-            🛣️ Distance by Car: 100 km via Mumbai-Pune Expressway.
-          </p>
-          <p className="mt-2 text-lg">
-            💰 Toll Charges: ₹120 - ₹180 approx.
-          </p>
-          <p className="mt-2 text-lg">
-            🚲 Travel Tip: Start early to avoid peak-hour traffic.
-          </p>
-        </div>
-        <div className="mt-6">
-          <h4 className="text-xl font-semibold">🌊 Top Attractions to Visit in Karjat</h4><br></br>
-          <p>Karjat is a beautiful town surrounded by lush greenery, waterfalls, and ancient caves. Here are some must-visit places:</p>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              <strong>Kondana Caves:</strong> A historic Buddhist cave site with mesmerizing carvings.
+          <ul className="mt-6 text-lg space-y-3">
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">👉</span>
+              <strong className="bg-yellow-100 px-2 py-1 rounded">Lowest Price Guaranteed</strong> – Starting from ₹11/km
             </li>
-            <li>
-              <strong>Ulhas Valley:</strong> A picturesque valley offering stunning views and trekking opportunities.
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">👉</span>
+              <strong>Safe & Comfortable Rides</strong> – Professional drivers & sanitized cabs
             </li>
-            <li>
-              <strong>Bhivpuri Waterfalls:</strong> A popular monsoon spot for nature lovers.
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">👉</span>
+              <strong>24/7 Availability</strong> – Book anytime, anywhere
             </li>
-            <li>
-              <strong>Peth Fort (Kothaligad):</strong> A scenic fort perfect for trekking and adventure lovers.
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">👉</span>
+              <strong>Instant Online Booking</strong> – Quick confirmation at <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>
             </li>
-            <li>
-              <strong>ND Studio:</strong> Famous for Bollywood movie sets and a great tourist attraction.
-            </li>
-            <li>
-              <strong>Bhor Ghat:</strong> A scenic mountain pass with breathtaking landscapes.
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">👉</span>
+              <strong>Transparent Pricing</strong> – No hidden charges
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQs */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">
-          ❓ Frequently Asked Questions (FAQs)
-        </h4>
-        <div className="mt-4">
-          <h4 className="font-semibold">1. What is the Pune to Karjat cab fare?</h4>
-          <p>
-            The fare starts from ₹1,800 for a sedan and varies based on the car type and trip duration.
+        {/* Why Choose Aim Cab Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🏆 Why Choose Aim Cab for Pune to Karjat Taxi Service?</h3>
+          <p className="mt-4 text-lg bg-blue-50 p-4 rounded-lg">
+            With over <span className="text-blue-600 font-bold">2 lakh happy customers</span>, Aim Cab is a trusted name in outstation travel. Here’s why we are the best Pune to Karjat cab service:
           </p>
-          <h4 className="font-semibold mt-4">2. How long does it take to travel from Pune to Karjat by taxi?</h4>
-          <p>
-            The journey usually takes 2.5 to 3 hours, depending on road conditions.
-          </p>
-          <h4 className="font-semibold mt-4">3. Are toll charges included in the Pune to Karjat taxi fare?</h4>
-          <p>No, toll charges are extra and must be paid separately.</p>
-          <h4 className="font-semibold mt-4">4. What cab options are available for Pune to Karjat travel?</h4>
-          <p>We offer Sedan, SUV, Luxury Cars, and Tempo Travellers.</p>
-          <h4 className="font-semibold mt-4">5. Is a one-way cab from Pune to Karjat available?</h4>
-          <p>Yes, we provide one-way cabs starting from ₹1,800.</p>
-          <h4 className="font-semibold mt-4">6. Can I book a cab from Karjat to Pune for a round trip?</h4>
-          <p>Yes, we offer flexible round-trip cabs.</p>
-          <h4 className="font-semibold mt-4">7. What payment methods are accepted?</h4>
-          <p>We accept cash, UPI, and online payments.</p>
-          <h4 className="font-semibold mt-4">8. Are your cabs sanitized and safe for travel?</h4>
-          <p>Yes, all our cabs are regularly sanitized for safety.</p>
-          <h4 className="font-semibold mt-4">9. How can I book a Pune to Karjat cab?</h4>
-          <p>
-            You can book instantly via our website{" "}
-            <a href="https://aimcab.com" className="text-blue-600">
-              aimcab.com
-            </a>
-            .
-          </p>
-          <h4 className="font-semibold mt-4">10. Do you offer sightseeing packages in Karjat?</h4>
-          <p>Yes, we have customized sightseeing packages for tourists.</p>
-        </div>
-      </section>
-
-      
-
-      {/* About Aim Cab */}
-     
-
-      {/* Call to Action */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">📞 Book Your Pune to Karjat Cab Now!</h4>
-        <p className="mt-4 text-lg">
-          🚖 Experience the Best <b>Pune to Karjat Cab Service</b> with <b>Aim Cab</b>. Get the lowest fares, professional drivers, and a hassle-free booking experience. Book your ride today at{" "}
-          <a href="https://aimcab.com" className="text-blue-600">
-            aimcab.com
-          </a>
-          !
-        </p>
-      </section>
-
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🌐 About Aim Cab</h4>
-        <p className="mt-4 text-lg">
-          Established in <b>2001</b>, <b>Aim Cab</b> has been a trusted name in the travel industry, providing top-notch cab services across India.
-        </p>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li><b>50+ Personal Cabs</b> across India.</li>
-          <li><b>500+ Registered Cabs</b> in our network.</li>
-          <li><b>2 Lakh+ Happy Customers</b> served.</li>
-          <li><b>3,000+ Outstation Trips</b> completed successfully.</li>
-        </ul>
-        <p className="mt-4 text-lg">
-          With our commitment to safety, affordability, and quality service, we are the preferred choice for outstation travel. Book now and travel with ease!
-        </p>
-      </section>
-
-     {/* Footer */}
-<div>
-      {/* Redesigned Responsive Footer */}
-      <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-        {/* Footer content area */}
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Additional footer columns can be added here */}
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Reliable & Punctual Service
+              </h5>
+              <p className="ml-6">Your ride will always be on time.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Budget-Friendly Pricing
+              </h5>
+              <p className="ml-6">Get the lowest Pune to Karjat cab fare with no extra charges.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Multiple Car Options
+              </h5>
+              <p className="ml-6">Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> One-Way & Round-Trip Cabs
+              </h5>
+              <p className="ml-6">Flexible travel plans to suit your needs.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Easy Payment Options
+              </h5>
+              <p className="ml-6">Pay via cash, UPI, or online modes.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Customized Packages
+              </h5>
+              <p className="ml-6">For individuals, families, and corporate clients.</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> 24/7 Customer Support
+              </h5>
+              <p className="ml-6">Assistance available anytime.</p>
+            </div>
           </div>
-        </div>
+          <p className="mt-6 text-xl font-bold text-center bg-gradient-to-r from-blue-100 to-purple-100 p-3 rounded-lg text-[#76453B]">
+            🚖 Experience a stress-free ride with Aim Cab!
+          </p>
+        </section>
 
-        {/* Popular Cities Section */}
-        <div className="container mx-auto px-4 text-center mb-4">
-          <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-            POPULAR CITIES:
-          </b>
-          <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-            {/* Pune Button */}
-            <a
-              href="/Pune"
-              className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-blue-400 to-yellow-300 
-                         text-gray-800 font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-            >
-              Pune
-            </a>
-
-            {/* Mumbai Button */}
-            <a
-              href="/Mumbai"
-              className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-blue-400 to-yellow-300 
-                         text-gray-800 font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-            >
-              Mumbai
-            </a>
+        {/* Cab Fare & Booking Details Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl shadow-lg">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🚖 Pune to Karjat Cab Fare & Booking Details</h3>
+          <div className="overflow-x-auto mt-6">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white">
+                  <th className="p-4 text-left">Cab Type</th>
+                  <th className="p-4 text-center">Price (₹/KM)</th>
+                  <th className="p-4 text-left">Best For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-blue-50">
+                  <td className="p-4 font-medium">Sedan (Dzire, Etios)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹11/km</td>
+                  <td className="p-4">Budget-friendly travel</td>
+                </tr>
+                <tr className="hover:bg-blue-50 bg-gray-50">
+                  <td className="p-4 font-medium">SUV (Ertiga, Xylo)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹14/km</td>
+                  <td className="p-4">Family trips & extra luggage space</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="p-4 font-medium">Luxury (Innova Crysta)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹18/km</td>
+                  <td className="p-4">Premium comfort & business travel</td>
+                </tr>
+                <tr className="hover:bg-blue-50 bg-gray-50">
+                  <td className="p-4 font-medium">Tempo Traveller</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹25/km</td>
+                  <td className="p-4">Group trips & office outings</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
+        </section>
 
-        {/* Divider */}
-        <hr className="border-gray-300 my-8" />
+        {/* Taxi Fare Estimate Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">💰 Estimated Pune to Karjat Taxi Fare</h3>
+          <ul className="mt-4 text-lg space-y-2">
+            <li>Sedan: <strong>₹1,800 - ₹2,500</strong></li>
+            <li>SUV: <strong>₹2,800 - ₹3,500</strong></li>
+            <li>Luxury: <strong>₹3,800 - ₹4,500</strong></li>
+          </ul>
+          <p className="mt-2 text-sm text-gray-600">📍 Toll charges are extra and may vary based on route conditions.</p>
+        </section>
 
-        {/* Quick Links Section */}
-        <div className="container mx-auto px-4 text-center mb-8">
-          <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-            QUICK LINKS:
-          </b>
-          <div className="mt-2 flex flex-wrap justify-center">
-            {[
-              "HOME",
-              "UPDATES",
-              "ABOUT",
-              "SERVICES",
-              "CONTACT US",
-              "CAREER",
-              "FAQ's",
-              "PRIVACY POLICY",
-              "TERMS & CONDITIONS",
-            ].map((link, i) => (
+        {/* Cab Booking Options Section */}
+        {/* <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🚕 Pune to Karjat Cab Booking Options</h3>
+          <div className="mt-4 space-y-6 text-lg">
+            <div>
+              <p className="font-semibold">1️⃣ One-Way Pune to Karjat Cabs</p>
+              <p>
+                Looking for a one-way cab? With Aim Cab, you only pay for a single journey, making it a budget-friendly option. Whether you’re traveling solo, with family, or for business, our well-maintained cabs ensure a smooth and comfortable ride. Wide selection of vehicles – choose from sedans, SUVs, and luxury cars to suit your travel needs. Book instantly through <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a> and enjoy an affordable trip with transparent pricing and no hidden costs.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">2️⃣ Round-Trip Pune to Karjat Cabs</p>
+              <p>
+                Planning a return trip? Our round-trip cab service ensures you have a cab ready to bring you back. Whether you’re going for a weekend getaway or a business trip, enjoy a stress-free experience with fixed fares, professional drivers, and on-time pickups. With Aim Cab, your return journey is just as convenient as your onward trip.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">3️⃣ Pune to Karjat Shared Cab</p>
+              <p>
+                Traveling on a budget? Our Pune to Karjat shared cab option is ideal for cost-conscious travelers. Share your ride with other passengers and split the cost without compromising on comfort. Our shared cab service ensures you enjoy a convenient, safe, and affordable journey while making new travel connections.
+              </p>
+            </div>
+          </div>
+        </section> */}
+
+        {/* Travel Guide Section - Exact Data */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-gray-300">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">Pune to Karjat Travel Guide</h3>
+          <p className="mt-4 text-lg">
+            <strong>🏞️ Pune to Karjat Distance by Car & Route Details</strong><br />
+            <strong>⏳ Travel Duration: </strong>Approximately 2.5 to 3 hours, depending on traffic.<br />
+            <strong>🛣️ Distance by Car: </strong>100 km via Mumbai-Pune Expressway.<br />
+            <strong>💰 Toll Charges: </strong>₹120 - ₹180 approx.<br />
+            <strong>🚲 Travel Tip: </strong>Start early to avoid peak-hour traffic.
+          </p>
+          <p className="mt-4 text-lg">
+            <strong>🌊 Top Attractions to Visit in Karjat</strong><br />
+            <strong>Kondana Caves: </strong>A historic Buddhist cave site with mesmerizing carvings.<br />
+            <strong>Ulhas Valley: </strong>A picturesque valley offering stunning views and trekking opportunities.<br />
+            <strong>Bhivpuri Waterfalls: </strong>A popular monsoon spot for nature lovers.<br />
+            <strong>Peth Fort (Kothaligad): </strong>A scenic fort perfect for trekking and adventure lovers.<br />
+            <strong>ND Studio: </strong>Famous for Bollywood movie sets and a great tourist attraction.<br />
+            <strong>Bhor Ghat: </strong>A scenic mountain pass with breathtaking landscapes.
+          </p>
+        </section>
+
+        {/* FAQs Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">❓ Frequently Asked Questions (FAQs)</h3>
+          <div className="mt-4 space-y-4 text-lg">
+            <div>
+              <p className="font-semibold">1. What is the Pune to Karjat cab fare?</p>
+              <p>The fare starts from ₹1,800 for a sedan and varies based on the car type and trip duration.</p>
+            </div>
+            <div>
+              <p className="font-semibold">2. How long does it take to travel from Pune to Karjat by taxi?</p>
+              <p>The journey usually takes 2.5 to 3 hours, depending on road conditions.</p>
+            </div>
+            <div>
+              <p className="font-semibold">3. Are toll charges included in the Pune to Karjat taxi fare?</p>
+              <p>No, toll charges are extra and must be paid separately.</p>
+            </div>
+            <div>
+              <p className="font-semibold">4. What cab options are available for Pune to Karjat travel?</p>
+              <p>We offer Sedan, SUV, Luxury Cars, and Tempo Travellers.</p>
+            </div>
+            <div>
+              <p className="font-semibold">5. Is a one-way cab from Pune to Karjat available?</p>
+              <p>Yes, we provide one-way cabs starting from ₹1,800.</p>
+            </div>
+            <div>
+              <p className="font-semibold">6. Can I book a cab from Karjat to Pune for a round trip?</p>
+              <p>Yes, we offer flexible round-trip cabs.</p>
+            </div>
+            <div>
+              <p className="font-semibold">7. What payment methods are accepted?</p>
+              <p>We accept cash, UPI, and online payments.</p>
+            </div>
+            <div>
+              <p className="font-semibold">8. Are your cabs sanitized and safe for travel?</p>
+              <p>Yes, all our cabs are regularly sanitized for safety.</p>
+            </div>
+            <div>
+              <p className="font-semibold">9. How can I book a Pune to Karjat cab?</p>
+              <p>You can book instantly via our website <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>.</p>
+            </div>
+            <div>
+              <p className="font-semibold">10. Do you offer sightseeing packages in Karjat?</p>
+              <p>Yes, we have customized sightseeing packages for tourists.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Book Your Cab Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white rounded-xl shadow-lg text-center">
+          <h3 className="text-3xl font-extrabold">📞 Book Your Pune to Karjat Cab Now!</h3>
+          <p className="mt-4 text-xl">
+            🚖 Experience the Best Pune to Karjat Cab Service with Aim Cab.
+          </p>
+          <p className="mt-2 text-lg">
+            Get the lowest fares, professional drivers, and a hassle-free booking experience. Book your ride today at <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>!
+          </p>
+        </section>
+
+        {/* About Aim Cab Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">📌 About Aim Cab</h3>
+          <p className="mt-4 text-lg bg-indigo-50 p-4 rounded-lg">
+            <span className="text-blue-600 font-bold">Aim Cab</span> was established in 2001, and we have built a strong reputation in the travel industry.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <p className="text-2xl font-bold text-blue-600">50+</p>
+              <p>Personal Cabs across India</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <p className="text-2xl font-bold text-green-600">500+</p>
+              <p>Registered Cabs in our network</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <p className="text-2xl font-bold text-yellow-600">2 Lakh+</p>
+              <p>Happy Customers served</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <p className="text-2xl font-bold text-purple-600">3,000+</p>
+              <p>Outstation Trips completed</p>
+            </div>
+          </div>
+          <p className="mt-6 text-lg font-semibold text-center bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-lg">
+            With our commitment to safety, affordability, and quality service, we are the preferred choice for outstation travel in India.
+            <span className="block text-green-600 font-bold mt-2">Book your ride now and travel worry-free!</span>
+          </p>
+        </section>
+
+        {/* Footer */}
+        <div>
+          <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                {/* Additional footer columns can be added here */}
+              </div>
+            </div>
+            <div className="container mx-auto px-4 text-center mb-4">
+              <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
+                POPULAR CITIES:
+              </b>
+              <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
+                <a
+                  href="/Pune"
+                  className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
+                             bg-gradient-to-r from-blue-400 to-yellow-300 
+                             text-gray-800 font-bold uppercase shadow-md 
+                             transform transition-all duration-500 ease-in-out 
+                             hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
+                >
+                  Pune
+                </a>
+                <a
+                  href="/Mumbai"
+                  className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
+                             bg-gradient-to-r from-blue-400 to-yellow-300 
+                             text-gray-800 font-bold uppercase shadow-md 
+                             transform transition-all duration-500 ease-in-out 
+                             hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
+                >
+                  Mumbai
+                </a>
+              </div>
+            </div>
+            <hr className="border-gray-300 my-8" />
+            <div className="container mx-auto px-4 text-center mb-8">
+              <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
+                QUICK LINKS:
+              </b>
+              <div className="mt-2 flex flex-wrap justify-center">
+                {[
+                  "HOME",
+                  "UPDATES",
+                  "ABOUT",
+                  "SERVICES",
+                  "CONTACT US",
+                  "CAREER",
+                  "FAQ's",
+                  "PRIVACY POLICY",
+                  "TERMS & CONDITIONS",
+                ].map((link, i) => (
+                  <a
+                    key={i}
+                    href="/"
+                    className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <hr className="border-gray-300 my-8" />
+            <div className="container mx-auto px-4 text-center mb-8">
+              <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
+                DESIGNED BY
+              </h4>
               <a
-                key={i}
-                href="/"
-                className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
+                href="https://cobaztech.com"
+                target="_blank"
+                className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
               >
-                {link}
+                COBAZTECH
               </a>
-            ))}
+            </div>
+            <div className="container mx-auto px-4 text-center mt-6">
+              <span className="flex justify-center flex-wrap">
+                <a
+                  href="https://wa.me/9130030054"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/whatsapp.png"
+                    alt="WhatsApp"
+                  />
+                </a>
+                <a
+                  href="https://www.facebook.com/Aimcab"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/facebook.png"
+                    alt="Facebook"
+                  />
+                </a>
+                <a
+                  href="https://www.youtube.com/@AimCab"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/youtube.png"
+                    alt="YouTube"
+                  />
+                </a>
+                <a
+                  href="https://twitter.com/aim_cab"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/twitter.png"
+                    alt="Twitter"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aim-cab-77356b208/"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/linked-in.png"
+                    alt="LinkedIn"
+                  />
+                </a>
+                <a
+                  href="https://join.skype.com/invite/sRT2FTyb7d1H"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/skype.png"
+                    alt="Skype"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/aimcabs/"
+                  target="_blank"
+                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                >
+                  <img
+                    className="w-8 h-8 inline-block mb-2"
+                    src="images/instagram.png"
+                    alt="Instagram"
+                  />
+                </a>
+              </span>
+            </div>
+            <div className="container mx-auto px-4 text-center">
+              <p className="transition-all duration-300 ease-in-out hover:text-green-200">
+                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
-
-        {/* Divider */}
-        <hr className="border-gray-300 my-8" />
-
-        {/* Designed by Section */}
-        <div className="container mx-auto px-4 text-center mb-8">
-          <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-            DESIGNED BY
-          </h4>
-          <a
-            href="https://cobaztech.com"
-            target="_blank"
-            className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
-          >
-            COBAZTECH
-          </a>
-        </div>
-
-        {/* Social Media Section */}
-        <div className="container mx-auto px-4 text-center mt-6">
-          <span className="flex justify-center flex-wrap">
-            <a
-              href="https://wa.me/9130030054"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/whatsapp.png"
-                alt="WhatsApp"
-              />
-            </a>
-            <a
-              href="https://www.facebook.com/Aimcab"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/facebook.png"
-                alt="Facebook"
-              />
-            </a>
-            <a
-              href="https://www.youtube.com/@AimCab"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/youtube.png"
-                alt="YouTube"
-              />
-            </a>
-            <a
-              href="https://twitter.com/aim_cab"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/twitter.png"
-                alt="Twitter"
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/aim-cab-77356b208/"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/linked-in.png"
-                alt="LinkedIn"
-              />
-            </a>
-            <a
-              href="https://join.skype.com/invite/sRT2FTyb7d1H"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/skype.png"
-                alt="Skype"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/aimcabs/"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/instagram.png"
-                alt="Instagram"
-              />
-            </a>
-          </span>
-        </div>
       </div>
-
-      {/* Copyright Section */}
-      <div className="container mx-auto px-4 text-center">
-        <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-          &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </div>
-
-);
+    </>
+  );
 };
 
 export default Page;

@@ -1,339 +1,371 @@
-import React from 'react';
-import Head from 'next/head';
 
+"use client"
+import Head from "next/head"
+import BookingForm from "../../components/BookingForm";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 const Page = () => {
+   const headingRef = useRef(null);
+      const paragraphRef = useRef(null);
+      const buttonsRef = useRef(null);
+    
+      useEffect(() => {
+        // Create a timeline for sequential animations
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        
+        // Animate elements one by one
+        tl.from(headingRef.current, {
+          x: -50,
+          opacity: 0,
+          duration: 0.8
+        })
+        .from(paragraphRef.current, {
+          x: -50,
+          opacity: 0,
+          duration: 0.6
+        }, "+=0.2") // starts 0.2s after previous animation ends
+      }, []);
   return (
     <>
       <Head>
-        <title>Pune to Thane Cab | Affordable & Reliable Taxi Service</title>
+        <title>Pune to Thane Cab Service | Safe & Affordable Taxi</title>
         <meta
           name="description"
-          content="Book a Pune to Thane cab with Aim Cab for a hassle-free ride. Enjoy affordable fares, well-maintained cars & 24/7 service. One-way & round-trip options available."
+          content="Book a Pune to Thane cab with Aim Cab for a safe, affordable, and hassle-free ride. Enjoy one-way & round-trip taxi services with professional drivers."
         />
-        <link rel="canonical" href="https://aimcab.com/pune-to-thane-cab" />
+        <link rel="canonical" href="https://aimcab.com/Pune-to-Thane-Cab-Service" />
         <meta name="author" content="Aim Cab" />
         <meta
           name="keywords"
-          content="thane to pune cab, pune to thane cab, pune to thane taxi, pune to thane one way cab, pune to thane cab service, thane to pune cab fare"
+          content="pune to thane cab, pune to thane taxi, thane to pune cab, cab booking in pune, pune to thane one way cab, pune to thane airport taxi, pune to thane cab fare, pune to thane travel"
         />
         <meta name="robots" content="index, follow" />
       </Head>
 
       <div>
-        {/* Header */}
-        <header className="bg-green-500 text-white py-4 text-center">
-          <h1 className="text-3xl font-bold">AIMCAB Pune Routes</h1>
-          <p className="mt-2 text-lg">Book your cab and explore Pune with ease</p>
-        </header>
+          <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
+            AIMCAB Pune Routes
+          </h1>
+          
+          <p 
+            ref={paragraphRef}
+            className="text-xl md:text-2xl mb-8 font-light"
+          >
+            Book your cab and explore Pune with ease
+          </p>
+          
+          {/* <div 
+            ref={buttonsRef}
+            className="flex justify-center space-x-4"
+          >
+            <button className="bg-white text-[#76453B] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Book Now
+            </button>
+            <button className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-[#76453B] transition-all duration-300">
+              Call Us
+            </button>
+          </div> */}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
+      </header>
 
-        {/* Main Title */}
         <h2 className="text-3xl font-bold mt-4 text-center">
           Pune to Thane Cab Service - Affordable & Reliable Taxi Booking
         </h2>
 
-        {/* Service Description */}
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">🚖 Best Pune to Thane Cab Service</h3>
-          <p className="mt-4 text-lg">
-            Looking for a convenient and budget-friendly Pune to Thane cab? Aim Cab offers a reliable and affordable taxi service starting at just ₹11/km, ensuring a hassle-free journey with professional drivers and well-maintained vehicles.
+        <BookingForm />
+
+        {/* Best Cab Service Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg">
+          <h2 className="text-3xl font-extrabold text-[#76453B]">
+            🚖 Best Pune to Thane Cab Service
+          </h2>
+          <p className="mt-4 text-lg bg-white p-4 rounded-lg shadow-sm">
+            Looking for a convenient and budget-friendly Pune to Thane cab? <strong className="text-blue-600">Aim Cab</strong> offers a reliable and affordable taxi service starting at just <span className="text-green-600 font-bold text-xl">₹11/km</span>, ensuring a hassle-free journey with professional drivers and well-maintained vehicles.
           </p>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              ✅ <strong>Lowest price guaranteed</strong> – Starting from ₹11/km
+          <ul className="mt-6 text-lg space-y-3">
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span>
+              <strong className="bg-yellow-100 px-2 py-1 rounded">Lowest price guaranteed</strong> – Starting from ₹11/km
             </li>
-            <li>
-              ✅ <strong>Safe & Comfortable Rides</strong> – Verified drivers & sanitized cabs
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span>
+              <strong>Safe & Comfortable Rides</strong> – Verified drivers & sanitized cabs
             </li>
-            <li>
-              ✅ <strong>24/7 Availability</strong> – Book anytime, anywhere
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span>
+              <strong>24/7 Availability</strong> – Book anytime, anywhere
             </li>
-            <li>
-              ✅ <strong>Hassle-Free Online Booking</strong> – Instant confirmation at{" "}
-              <a href="https://aimcab.com" className="text-blue-500 underline">
-                aimcab.com
-              </a>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span>
+              <strong>Hassle-Free Online Booking</strong> – Instant confirmation at <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>
             </li>
-            <li>
-              ✅ <strong>No Hidden Charges</strong> – 100% transparent pricing
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span>
+              <strong className="bg-pink-100 px-2 py-1 rounded">No Hidden Charges</strong> – 100% transparent pricing
             </li>
           </ul>
         </section>
 
-        {/* Why Choose Aim Cab */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">
-            🏆 Why Choose Aim Cab for Pune to Thane Cab Booking?
-          </h4>
-          <p className="mt-4 text-lg">
-            With over 2 lakh happy customers, Aim Cab is your trusted travel partner for Pune to Thane taxi service. Here’s why:
+        {/* Why Choose Aim Cab Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🏆 Why Choose Aim Cab for Pune to Thane Cab Booking?</h3>
+          <p className="mt-4 text-lg bg-blue-50 p-4 rounded-lg">
+            With over <span className="text-blue-600 font-bold">2 lakh happy customers</span>, Aim Cab is your trusted travel partner for Pune to Thane taxi service. Here’s why:
           </p>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              ✅ <strong>Best Pune to Thane Cab Service</strong> – Reliable, safe, and punctual rides.
-            </li>
-            <li>
-              ✅ <strong>Affordable Pricing</strong> – Get the best Pune to Thane cab fare with no hidden costs.
-            </li>
-            <li>
-              ✅ <strong>Comfortable & Clean Cabs</strong> – Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers.
-            </li>
-            <li>
-              ✅ <strong>One-Way & Round-Trip Options</strong> – Flexible booking as per your needs.
-            </li>
-            <li>
-              ✅ <strong>Multiple Payment Methods</strong> – Pay via cash, UPI, or online payments.
-            </li>
-            <li>
-              ✅ <strong>Reliable Pune to Thane Cab Packages</strong> – Customized for individuals, families, and corporate travelers.
-            </li>
-            <li>
-              ✅ <strong>Round-the-clock customer support</strong> – Assistance is available whenever you need it.
-            </li>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Best Pune to Thane Cab Service
+              </h5>
+              <p className="ml-6">Reliable, safe, and punctual rides</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Affordable Pricing
+              </h5>
+              <p className="ml-6">Get the best Pune to Thane cab fare with no hidden costs</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Comfortable & Clean Cabs
+              </h5>
+              <p className="ml-6">Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> One-Way & Round-Trip Options
+              </h5>
+              <p className="ml-6">Flexible booking as per your needs</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Multiple Payment Methods
+              </h5>
+              <p className="ml-6">Pay via cash, UPI, or online payments</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Round-the-clock Customer Support
+              </h5>
+              <p className="ml-6">Assistance is available whenever you need it</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Reliable Pune to Thane Cab Packages
+              </h5>
+              <p className="ml-6">Customized for individuals, families, and corporate travelers</p>
+            </div>
+          </div>
+          <p className="mt-6 text-xl font-bold text-center bg-gradient-to-r from-blue-100 to-purple-100 p-3 rounded-lg text-[#76453B]">
+            🚕 Enjoy a comfortable & budget-friendly ride with Aim Cab!
+          </p>
+        </section>
+
+        {/* Cab Fare & Booking Details Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl shadow-lg">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🚖 Pune to Thane Cab Fare & Booking Details</h3>
+          <div className="overflow-x-auto mt-6">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white">
+                  <th className="p-4 text-left">Cab Type</th>
+                  <th className="p-4 text-center">Price (₹/KM)</th>
+                  <th className="p-4 text-left">Best For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-blue-50">
+                  <td className="p-4 font-medium">Sedan (Dzire, Etios)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹11/km</td>
+                  <td className="p-4">Budget-friendly travel</td>
+                </tr>
+                <tr className="hover:bg-blue-50 bg-gray-50">
+                  <td className="p-4 font-medium">SUV (Ertiga, Xylo)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹14/km</td>
+                  <td className="p-4">Family trips & extra luggage space</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="p-4 font-medium">Luxury (Innova Crysta)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹18/km</td>
+                  <td className="p-4">Premium comfort & business travel</td>
+                </tr>
+                <tr className="hover:bg-blue-50 bg-gray-50">
+                  <td className="p-4 font-medium">Tempo Traveller</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹25/km</td>
+                  <td className="p-4">Group trips & office outings</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Taxi Fare Estimate Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">💰 Pune to Thane Taxi Fare Estimate</h3>
+          <ul className="mt-4 text-lg space-y-2">
+            <li>Sedan: <strong>₹2,500 - ₹3,000</strong></li>
+            <li>SUV: <strong>₹3,500 - ₹4,000</strong></li>
+            <li>Luxury: <strong>₹5,000 - ₹6,000</strong></li>
           </ul>
-          <br />
-          <h4><strong>🚕 Enjoy a comfortable & budget-friendly ride with Aim Cab!</strong></h4>
+          <p className="mt-2 text-sm text-gray-600">📍 Prices may vary based on toll charges & route conditions.</p>
         </section>
 
-        {/* Cab Options & Fare Details */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">🚖 Pune to Thane Cab Fare & Booking Details</h4>
-          <table className="mt-4 w-full border-collapse border border-gray-300">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border border-gray-300 p-2">Cab Type</th>
-                <th className="border border-gray-300 p-2">Price (₹/KM)</th>
-                <th className="border border-gray-300 p-2">Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-gray-300 p-2">Sedan (Dzire, Etios)</td>
-                <td className="border border-gray-300 p-2">₹11/km</td>
-                <td className="border border-gray-300 p-2">Budget-friendly travel</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-2">SUV (Ertiga, Xylo)</td>
-                <td className="border border-gray-300 p-2">₹14/km</td>
-                <td className="border border-gray-300 p-2">Family trips & extra luggage space</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-2">Luxury (Innova Crysta)</td>
-                <td className="border border-gray-300 p-2">₹18/km</td>
-                <td className="border border-gray-300 p-2">Premium comfort & business travel</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-2">Tempo Traveller</td>
-                <td className="border border-gray-300 p-2">₹25/km</td>
-                <td className="border border-gray-300 p-2">Group trips & office outings</td>
-              </tr>
-            </tbody>
-          </table>
+        {/* Cab Booking Options Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🚕 Pune to Thane Cab Booking Options</h3>
+          <div className="mt-4 space-y-6 text-lg">
+            <div>
+              <p className="font-semibold">1️⃣ One-Way Pune to Thane Cabs</p>
+              <p>
+                Looking for a one-way cab? With Aim Cab, you only pay for a single journey, making it a budget-friendly option. Whether you’re traveling solo, with family, or for business, our well-maintained cabs ensure a smooth and comfortable ride. Wide selection of vehicles – Choose from sedans, SUVs, and luxury cars to suit your travel needs. Book instantly through <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a> and enjoy an affordable trip with transparent pricing and no hidden costs.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">2️⃣ Round-Trip Pune to Thane Cabs</p>
+              <p>
+                Planning a return trip? Our Thane to Pune cab service is the perfect solution for those who need a cab for both journeys. Whether you’re going for a weekend getaway or a business trip, our round-trip service ensures you have a cab ready to bring you back. Enjoy a stress-free experience with fixed fares, professional drivers, and on-time pickups. With Aim Cab, your return journey is just as convenient as your onward trip.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">3️⃣ Pune to Thane Shared Cab</p>
+              <p>
+                Traveling on a budget? Our Pune to Thane shared cab option is ideal for cost-conscious travelers. Share your ride with other passengers and split the cost without compromising on comfort. Our shared cab service ensures you enjoy a convenient, safe, and affordable journey while making new travel connections. It’s a great choice for solo travelers and backpackers looking for the best deals.
+              </p>
+            </div>
+          </div>
         </section>
 
-        {/* Fare Estimate */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">💰 Pune to Thane Taxi Fare Estimate</h4>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              <strong>Sedan:</strong> ₹2,500 - ₹3,000
-            </li>
-            <li>
-              <strong>SUV:</strong> ₹3,500 - ₹4,000
-            </li>
-            <li>
-              <strong>Luxury:</strong> ₹5,000 - ₹6,000
-            </li>
-          </ul>
+        {/* Travel Guide Section - Exact Data */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-gray-300">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">Pune to Thane Travel Guide</h3>
           <p className="mt-4 text-lg">
-            📍 Prices may vary based on toll charges & route conditions.
+            <strong>🌆 Top Places to Visit in Thane</strong><br />
+            <strong>Upvan Lake – </strong>A scenic spot perfect for relaxation and evening strolls.<br />
+            <strong>Yeoor Hills – </strong>Ideal for nature lovers and trekkers.<br />
+            <strong>Kachrali Lake – </strong>A peaceful escape from the city.<br />
+            <strong>Tikuji-Ni-Wadi – </strong>A fun-filled amusement and water park for families.<br />
+            <strong>Kelva Beach – </strong>A tranquil beach near Thane for a short getaway.
+          </p>
+          <p className="mt-4 text-lg">
+            <strong>🏖️ Beaches Near Thane</strong><br />
+            <strong>Gorai Beach – </strong>A serene beach near Thane, perfect for a day trip.<br />
+            <strong>Manori Beach – </strong>A hidden gem for weekend relaxation.
+          </p>
+          <p className="mt-4 text-lg">
+            <strong>🛣️ Pune to Thane Distance & Route</strong><br />
+            <strong>⏳ Travel Duration: </strong>The journey takes approximately 3.5 to 4.5 hours depending on traffic.<br />
+            <strong>🛣️ Distance by Road: </strong>150 km via Mumbai-Pune Expressway.<br />
+            <strong>💰 Toll Charges: </strong>₹300-₹400 approx.<br />
+            <strong>🚦 Travel Tip: </strong>Early morning or late evening travel is best to avoid traffic.
           </p>
         </section>
 
-        {/* Taxi Booking Services */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">🚕 Pune to Thane Cab Booking Options</h4>
-          <p className="mt-4 text-lg">
-            1️⃣ <strong>One-Way Pune to Thane Cabs</strong> – Looking for a one-way cab? With Aim Cab, you only pay for a single journey, making it a budget-friendly option. Whether you’re traveling solo, with family, or for business, our well-maintained cabs ensure a smooth and comfortable ride. Wide selection of vehicles – Choose from sedans, SUVs, and luxury cars to suit your travel needs. Book instantly through{" "}
-            <a href="https://aimcab.com" className="text-blue-500 underline">
-              aimcab.com
-            </a>{" "}
-            and enjoy an affordable trip with transparent pricing and no hidden costs.
-          </p>
-          <p className="mt-4 text-lg">
-            2️⃣ <strong>Round-Trip Pune to Thane Cabs</strong> – Planning a return trip? Our Thane to Pune cab service is the perfect solution for those who need a cab for both journeys. Whether you’re going for a weekend getaway or a business trip, our round-trip service ensures you have a cab ready to bring you back. Enjoy a stress-free experience with fixed fares, professional drivers, and on-time pickups. With Aim Cab, your return journey is just as convenient as your onward trip.
-          </p>
-          <p className="mt-4 text-lg">
-            3️⃣ <strong>Pune to Thane Shared Cab</strong> – Traveling on a budget? Our Pune to Thane shared cab option is ideal for cost-conscious travelers. Share your ride with other passengers and split the cost without compromising on comfort. Our shared cab service ensures you enjoy a convenient, safe, and affordable journey while making new travel connections. It’s a great choice for solo travelers and backpackers looking for the best deals.
-          </p>
+        {/* FAQs Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">❓ Frequently Asked Questions (FAQs)</h3>
+          <div className="mt-4 space-y-4 text-lg">
+            <div>
+              <p className="font-semibold">1. What is the Pune to Thane cab fare?</p>
+              <p>The fare starts from ₹2,500 for a sedan and varies based on car type.</p>
+            </div>
+            <div>
+              <p className="font-semibold">2. Travel duration from Pune to Thane?</p>
+              <p>It takes around 3.5 to 4.5 hours, depending on traffic and road conditions.</p>
+            </div>
+            <div>
+              <p className="font-semibold">3. Are toll charges included in the Pune to Thane taxi fare?</p>
+              <p>No, toll charges are extra and paid separately.</p>
+            </div>
+            <div>
+              <p className="font-semibold">4. What are the cab options available for Pune to Thane travel?</p>
+              <p>We offer Sedan, SUV, Luxury Cars, and Tempo Travellers.</p>
+            </div>
+            <div>
+              <p className="font-semibold">5. Is Pune to Thane one-way cab service available?</p>
+              <p>Yes, we provide one-way cabs starting from ₹2,500.</p>
+            </div>
+            <div>
+              <p className="font-semibold">6. Can I book a Thane to Pune cab for a round trip?</p>
+              <p>Yes, we offer round-trip cabs with flexible bookings.</p>
+            </div>
+            <div>
+              <p className="font-semibold">7. What payment methods are available for booking?</p>
+              <p>We accept cash, UPI, and online payments.</p>
+            </div>
+            <div>
+              <p className="font-semibold">8. Are the cabs sanitized and safe for travel?</p>
+              <p>Yes, all our cabs are regularly sanitized.</p>
+            </div>
+            <div>
+              <p className="font-semibold">9. How can I book a Pune to Thane cab?</p>
+              <p>You can book instantly via our website <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>.</p>
+            </div>
+            <div>
+              <p className="font-semibold">10. Do you offer Thane sightseeing packages?</p>
+              <p>Yes, we have customized sightseeing packages for Thane.</p>
+            </div>
+          </div>
         </section>
 
-        {/* Travel Guide */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">🏞️ Pune to Thane Travel Guide</h4>
-          <h4 className="text-xl font-semibold mt-4">🌆 Top Places to Visit in Thane</h4>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              <strong>Upvan Lake</strong> – A scenic spot perfect for relaxation and evening strolls.
-            </li>
-            <li>
-              <strong>Yeoor Hills</strong> – Ideal for nature lovers and trekkers.
-            </li>
-            <li>
-              <strong>Kachrali Lake</strong> – A peaceful escape from the city.
-            </li>
-            <li>
-              <strong>Tikuji-Ni-Wadi</strong> – A fun-filled amusement and water park for families.
-            </li>
-            <li>
-              <strong>Kelva Beach</strong> – A tranquil beach near Thane for a short getaway.
-            </li>
-          </ul>
-          <h4 className="text-xl font-semibold mt-4">🏖️ Beaches Near Thane</h4>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              <strong>Gorai Beach</strong> – A serene beach near Thane, perfect for a day trip.
-            </li>
-            <li>
-              <strong>Manori Beach</strong> – A hidden gem for weekend relaxation.
-            </li>
-          </ul>
+        {/* Book Your Cab Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white rounded-xl shadow-lg text-center">
+          <h3 className="text-3xl font-extrabold">🚗 Book your Pune to Thane cab now & enjoy a smooth ride!</h3>
+          <p className="mt-4 text-xl">
+            🚖 Enjoy the best Pune to Thane cab service with Aim Cab.
+          </p>
+          <p className="mt-2 text-lg">Get the lowest fares, professional drivers, and a hassle-free booking experience. Book your ride today at <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a> and travel stress-free!</p>
         </section>
 
-        {/* Travel Details */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">🛣️ Pune to Thane Distance & Route</h4>
-          <p className="mt-4 text-lg">
-            ⏳ <strong>Travel Duration:</strong> The journey takes approximately 3.5 to 4.5 hours depending on traffic.
+        {/* About Aim Cab Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">📌 About Aim Cab</h3>
+          <p className="mt-4 text-lg bg-indigo-50 p-4 rounded-lg">
+            <span className="text-blue-600 font-bold">Aim Cab</span> was established in 2001, and we have built a strong reputation in the travel industry.
           </p>
-          <p className="mt-4 text-lg">
-            🛣️ <strong>Distance by Road:</strong> 150 km via Mumbai-Pune Expressway.
-          </p>
-          <p className="mt-4 text-lg">
-            💰 <strong>Toll Charges:</strong> ₹300-₹400 approx.
-          </p>
-          <p className="mt-4 text-lg">
-            🚦 <strong>Travel Tip:</strong> Early morning or late evening travel is best to avoid traffic.
-          </p>
-        </section>
-
-        {/* FAQs */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">❓ Frequently Asked Questions (FAQs)</h4>
-          <ol className="mt-4 text-lg pl-6">
-            <li>
-              <strong>1. What is the Pune to Thane cab fare?</strong>
-              <br />
-              The fare starts from ₹2,500 for a sedan and varies based on car type.
-            </li>
-            <br />
-            <li>
-              <strong>2. Travel duration from Pune to Thane?</strong>
-              <br />
-              It takes around 3.5 to 4.5 hours, depending on traffic and road conditions.
-            </li>
-            <br />
-            <li>
-              <strong>3. Are toll charges included in the Pune to Thane taxi fare?</strong>
-              <br />
-              No, toll charges are extra and paid separately.
-            </li>
-            <br />
-            <li>
-              <strong>4. What are the cab options available for Pune to Thane travel?</strong>
-              <br />
-              We offer Sedan, SUV, Luxury Cars, and Tempo Travellers.
-            </li>
-            <br />
-            <li>
-              <strong>5. Is Pune to Thane one-way cab service available?</strong>
-              <br />
-              Yes, we provide one-way cabs starting from ₹2,500.
-            </li>
-            <br />
-            <li>
-              <strong>6. Can I book a Thane to Pune cab for a round trip?</strong>
-              <br />
-              Yes, we offer round-trip cabs with flexible bookings.
-            </li>
-            <br />
-            <li>
-              <strong>7. What payment methods are available for booking?</strong>
-              <br />
-              We accept cash, UPI, and online payments.
-            </li>
-            <br />
-            <li>
-              <strong>8. Are the cabs sanitized and safe for travel?</strong>
-              <br />
-              Yes, all our cabs are regularly sanitized.
-            </li>
-            <br />
-            <li>
-              <strong>9. How can I book a Pune to Thane cab?</strong>
-              <br />
-              You can book instantly via our website{" "}
-              <a href="https://aimcab.com" className="text-blue-500 underline">
-                aimcab.com
-              </a>
-              .
-            </li>
-            <br />
-            <li>
-              <strong>10. Do you offer Thane sightseeing packages?</strong>
-              <br />
-              Yes, we have customized sightseeing packages for Thane.
-            </li>
-          </ol>
-          <br />
-        </section>
-
-        {/* Call-to-Action */}
-        <h4 className="text-2xl font-bold">
-          🚗 Book your Pune to Thane cab now & enjoy a smooth ride!
-        </h4>
-        <p>
-          🚖 Enjoy the best Pune to Thane cab service with Aim Cab. Get the lowest fares, professional drivers, and a hassle-free booking experience. Book your ride today at{" "}
-          <a href="https://aimcab.com" className="text-blue-500 underline">
-            aimcab.com
-          </a>{" "}
-          and travel stress-free!
-        </p>
-
-        {/* About Aim Cab */}
-        <section className="mt-6 p-6">
-          <h4 className="text-2xl font-bold">📌 About Aim Cab</h4>
-          <p className="mt-4 text-lg">
-            Aim Cab was established in 2001, and we have built a strong reputation in the travel industry.
-          </p>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>50+ Personal Cabs across India.</li>
-            <li>500+ Registered Cabs in our network.</li>
-            <li>2 Lakh+ Happy Customers served.</li>
-            <li>3,000+ Outstation Trips completed successfully.</li>
-          </ul>
-          <p className="mt-4 text-lg">
-            With our commitment to safety, affordability, and quality service, we are the preferred choice for outstation travel in India. Book your ride now and travel worry-free!
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <p className="text-2xl font-bold text-blue-600">50+</p>
+              <p>Personal Cabs across India</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <p className="text-2xl font-bold text-green-600">500+</p>
+              <p>Registered Cabs in our network</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <p className="text-2xl font-bold text-yellow-600">2 Lakh+</p>
+              <p>Happy Customers served</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <p className="text-2xl font-bold text-purple-600">3,000+</p>
+              <p>Outstation Trips completed</p>
+            </div>
+          </div>
+          <p className="mt-6 text-lg font-semibold text-center bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-lg">
+            With our commitment to safety, affordability, and quality service, we are the preferred choice for outstation travel in India.
+            <span className="block text-green-600 font-bold mt-2">Book your ride now and travel worry-free!</span>
           </p>
         </section>
 
         {/* Footer */}
         <div>
-          {/* Redesigned Responsive Footer */}
           <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-            {/* Footer content area */}
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {/* Additional footer columns can be added here */}
               </div>
             </div>
-
-            {/* Popular Cities Section */}
             <div className="container mx-auto px-4 text-center mb-4">
               <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
                 POPULAR CITIES:
               </b>
               <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-                {/* Pune Button */}
                 <a
                   href="/Pune"
                   className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
@@ -344,8 +376,6 @@ const Page = () => {
                 >
                   Pune
                 </a>
-
-                {/* Mumbai Button */}
                 <a
                   href="/Mumbai"
                   className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
@@ -358,11 +388,7 @@ const Page = () => {
                 </a>
               </div>
             </div>
-
-            {/* Divider */}
             <hr className="border-gray-300 my-8" />
-
-            {/* Quick Links Section */}
             <div className="container mx-auto px-4 text-center mb-8">
               <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
                 QUICK LINKS:
@@ -389,11 +415,7 @@ const Page = () => {
                 ))}
               </div>
             </div>
-
-            {/* Divider */}
             <hr className="border-gray-300 my-8" />
-
-            {/* Designed by Section */}
             <div className="container mx-auto px-4 text-center mb-8">
               <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
                 DESIGNED BY
@@ -406,8 +428,6 @@ const Page = () => {
                 COBAZTECH
               </a>
             </div>
-
-            {/* Social Media Section */}
             <div className="container mx-auto px-4 text-center mt-6">
               <span className="flex justify-center flex-wrap">
                 <a
@@ -489,13 +509,11 @@ const Page = () => {
                 </a>
               </span>
             </div>
-          </div>
-
-          {/* Copyright Section */}
-          <div className="container mx-auto px-4 text-center">
-            <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-              &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-            </p>
+            <div className="container mx-auto px-4 text-center">
+              <p className="transition-all duration-300 ease-in-out hover:text-green-200">
+                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>

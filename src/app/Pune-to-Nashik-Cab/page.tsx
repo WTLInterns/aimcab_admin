@@ -1,6 +1,29 @@
+"use client"
 import Head from "next/head"
-
+import BookingForm from "../../components/BookingForm";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 const Page = () => {
+   const headingRef = useRef(null);
+      const paragraphRef = useRef(null);
+      const buttonsRef = useRef(null);
+    
+      useEffect(() => {
+        // Create a timeline for sequential animations
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        
+        // Animate elements one by one
+        tl.from(headingRef.current, {
+          x: -50,
+          opacity: 0,
+          duration: 0.8
+        })
+        .from(paragraphRef.current, {
+          x: -50,
+          opacity: 0,
+          duration: 0.6
+        }, "+=0.2") // starts 0.2s after previous animation ends
+      }, []);
   return (
     <>
       <Head>
@@ -19,315 +42,353 @@ const Page = () => {
       </Head>
 
       <div>
-        <header className="bg-green-500 text-white py-4 text-center">
-          <h1 className="text-3xl font-bold">AIMCAB Pune Routes</h1>
-          <p className="mt-2 text-lg">Book your cab and explore Pune with ease</p>
-        </header>
+          <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
+            AIMCAB Pune Routes
+          </h1>
+          
+          <p 
+            ref={paragraphRef}
+            className="text-xl md:text-2xl mb-8 font-light"
+          >
+            Book your cab and explore Pune with ease
+          </p>
+          
+          {/* <div 
+            ref={buttonsRef}
+            className="flex justify-center space-x-4"
+          >
+            <button className="bg-white text-[#76453B] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Book Now
+            </button>
+            <button className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-[#76453B] transition-all duration-300">
+              Call Us
+            </button>
+          </div> */}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
+      </header>
 
         <h2 className="text-3xl font-bold mt-4 text-center">
           Pune to Nashik Cab - Book Affordable & Reliable Taxi Service
         </h2>
 
-        <section className="mt-6 p-6">
-          <h2 className="text-2xl font-bold">🚖 Best Pune to Nashik Cab Service at Lowest Price</h2>
-          <p className="mt-4 text-lg">
-            Looking for a comfortable and budget-friendly Pune to Nashik cab? Aim Cab offers reliable and affordable taxi
-            services starting at just ₹11/km, ensuring a smooth and hassle-free journey with professional drivers and
-            well-maintained vehicles.
-          </p>
+        <BookingForm />
 
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              ✅ <strong>Lowest price guaranteed</strong> - Starting from ₹11/km
+        {/* Best Cab Service Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg">
+          <h2 className="text-3xl font-extrabold text-[#76453B]">
+            🚖 Best Pune to Nashik Cab Service at <span className="text-red-600">Lowest Price </span>
+          </h2>
+          <p className="mt-4 text-lg bg-white p-4 rounded-lg shadow-sm">
+            Looking for a comfortable and budget-friendly Pune to Nashik cab? <strong className="text-blue-600">Aim Cab</strong> offers reliable and affordable taxi services starting at just <span className="text-green-600 font-bold text-xl">₹11/km</span>. Enjoy a smooth and hassle-free journey with professional drivers and well-maintained vehicles.
+          </p>
+          <ul className="mt-6 text-lg space-y-3">
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span> 
+              <strong className="bg-yellow-100 px-2 py-1 rounded">Lowest price guaranteed</strong> – Starting from ₹11/km
             </li>
-            <li>
-              ✅ <strong>Safe & Comfortable Rides</strong> - Verified drivers & sanitized cabs
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span> 
+              <strong>Safe & Comfortable Rides</strong> – Verified drivers & sanitized cabs
             </li>
-            <li>
-              ✅ <strong>24/7 Availability</strong> - Book anytime, anywhere
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span> 
+              <strong>24/7 Availability</strong> – Book anytime, anywhere
             </li>
-            <li>
-              ✅ <strong>Hassle-Free Online Booking</strong> - Instant confirmation at{" "}
-              <a href="https://aimcab.com" className="text-blue-500 underline">
-                aimcab.com
-              </a>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span> 
+              <strong>Hassle-Free Online Booking</strong> – Instant confirmation at <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>
             </li>
-            <li>
-              ✅ <strong>No Hidden Charges</strong> - 100% transparent pricing
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2">✓</span> 
+              <strong className="bg-pink-100 px-2 py-1 rounded">No Hidden Charges</strong> – 100% transparent pricing
             </li>
           </ul>
         </section>
 
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">🏆 Why Choose Aim Cab for Pune to Nashik Cab Booking?</h3>
-          <p className="mt-4 text-lg">
-            With over 2 lakh happy customers, Aim Cab is the most trusted travel partner for your Pune to Nashik taxi
-            service. Here's why:
+        {/* Why Choose Aim Cab Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🏆 Why Choose Aim Cab for Pune to Nashik Cab Booking?</h3>
+          <p className="mt-4 text-lg bg-blue-50 p-4 rounded-lg">
+            With over <span className="text-blue-600 font-bold">2 lakh happy customers</span>, Aim Cab is your trusted travel partner for Pune to Nashik taxi service. Here's why:
           </p>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              ✅ <strong>Best Pune to Nashik Cab Service</strong> - Reliable, safe, and punctual rides.
-            </li>
-            <li>
-              ✅ <strong>Affordable Pricing</strong> - Get the best Pune to Nashik cab fare with no hidden costs.
-            </li>
-            <li>
-              ✅ <strong>Comfortable & Clean Cabs</strong> - Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers.
-            </li>
-            <li>
-              ✅ <strong>One-Way & Round-Trip Options</strong> - Flexible booking as per your needs.
-            </li>
-            <li>
-              ✅ <strong>Multiple Payment Methods</strong> - Pay via cash, UPI, or online payments.
-            </li>
-            <li>
-              ✅ <strong>Reliable Pune to Nashik Cab Packages</strong> - Customized for individuals, families, and corporate travelers.
-            </li>
-            <li>
-              ✅ <strong>24/7 Customer Support</strong> - Get help anytime, day or night.
-            </li>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Best Pune to Nashik Cab Service
+              </h5>
+              <p className="ml-6">Reliable, safe, and punctual rides</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Affordable Pricing
+              </h5>
+              <p className="ml-6">Get the best Pune to Nashik cab fare with no hidden costs</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Comfortable & Clean Cabs
+              </h5>
+              <p className="ml-6">Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> One-Way & Round-Trip Options
+              </h5>
+              <p className="ml-6">Flexible booking as per your needs</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Multiple Payment Methods
+              </h5>
+              <p className="ml-6">Pay via cash, UPI, or online payments</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> 24/7 Customer Support
+              </h5>
+              <p className="ml-6">Get help anytime, day or night</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <h5 className="font-bold text-lg flex items-center">
+                <span className="text-green-600 mr-2">✓</span> Reliable Pune to Nashik Cab Packages
+              </h5>
+              <p className="ml-6"> Customized for individuals, families, and corporate travelers.
+              </p>
+            </div>
+          </div>
+          <p className="mt-6 text-xl font-bold text-center bg-gradient-to-r from-blue-100 to-purple-100 p-3 rounded-lg text-[#76453B]">
+            🚕 Experience a comfortable & budget-friendly ride with Aim Cab!
+          </p>
+        </section>
+
+        {/* Cab Fare & Booking Details Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl shadow-lg">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🚖 Pune to Nashik Cab Fare & Booking Details</h3>
+          <div className="overflow-x-auto mt-6">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white">
+                  <th className="p-4 text-left">Cab Type</th>
+                  <th className="p-4 text-center">Price (₹/KM)</th>
+                  <th className="p-4 text-left">Best For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr className="hover:bg-blue-50">
+                  <td className="p-4 font-medium">Sedan (Dzire, Etios)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹11/km</td>
+                  <td className="p-4">Budget-friendly travel</td>
+                </tr>
+                <tr className="hover:bg-blue-50 bg-gray-50">
+                  <td className="p-4 font-medium">SUV (Ertiga, Xylo)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹14/km</td>
+                  <td className="p-4">Family trips & extra luggage space</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="p-4 font-medium">Luxury (Innova Crysta)</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹18/km</td>
+                  <td className="p-4">Premium comfort & business travel</td>
+                </tr>
+                <tr className="hover:bg-blue-50 bg-gray-50">
+                  <td className="p-4 font-medium">Tempo Traveller</td>
+                  <td className="p-4 text-center text-green-600 font-bold">₹25/km</td>
+                  <td className="p-4">Group trips & office outings</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Taxi Fare Estimate Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">💰 Pune to Nashik Taxi Fare Estimate</h3>
+          <ul className="mt-4 text-lg space-y-2">
+            <li>Sedan: <strong>₹2,500 - ₹3,000</strong></li>
+            <li>SUV: <strong>₹3,500 - ₹4,000</strong></li>
+            <li>Luxury: <strong>₹5,000 - ₹6,000</strong></li>
           </ul>
+          <p className="mt-2 text-sm text-gray-600">📍 Prices may vary based on toll charges & route conditions.</p>
+        </section>
+
+        {/* Cab Booking Options Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">🚕 Pune to Nashik Cab Booking Options</h3>
+          <div className="mt-4 space-y-6 text-lg">
+            <div>
+              <p className="font-semibold">1️⃣ One-Way Pune to Nashik Cabs</p>
+              <p>
+                Looking for a one-way cab? With Aim Cab, you only pay for a single journey, making it a budget-friendly option. Whether you're traveling solo, with family, or for business, our well-maintained cabs ensure a smooth and comfortable ride. Select from a variety of vehicles, such as sedans, SUVs, and premium cars, to match your travel needs. Book instantly through <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a> and enjoy an affordable trip with transparent pricing and no hidden costs.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">2️⃣ Round-Trip Pune to Nashik Cabs</p>
+              <p>
+                Planning a return trip? Our Nashik to Pune cab service is the perfect solution for those who need a cab for both journeys. Whether you're going for a weekend getaway or a business trip, our round-trip service ensures you have a cab ready to bring you back. Enjoy a stress-free experience with fixed fares, professional drivers, and on-time pickups. With Aim Cab, your return journey is just as convenient as your onward trip.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">3️⃣ Pune to Nashik Shared Cab</p>
+              <p>
+                Traveling on a budget? Our Pune to Nashik shared cab option is ideal for cost-conscious travelers. Share your ride with other passengers and split the cost without compromising on comfort. Our shared cab service ensures you enjoy a convenient, safe, and affordable journey while making new travel connections. It's a great choice for solo travelers and backpackers looking for the best deals.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Travel Guide Section - Exact Data */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-gray-300">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">Pune to Nashik Travel Guide</h3>
           <p className="mt-4 text-lg">
-           <strong> 🚕 Experience a comfortable & budget-friendly ride with Aim Cab!</strong>
+            <strong>🌆 Top Places to Visit in Nashik</strong><br />
+            <strong>Trimbakeshwar Temple – </strong>One of the twelve Jyotirlingas, a must-visit spiritual site.<br />
+            <strong>Sula Vineyards – </strong>India's most famous vineyard, offering wine tasting and a scenic experience.<br />
+            <strong>Panchavati – </strong>A place of historical significance from the Ramayana.<br />
+            <strong>Anjneri Hill – </strong>Birthplace of Lord Hanuman, perfect for trekking and adventure lovers.<br />
+            <strong>Pandav Leni Caves – </strong>Ancient Buddhist caves with stunning carvings and history.
           </p>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">🚖 Pune to Nashik Cab Fare & Booking Details</h3>
-          <table className="mt-4 w-full border-collapse border border-gray-300">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="border border-gray-300 p-2">Cab Type</th>
-                <th className="border border-gray-300 p-2">Price (₹/KM)</th>
-                <th className="border border-gray-300 p-2">Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-gray-300 p-2">Sedan (Dzire, Etios)</td>
-                <td className="border border-gray-300 p-2">₹11/km</td>
-                <td className="border border-gray-300 p-2">Budget-friendly travel</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-2">SUV (Ertiga, Xylo)</td>
-                <td className="border border-gray-300 p-2">₹14/km</td>
-                <td className="border border-gray-300 p-2">Family trips & extra luggage space</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-2">Luxury (Innova Crysta)</td>
-                <td className="border border-gray-300 p-2">₹18/km</td>
-                <td className="border border-gray-300 p-2">Premium comfort & business travel</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 p-2">Tempo Traveller</td>
-                <td className="border border-gray-300 p-2">₹25/km</td>
-                <td className="border border-gray-300 p-2">Group trips & office outings</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">💰 Pune to Nashik Taxi Fare Estimate</h3>
-          <p className="mt-4 text-lg">Sedan: ₹2,500 - ₹3,000</p>
-          <p className="text-lg">SUV: ₹3,500 - ₹4,000</p>
-          <p className="text-lg">Luxury: ₹5,000 - ₹6,000</p>
-          <p className="text-lg">
-            📍 Prices may vary based on toll charges & route conditions.
-          </p>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">🚕 Pune to Nashik Cab Booking Options</h3>
-          <div className="mt-4">
-            <h4 className="text-xl font-bold">1️⃣ One-Way Pune to Nashik Cabs</h4>
-            <p className="mt-2 text-lg">
-              Looking for a one-way cab? With Aim Cab, you only pay for a single journey, making it a budget-friendly option.
-              Whether you're traveling solo, with family, or for business, our well-maintained cabs ensure a smooth and comfortable ride.
-              Select from a variety of vehicles, such as sedans, SUVs, and premium cars, to match your travel needs.
-              Book instantly through aimcab.com and enjoy an affordable trip with transparent pricing and no hidden costs.
-            </p>
-          </div>
-
-          <div className="mt-4">
-            <h4 className="text-xl font-bold">2️⃣ Round-Trip Pune to Nashik Cabs</h4>
-            <p className="mt-2 text-lg">
-              Planning a return trip? Our Nashik to Pune cab service is the perfect solution for those who need a cab for both journeys.
-              Whether you're going for a weekend getaway or a business trip, our round-trip service ensures you have a cab ready to bring you back.
-              Enjoy a stress-free experience with fixed fares, professional drivers, and on-time pickups. With Aim Cab, your return journey is just as convenient as your onward trip.
-            </p>
-          </div>
-
-          <div className="mt-4">
-            <h4 className="text-xl font-bold">3️⃣ Pune to Nashik Shared Cab</h4>
-            <p className="mt-2 text-lg">
-              Traveling on a budget? Our Pune to Nashik shared cab option is ideal for cost-conscious travelers.
-              Share your ride with other passengers and split the cost without compromising on comfort.
-              Our shared cab service ensures you enjoy a convenient, safe, and affordable journey while making new travel connections.
-              It's a great choice for solo travelers and backpackers looking for the best deals.
-            </p>
-          </div>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">🏞️ Pune to Nashik Travel Guide</h3>
-          <div className="mt-4">
-            <h4 className="text-xl font-bold">🌆 Top Places to Visit in Nashik</h4>
-            <ul className="mt-2 text-lg list-disc pl-6">
-              <li>
-                Trimbakeshwar Temple – One of the twelve Jyotirlingas, a must-visit spiritual site.
-              </li>
-              <li>
-                Sula Vineyards – India's most famous vineyard, offering wine tasting and a scenic experience.
-              </li>
-              <li>
-                Panchavati – A place of historical significance from the Ramayana.
-              </li>
-              <li>
-                Anjneri Hill – Birthplace of Lord Hanuman, perfect for trekking and adventure lovers.
-              </li>
-              <li>
-                Pandav Leni Caves – Ancient Buddhist caves with stunning carvings and history.
-              </li>
-            </ul>
-          </div>
-
-          <div className="mt-4">
-            <h4 className="text-xl font-bold">🏖️ Beaches Near Nashik</h4>
-            <ul className="mt-2 text-lg list-disc pl-6">
-              <li>Dahanu Beach – A peaceful retreat with scenic beauty.</li>
-              <li>Kelwa Beach – Ideal for weekend getaways and relaxation.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">🛣️ Pune to Nashik Distance & Route</h3>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>
-              ⏳ <strong>Travel Duration:</strong> The journey takes approximately 4 to 5 hours depending on traffic.
-            </li>
-            <li>
-              🛣️ <strong>Distance by Road:</strong> 210 km via NH 60.
-            </li>
-            <li>
-              💰 <strong>Toll Charges:</strong> ₹250-₹350 approx.
-            </li>
-            <li>
-              🚦 <strong>Travel Tip:</strong> Early morning or late evening travel is best to avoid traffic.
-            </li>
-          </ul>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">❓ Frequently Asked Questions (FAQs)</h3>
-          <div className="mt-4 space-y-4">
-            <div>
-              <p className="text-lg font-semibold">1. What is the Pune to Nashik cab fare?</p>
-              <p className="text-lg">
-                The fare starts from ₹2,500 for a sedan and varies based on car type.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">2. How long does it take to travel from Pune to Nashik by taxi?</p>
-              <p className="text-lg">
-                It takes around 4 to 5 hours, depending on traffic and road conditions.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">3. Are toll charges included in the Pune to Nashik taxi fare?</p>
-              <p className="text-lg">
-                No, toll charges are extra and paid separately.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">4. What are the cab options available for Pune to Nashik travel?</p>
-              <p className="text-lg">
-                We offer Sedan, SUV, Luxury Cars, and Tempo Travellers.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">5. Is Pune to Nashik one-way cab service available?</p>
-              <p className="text-lg">
-                Yes, we provide one-way cabs starting from ₹2,500.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">6. Can I book a Nashik to Pune cab for a round trip?</p>
-              <p className="text-lg">
-                Yes, we offer round-trip cabs with flexible bookings.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">7. What payment methods are available for booking?</p>
-              <p className="text-lg">
-                We accept cash, UPI, and online payments.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">8. Are the cabs sanitized and safe for travel?</p>
-              <p className="text-lg">
-                Yes, all our cabs are regularly sanitized.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">9. How can I book a Pune to Nashik cab?</p>
-              <p className="text-lg">
-                You can book instantly via our website aimcab.com.
-              </p>
-            </div>
-            <div>
-              <p className="text-lg font-semibold">10. Do you offer Nashik sightseeing packages?</p>
-              <p className="text-lg">
-                Yes, we have customized sightseeing packages for Nashik.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 ><strong>📢 Book Your Pune to Nashik Cab Now!</strong></h3>
-          <p >
-            🚖 Enjoy the Best Pune to Nashik Cab Service with Aim Cab. Get the lowest fares, professional drivers, and a hassle-free booking experience.
-            Book your ride today at aimcab.com!
-          </p>
-        </section>
-
-        <section className="mt-6 p-6">
-          <h3 className="text-2xl font-bold">📌 About Aim Cab</h3>
           <p className="mt-4 text-lg">
-            Aim Cab was established in 2001, and we have built a strong reputation in the travel industry.
+            <strong>🏖️ Beaches Near Nashik</strong><br />
+            <strong>Dahanu Beach – </strong>A peaceful retreat with scenic beauty.<br />
+            <strong>Kelwa Beach – </strong>Ideal for weekend getaways and relaxation.
           </p>
-          <ul className="mt-4 text-lg list-disc pl-6">
-            <li>50+ Personal Cabs across India.</li>
-            <li>500+ Registered Cabs in our network.</li>
-            <li>2 Lakh+ Happy Customers served.</li>
-            <li>3,000+ Outstation Trips completed successfully.</li>
-          </ul>
           <p className="mt-4 text-lg">
+            <strong>🛣️ Pune to Nashik Distance & Route</strong><br />
+            <strong>⏳ Travel Duration: </strong>The journey takes approximately 4 to 5 hours depending on traffic.<br />
+            <strong>🛣️ Distance by Road: </strong>210 km via NH 60.<br />
+            <strong>💰 Toll Charges: </strong>₹250-₹350 approx.<br />
+            <strong>🚦 Travel Tip: </strong>Early morning or late evening travel is best to avoid traffic.
+          </p>
+        </section>
+
+        {/* FAQs Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">❓ Frequently Asked Questions (FAQs)</h3>
+          <div className="mt-4 space-y-4 text-lg">
+            <div>
+              <p className="font-semibold">1. What is the Pune to Nashik cab fare?</p>
+              <p>The fare starts from ₹2,500 for a sedan and varies based on car type.</p>
+            </div>
+            <div>
+              <p className="font-semibold">2. How long does it take to travel from Pune to Nashik by taxi?</p>
+              <p>It takes around 4 to 5 hours, depending on traffic and road conditions.</p>
+            </div>
+            <div>
+              <p className="font-semibold">3. Are toll charges included in the Pune to Nashik taxi fare?</p>
+              <p>No, toll charges are extra and paid separately.</p>
+            </div>
+            <div>
+              <p className="font-semibold">4. What are the cab options available for Pune to Nashik travel?</p>
+              <p>We offer Sedan, SUV, Luxury Cars, and Tempo Travellers.</p>
+            </div>
+            <div>
+              <p className="font-semibold">5. Is Pune to Nashik one-way cab service available?</p>
+              <p>Yes, we provide one-way cabs starting from ₹2,500.</p>
+            </div>
+            <div>
+              <p className="font-semibold">6. Can I book a Nashik to Pune cab for a round trip?</p>
+              <p>Yes, we offer round-trip cabs with flexible bookings.</p>
+            </div>
+            <div>
+              <p className="font-semibold">7. What payment methods are available for booking?</p>
+              <p>We accept cash, UPI, and online payments.</p>
+            </div>
+            <div>
+              <p className="font-semibold">8. Are the cabs sanitized and safe for travel?</p>
+              <p>Yes, all our cabs are regularly sanitized.</p>
+            </div>
+            <div>
+              <p className="font-semibold">9. How can I book a Pune to Nashik cab?</p>
+              <p>You can book instantly via our website <a href="https://aimcab.com" className="text-blue-600 underline font-bold">aimcab.com</a>.</p>
+            </div>
+            <div>
+              <p className="font-semibold">10. Do you offer Nashik sightseeing packages?</p>
+              <p>Yes, we have customized sightseeing packages for Nashik.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Book Your Cab Section */}
+        <section className="mt-8 p-6 bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white rounded-xl shadow-lg text-center">
+          <h3 className="text-3xl font-extrabold">📢 Book Your Pune to Nashik Cab Now!</h3>
+          <p className="mt-4 text-xl">
+            🚖 Enjoy the <span className="font-bold">Best Pune to Nashik Cab Service</span> with Aim Cab
+          </p>
+          <p className="mt-2 text-lg">Get the lowest fares, professional drivers, and a hassle-free booking experience</p>
+          <a
+            href="https://aimcab.com"
+            className="mt-6 inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-md hover:bg-gray-100 transition duration-300"
+          >
+            Book Now at aimcab.com
+          </a>
+          <div className="mt-6 flex justify-center space-x-4">
+            <div className="bg-white bg-opacity-20 p-3 rounded-full">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <div className="bg-white bg-opacity-20 p-3 rounded-full">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+              </svg>
+            </div>
+            <div className="bg-white bg-opacity-20 p-3 rounded-full">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        {/* About Aim Cab Section */}
+        <section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-500">
+          <h3 className="text-3xl font-extrabold text-[#76453B]">📌 About Aim Cab</h3>
+          <p className="mt-4 text-lg bg-indigo-50 p-4 rounded-lg">
+            <span className="text-blue-600 font-bold">Aim Cab</span> was established in 2001, and we have built a strong reputation in the travel industry.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <p className="text-2xl font-bold text-blue-600">50+</p>
+              <p>Personal Cabs across India</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+              <p className="text-2xl font-bold text-green-600">500+</p>
+              <p>Registered Cabs in our network</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
+              <p className="text-2xl font-bold text-yellow-600">2 Lakh+</p>
+              <p>Happy Customers served</p>
+            </div>
+            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
+              <p className="text-2xl font-bold text-purple-600">3,000+</p>
+              <p>Outstation Trips completed</p>
+            </div>
+          </div>
+          <p className="mt-6 text-lg font-semibold text-center bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-lg">
             With our commitment to safety, affordability, and quality service, we are the preferred choice for outstation travel in India.
-            Book your ride now and travel worry-free!
+            <span className="block text-green-600 font-bold mt-2">Book your ride now and travel worry-free!</span>
           </p>
         </section>
 
         {/* Footer */}
         <div>
-          {/* Redesigned Responsive Footer */}
           <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-            {/* Footer content area */}
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {/* Additional footer columns can be added here */}
               </div>
             </div>
-
-            {/* Popular Cities Section */}
             <div className="container mx-auto px-4 text-center mb-4">
               <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
                 POPULAR CITIES:
               </b>
               <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-                {/* Pune Button */}
                 <a
                   href="/Pune"
                   className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
@@ -338,8 +399,6 @@ const Page = () => {
                 >
                   Pune
                 </a>
-
-                {/* Mumbai Button */}
                 <a
                   href="/Mumbai"
                   className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
@@ -352,11 +411,7 @@ const Page = () => {
                 </a>
               </div>
             </div>
-
-            {/* Divider */}
             <hr className="border-gray-300 my-8" />
-
-            {/* Quick Links Section */}
             <div className="container mx-auto px-4 text-center mb-8">
               <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
                 QUICK LINKS:
@@ -383,11 +438,7 @@ const Page = () => {
                 ))}
               </div>
             </div>
-
-            {/* Divider */}
             <hr className="border-gray-300 my-8" />
-
-            {/* Designed by Section */}
             <div className="container mx-auto px-4 text-center mb-8">
               <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
                 DESIGNED BY
@@ -400,8 +451,6 @@ const Page = () => {
                 COBAZTECH
               </a>
             </div>
-
-            {/* Social Media Section */}
             <div className="container mx-auto px-4 text-center mt-6">
               <span className="flex justify-center flex-wrap">
                 <a
@@ -483,13 +532,11 @@ const Page = () => {
                 </a>
               </span>
             </div>
-          </div>
-
-          {/* Copyright Section */}
-          <div className="container mx-auto px-4 text-center">
-            <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-              &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-            </p>
+            <div className="container mx-auto px-4 text-center">
+              <p className="transition-all duration-300 ease-in-out hover:text-green-200">
+                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>

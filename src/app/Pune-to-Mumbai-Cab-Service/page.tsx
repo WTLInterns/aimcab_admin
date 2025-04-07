@@ -1,363 +1,749 @@
-import React from 'react'
-import Head from 'next/head';
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client"; 
 
+import Head from "next/head";
+import BookingForm from "../../components/BookingForm";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import Navbar from '../../container/component/Navbar'
 const page = () => {
+  const headingRef = useRef(null);
+  const paragraphRef = useRef(null);
+  const buttonsRef = useRef(null);
+
+  useEffect(() => {
+    // Create a timeline for sequential animations
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+    // Animate elements one by one
+    tl.from(headingRef.current, {
+      x: -50,
+      opacity: 0,
+      duration: 0.8
+    })
+    .from(paragraphRef.current, {
+      x: -50,
+      opacity: 0,
+      duration: 0.6
+    }, "+=0.2") // starts 0.2s after previous animation ends
+  }, []);
+  const faqItems = [
+    {
+      question: "What is the Pune to Mumbai cab fare?",
+      answer: "The fare starts at ₹2,200 for sedans and may vary based on your cab choice."
+    },
+    {
+      question: "Can I book a one-way taxi from Pune to Mumbai?",
+      answer: "Yes! We offer Pune to Mumbai taxi one-way at the lowest fares."
+    },
+    // Add all other FAQ items here...
+  ];
+  
+  // Then use it in your component as before:
+  {faqItems.map((item, index) => (
+    <div key={index} className="border-b border-gray-200 pb-4 last:border-0 last:pb-0">
+      <h4 className="font-bold text-sky-800">{item.question}</h4>
+      <p className="text-gray-600 mt-1">{item.answer}</p>
+    </div>
+  ))}
   return (
     <>
-    <div>
-    <Head>
-    <title>Pune to Mumbai Cab Service | Safe & Affordable Taxi</title>
-    <meta name="description" content="Book a Pune to Mumbai cab with Aim Cab for a safe, affordable, and hassle-free ride. Enjoy one-way & round-trip taxi services with professional drivers." />
-    <link  rel="canonical" href="https://aimcab.com/Pune-to-Mumbai-Cab-Service" />
-    <meta name="author" content="Aim Cab"></meta>
-    <meta name="keywords" content="pune to mumbai cab, pune to mumbai cab service, mumbai to pune cab, cab booking in pune, cabs in pune, pune to mumbai airport cab, pune to mumbai taxi, pune to mumbai airport, pune to mumbai cab sharing, pune to mumbai taxi one way, pune to outstation cab, pune to mumbai airport cab fare"></meta>
-    <meta name="robots" content="index, follow"></meta>
-    </Head>
-      {/* Header */}
-
-      {/* Header */}
-      <header className="bg-green-500 text-white py-4 text-center">
-        <h1 className="text-3xl font-bold">AIMCAB Pune Routes</h1>
-        <p className="mt-2 text-lg">Book your cab and explore Pune with ease</p>
+      <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold">
+        <Navbar/>
+           {/* Header */}
+        <header className="relative bg-gradient-to-r from-[#76453B] to-[#F3B664] font-semibold text-[#573027] py-12 md:py-20 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-bold mb-4"
+          >
+            AIMCAB Pune Routes
+          </h1>
+          
+          <p 
+            ref={paragraphRef}
+            className="text-xl md:text-2xl mb-8 font-light"
+          >
+            Book your cab and explore Pune with ease
+          </p>
+          
+       
+        </div>
+        <div className="absolute  bottom-0 left-0 right-0 h-16 bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold transform skew-y-2 origin-bottom"></div>
       </header>
       
-    {/* Main Title */}
-    <h2 className="text-3xl font-bold mt-4 text-center">Pune to Mumbai Cab Service - Affordable & Reliable Taxi Booking</h2>
+    
 
-
-      {/* Service Description */}
-      <section className="mt-6 p-6">
-        <h3 className="text-2xl font-bold">🚖 Your Best Choice for Pune to Mumbai Cab Service</h3>
-        <p className="mt-4 text-lg">Looking for a Pune to Mumbai cab service that’s affordable, reliable, and convenient? Aim Cab offers the best taxi booking experience with guaranteed lowest prices, professional drivers, and a wide range of car options. Whether you're traveling for business, leisure, or need an urgent airport transfer, our services ensure a comfortable and stress-free ride.</p>
-        
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>✅ <strong>Lowest price in the market</strong> – Just ₹11/km!</li>
-          <li>✅ <strong>Safe & Reliable</strong> – Verified drivers and well-maintained cabs.</li>
-          <li>✅ <strong>On-time pickups & drop-offs</strong> – 24/7 availability.</li>
-          <li>✅ <strong>Easy Online Booking</strong> – Instant confirmation at <a href="https://aimcab.com" className="text-blue-500 underline">aimcab.com</a>.</li>
-          <li>✅ <strong>No hidden charges</strong> – 100% transparent pricing.</li>
-        </ul>
-      </section>
-
-      {/* Why Choose Aim Cab */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🏆 Why Choose Aim Cab for Pune to Mumbai Taxi?</h4>
-        <p className="mt-4 text-lg">With over 2 lakh happy customers, Aim Cab has set the standard for cab booking in Pune. Here’s why we’re your best choice:</p>
-        
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>✅ <strong>Affordable Pricing</strong> – Get the lowest price guarantee for Pune to Mumbai trips.</li>
-          <li>✅ <strong>Comfortable & Clean Cabs</strong> – Choose from Sedans, SUVs, Luxury Cars & Tempo Travellers.</li>
-          <li>✅ <strong>One-Way & Round-Trip Options</strong> – Book based on your convenience.</li>
-          <li>✅ <strong>Pune to Mumbai Airport Cabs</strong> – On-time drop-offs with real-time tracking.</li>
-          <li>✅ <strong>Multiple Payment Methods</strong> – Pay via cash, UPI, or online payments.</li>
-          <li>✅ <strong>Flexible Cancellation Policy</strong> – Modify or cancel bookings hassle-free.</li>
-        </ul>
-        <br />
-        <h4>🚕 Experience hassle-free travel with Aim Cab!
-        </h4>
-      </section>
-
-      {/* Cab Options & Fare Details */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🚖 Pune to Mumbai Cab Options & Fare Details</h4>
-        <table className="mt-4 w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Cab Type</th>
-              <th className="border border-gray-300 p-2">Price (₹/KM)</th>
-              <th className="border border-gray-300 p-2">Best For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 p-2">Sedan (Dzire, Etios)</td>
-              <td className="border border-gray-300 p-2">₹11/km</td>
-              <td className="border border-gray-300 p-2">Budget-friendly travel</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2">SUV (Ertiga, Xylo)</td>
-              <td className="border border-gray-300 p-2">₹14/km</td>
-              <td className="border border-gray-300 p-2">Family trips & extra luggage space</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2">Luxury (Innova Crysta)</td>
-              <td className="border border-gray-300 p-2">₹18/km</td>
-              <td className="border border-gray-300 p-2">Premium comfort & business travel</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2">Tempo Traveller</td>
-              <td className="border border-gray-300 p-2">₹25/km</td>
-              <td className="border border-gray-300 p-2">Group trips & office outings</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-       {/* Fare Estimate */}
-       <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">💰 Pune to Mumbai Taxi Fare Estimate</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li><strong>Sedan:</strong> ₹2,200 - ₹2,500</li>
-          <li><strong>SUV:</strong> ₹3,000 - ₹3,500</li>
-          <li><strong>Luxury:</strong> ₹4,500 - ₹5,000</li>
-        </ul>
-        <p className="mt-4 text-lg">📍 Prices are approximate and may vary based on route & toll charges.</p>
-      </section>
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🏙️ Pune to Mumbai Taxi Booking Services</h4>
-        <p className="mt-4 text-lg">We offer multiple cab options based on your travel needs:</p>
-        <p className="mt-4 text-lg">1️⃣ <strong>One-Way Pune to Mumbai Taxi</strong> <br /> Planning a one-way trip? Our Pune to Mumbai taxi one-way service offers the most budget-friendly travel experience. Pay only for a single journey without any return fare charges. Our fleet includes well-maintained sedans, SUVs, and luxury cabs, ensuring a comfortable ride for solo travelers, families, and business professionals. Enjoy hassle-free, on-time pickup and drop-off to your exact location!
-        </p>
-        <p className="mt-4 text-lg">2️⃣ <strong>Round-Trip Pune to Mumbai Cab</strong><br />Traveling round-trip? Our Mumbai to Pune cab service provides a convenient and affordable return journey option. Whether it’s a weekend getaway or a business meeting, we ensure a stress-free travel experience with well-maintained cars, courteous drivers, and affordable fare packages. Avoid last-minute hassles and book in advance to secure your ride.
-        .</p>
-        <p className="mt-4 text-lg">3️⃣ <strong>Pune to Mumbai Airport Taxi</strong> <br />Need a cab to catch your flight? Our Pune to Mumbai airport cab service guarantees on-time pickups and drop-offs at Chhatrapati Shivaji International Airport. With real-time tracking and experienced drivers, we make sure you reach the airport comfortably and well before your departure time. Our airport cabs are available 24/7, making your travel smooth and convenient.</p>
-        <p className="mt-4 text-lg">4️⃣ <strong>Pune to Mumbai Cab Sharing</strong> <br /> Looking for a cost-effective travel option? Our Pune to Mumbai cab sharing service helps you split travel costs with fellow passengers while ensuring a comfortable and safe journey. This is an ideal option for solo travelers or those looking to travel affordably while enjoying a reliable cab experience.
-        .</p>
-        <p className="mt-4 text-lg">5️⃣ <strong>Pune to Outstation Cab</strong> <br /> Planning an extended journey beyond Mumbai? Our Pune to outstation cab service offers comfortable rides to destinations across India. Whether you’re heading to Goa, Nashik, Mahabaleshwar, Lonavala, or Shirdi, we provide affordable pricing, experienced drivers, and well-maintained vehicles to ensure a seamless travel experience.
-        </p>
-      </section>
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🕒 How Long Does it Take to Travel from Pune to Mumbai?</h4>
-        <p className="mt-4 text-lg">⏳ <strong>Travel Duration:</strong> On average, the journey from Pune to Mumbai takes 3.5 to 4.5 hours, depending on traffic, weather conditions, and roadwork.</p>
-        <p className="mt-4 text-lg">🛣️ <strong>Route Overview:</strong> The most preferred and fastest route is via the Mumbai-Pune Expressway, covering approximately 150 km. The major landmarks along the way include:</p>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li><strong>Pune</strong> – Starting point, known for its vibrant culture and IT hub.</li>
-          <li><strong>Lonavala</strong> – A scenic hill station, perfect for a short break or quick refreshments.</li>
-          <li><strong>Panvel</strong> – A key stop near Navi Mumbai with access to highways leading to different parts of Mumbai.</li>
-          <li><strong>Mumbai</strong> – Your final destination, whether for business, leisure, or an airport drop.</li>
-        </ul>
-        <p className="mt-4 text-lg">🚦 <strong>Travel Tip:</strong> To avoid peak-hour congestion, plan your journey during early mornings or late evenings for a smoother ride.</p>
-      </section>
-      {/* How to Book a Cab */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">📖 How to Book a Pune to Mumbai Cab?</h4>
-        <p className="mt-4 text-lg">📱 <strong>Simple & Fast Booking Process:</strong></p>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>Visit: <a href="https://aimcab.com" className="text-blue-500 underline">aimcab.com</a></li>
-          <li>Enter Pickup & Drop Location</li>
-          <li>Choose Your Cab Type</li>
-          <li>Confirm Booking & Make Payment</li>
-          <li>Get Instant Confirmation & Enjoy Your Ride!</li>
-        </ul>
-        <p className="mt-4 text-lg">📞 <strong>Need help?</strong> Call/WhatsApp us at <a href="tel:+9191305454491" className="text-blue-500 underline">+91 91305454491</a> for instant support.</p>
-      </section>
+     
       
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">❓ Frequently Asked Questions (FAQs)</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li><strong>What is the Pune to Mumbai cab fare?</strong> <br />
-          The fare starts at ₹2,200 for sedans and may vary based on your cab choice.</li>
-          <li><strong>Can I book a one-way taxi from Pune to Mumbai?</strong> <br /> Yes! We offer Pune to Mumbai taxi one-way at the lowest fares.</li>
-          <li><strong>Is Pune to Mumbai cab available 24/7?</strong><br /> Yes, Aim Cab provides round-the-clock service for Pune to Mumbai routes.</li>
-          <li><strong>How do I pay for my cab booking?</strong><br /> You can pay via cash, UPI, credit/debit cards, or online wallets.</li>
-          <li><strong>Can I schedule my cab in advance?</strong><br /> Absolutely! You can pre-book your ride at <a href="https://aimcab.com" className="text-blue-500 underline">aimcab.com</a> to secure your cab.</li>
-          <li><strong>Are toll charges included in the fare?</strong> <br />No, toll charges are additional and will be borne by the passenger.</li>
-          <li><strong>What if my flight is delayed?</strong> <br />We offer flexible scheduling, and our drivers monitor flight timings to adjust accordingly.</li>
-          <li><strong>Do you provide Pune to Mumbai cab sharing options?</strong> <br /> Yes! We offer affordable cab sharing services for budget-friendly travel.</li>
-          <li><strong>Can I modify or cancel my booking?</strong> <br />Yes, you can modify or cancel bookings as per our flexible cancellation policy.</li>
-          <li><strong>Are the drivers experienced and verified?</strong> <br />Yes, all our drivers are licensed, experienced, and background-verified for safety.</li>
-        </ul>
-        <br />
-        <strong>🚗 Book your Pune to Mumbai cab now & enjoy a smooth ride!
-        </strong>
-      </section>
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">🏅 About Aim Cab</h4>
-        <p className="mt-4 text-lg">🚗 <strong>Trusted Since 2001</strong> – With over two decades of experience, Aim Cab has built a reputation as the most reliable and customer-friendly cab service in Pune. Our commitment to quality service, affordability, and safety has made us the preferred choice for travelers across India.</p>
-        <p className="mt-4 text-lg">🌍 <strong>Expansive Fleet & Network</strong> – We operate with:</p>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>50+ Personal Cabs Across India – Ensuring availability whenever you need a ride.</li>
-          <li>500+ Registered Cabs – Providing seamless intercity and outstation trips.</li>
-          <li>2,00,000+ Happy Customers – Satisfied travelers who trust Aim Cab for their journeys.</li>
-          <li>3,000+ Outstation Trips Completed – From leisure to business trips, we’ve covered it all.</li>
-        </ul>
-        <p className="mt-4 text-lg">💡 <strong>Our Mission:</strong> To make travel affordable, accessible, and hassle-free for everyone.</p>
-        <p className="mt-4 text-lg">🏆 <strong>Our Promise:</strong> Reliable, Affordable & Safe Travel – That’s Aim Cab!</p>
-      </section>
-      {/* Footer */}
-<div>
-      {/* Redesigned Responsive Footer */}
-      <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-        {/* Footer content area */}
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Additional footer columns can be added here */}
+
+        {/* Main Title */}
+        <div className=" mx-auto px-4 bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold">
+          <h2 className="text-3xl font-bold mt-8 mb-6 text-center text-[#76453B]">
+            Pune to Mumbai Cab Service - Affordable & Reliable Taxi Booking
+          </h2>
+
+          <BookingForm />
+
+       {/* Service Description - Card Version */}
+<section className="mt-8 grid gap-6 md:grid-cols-2">
+  {/* Your Best Choice Card */}
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100 transform hover:scale-[1.02] transition-all duration-200">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">🚖</span> Pune to Mumbai Cab Service
+      </h3>
+    </div>
+    <div className="p-6">
+      <p className="text-gray-700 mb-4">
+      Looking for a Pune to Mumbai cab service that’s affordable, reliable, and convenient? Aim Cab offers the best taxi booking experience with guaranteed lowest prices, professional drivers, and a wide range of car options. Whether you're traveling for business, leisure, or need an urgent airport transfer, our services ensure a comfortable and stress-free ride.
+      </p>
+      
+      <div className="space-y-3">
+        <div className="flex items-start">
+          <div className="bg-green-100 p-1 rounded-full mr-3 mt-0.5">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
           </div>
+          <span className="text-gray-700"><strong className="text-[#76453B]">Just ₹11/km</strong> - Lowest price guaranteed</span>
         </div>
-
-        {/* Popular Cities Section */}
-        <div className="container mx-auto px-4 text-center mb-4">
-          <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-            POPULAR CITIES:
-          </b>
-          <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-            {/* Pune Button */}
-            <a
-              href="/Pune"
-              className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-blue-400 to-yellow-300 
-                         text-gray-800 font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-            >
-              Pune
-            </a>
-
-            {/* Mumbai Button */}
-            <a
-              href="/Mumbai"
-              className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-blue-400 to-yellow-300 
-                         text-gray-800 font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-            >
-              Mumbai
-            </a>
+        
+        <div className="flex items-start">
+          <div className="bg-green-100 p-1 rounded-full mr-3 mt-0.5">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
           </div>
+          <span className="text-gray-700"><strong className="text-[#76453B]">Verified drivers</strong> - Safe & well-maintained cabs</span>
         </div>
-
-        {/* Divider */}
-        <hr className="border-gray-300 my-8" />
-
-        {/* Quick Links Section */}
-        <div className="container mx-auto px-4 text-center mb-8">
-          <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-            QUICK LINKS:
-          </b>
-          <div className="mt-2 flex flex-wrap justify-center">
-            {[
-              "HOME",
-              "UPDATES",
-              "ABOUT",
-              "SERVICES",
-              "CONTACT US",
-              "CAREER",
-              "FAQ's",
-              "PRIVACY POLICY",
-              "TERMS & CONDITIONS",
-            ].map((link, i) => (
-              <a
-                key={i}
-                href="/"
-                className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
-              >
-                {link}
-              </a>
-            ))}
+        
+        <div className="flex items-start">
+          <div className="bg-green-100 p-1 rounded-full mr-3 mt-0.5">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
           </div>
+          <span className="text-gray-700"><strong className="text-[#76453B]">24/7 availability</strong> - On-time pickups & drop-offs</span>
         </div>
-
-        {/* Divider */}
-        <hr className="border-gray-300 my-8" />
-
-        {/* Designed by Section */}
-        <div className="container mx-auto px-4 text-center mb-8">
-          <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-            DESIGNED BY
-          </h4>
-          <a
-            href="https://cobaztech.com"
-            target="_blank"
-            className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
-          >
-            COBAZTECH
-          </a>
-        </div>
-
-        {/* Social Media Section */}
-        <div className="container mx-auto px-4 text-center mt-6">
-          <span className="flex justify-center flex-wrap">
-            <a
-              href="https://wa.me/9130030054"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/whatsapp.png"
-                alt="WhatsApp"
-              />
-            </a>
-            <a
-              href="https://www.facebook.com/Aimcab"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/facebook.png"
-                alt="Facebook"
-              />
-            </a>
-            <a
-              href="https://www.youtube.com/@AimCab"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/youtube.png"
-                alt="YouTube"
-              />
-            </a>
-            <a
-              href="https://twitter.com/aim_cab"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/twitter.png"
-                alt="Twitter"
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/aim-cab-77356b208/"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/linked-in.png"
-                alt="LinkedIn"
-              />
-            </a>
-            <a
-              href="https://join.skype.com/invite/sRT2FTyb7d1H"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/skype.png"
-                alt="Skype"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/aimcabs/"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-            >
-              <img
-                className="w-8 h-8 inline-block mb-2"
-                src="images/instagram.png"
-                alt="Instagram"
-              />
+        
+        <div className="flex items-start">
+          <div className="bg-green-100 p-1 rounded-full mr-3 mt-0.5">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <span className="text-gray-700"><strong className="text-[#76453B]">Instant confirmation</strong> at{" "}
+            <a href="https://aimcab.com" className="text-sky-600 underline hover:text-sky-800">
+              aimcab.com
             </a>
           </span>
         </div>
       </div>
-
-      {/* Copyright Section */}
-      <div className="container mx-auto px-4 text-center">
-        <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-          &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
+      
+      <div className="mt-6 bg-sky-50 p-4 rounded-lg border border-sky-100">
+        <p className="text-sky-800 font-medium flex items-center">
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          No hidden charges - 100% transparent pricing
         </p>
       </div>
     </div>
   </div>
-</>
-);
-};
 
-export default page;
+  {/* Why Choose Aim Cab Card */}
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100 transform hover:scale-[1.02] transition-all duration-200">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">🏆</span> Why Choose Aim Cab?
+      </h3>
+    </div>
+    <div className="p-6">
+      <p className="text-gray-700 mb-4">
+        Trusted by 2 lakh+ customers for premium Pune to Mumbai taxi services with unmatched benefits.
+      </p>
+      
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="bg-sky-50 p-3 rounded-lg border border-sky-100">
+          <h4 className="font-bold text-[#76453B] mb-1 flex items-center">
+            <svg className="w-4 h-4 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Affordable Pricing
+          </h4>
+          <p className="text-sm text-gray-600">Lowest price guarantee for all trips</p>
+        </div>
+        
+        <div className="bg-sky-50 p-3 rounded-lg border border-sky-100">
+          <h4 className="font-bold text-[#76453B] mb-1 flex items-center">
+            <svg className="w-4 h-4 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+            Premium Vehicles
+          </h4>
+          <p className="text-sm text-gray-600">Sedans, SUVs, Luxury Cars & Tempo Travellers</p>
+        </div>
+        
+        <div className="bg-sky-50 p-3 rounded-lg border border-sky-100">
+          <h4 className="font-bold text-[#76453B] mb-1 flex items-center">
+            <svg className="w-4 h-4 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+            </svg>
+            Flexible Trips
+          </h4>
+          <p className="text-sm text-gray-600">One-way & round-trip options available</p>
+        </div>
+        
+        <div className="bg-sky-50 p-3 rounded-lg border border-sky-100">
+          <h4 className="font-bold text-[#76453B] mb-1 flex items-center">
+            <svg className="w-4 h-4 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            Airport Transfers
+          </h4>
+          <p className="text-sm text-gray-600">On-time Mumbai airport drops with tracking</p>
+        </div>
+      </div>
+      
+      <div className="mt-6 bg-gradient-to-r from-sky-50 to-blue-50 p-4 rounded-lg border border-sky-200">
+        <div className="flex items-center">
+          <div className="bg-sky-100 p-2 rounded-full mr-3">
+            <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 className="text-lg font-bold text-sky-800">Hassle-free travel experience!</h4>
+            <p className="text-sm text-gray-600">Multiple payment options & flexible cancellation policy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+          {/* Cab Options & Fare Details */}
+          {/* Cab Options & Fare Details - Card Version */}
+<section className="mt-8">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">🚖</span> Pune to Mumbai Cab Options
+      </h3>
+    </div>
+    <div className="p-6">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-max">
+          <thead>
+            <tr className="bg-sky-50 text-[#76453B]">
+              <th className="p-3 text-left font-semibold">Cab Type</th>
+              <th className="p-3 text-left font-semibold">Price (₹/KM)</th>
+              <th className="p-3 text-left font-semibold">Best For</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            <tr className="hover:bg-sky-50">
+              <td className="p-3">
+                <div className="flex items-center">
+                  <div className="bg-sky-100 p-2 rounded-lg mr-3">
+                    <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                  </div>
+                  <span>Sedan (Dzire, Etios)</span>
+                </div>
+              </td>
+              <td className="p-3 font-medium text-green-600">₹11/km</td>
+              <td className="p-3 text-gray-600">Budget-friendly travel</td>
+            </tr>
+            <tr className="hover:bg-sky-50">
+              <td className="p-3">
+                <div className="flex items-center">
+                  <div className="bg-sky-100 p-2 rounded-lg mr-3">
+                    <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                  </div>
+                  <span>SUV (Ertiga, Xylo)</span>
+                </div>
+              </td>
+              <td className="p-3 font-medium text-green-600">₹14/km</td>
+              <td className="p-3 text-gray-600">Family trips & luggage space</td>
+            </tr>
+            <tr className="hover:bg-sky-50">
+              <td className="p-3">
+                <div className="flex items-center">
+                  <div className="bg-sky-100 p-2 rounded-lg mr-3">
+                    <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                  </div>
+                  <span>Luxury (Innova Crysta)</span>
+                </div>
+              </td>
+              <td className="p-3 font-medium text-green-600">₹18/km</td>
+              <td className="p-3 text-gray-600">Premium comfort</td>
+            </tr>
+            <tr className="hover:bg-sky-50">
+              <td className="p-3">
+                <div className="flex items-center">
+                  <div className="bg-sky-100 p-2 rounded-lg mr-3">
+                    <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                  </div>
+                  <span>Tempo Traveller</span>
+                </div>
+              </td>
+              <td className="p-3 font-medium text-green-600">₹25/km</td>
+              <td className="p-3 text-gray-600">Group trips</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Fare Estimate - Card Version */}
+<section className="mt-6 grid gap-6 md:grid-cols-2">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">💰</span> Fare Estimate
+      </h3>
+    </div>
+    <div className="p-6">
+      <div className="space-y-4">
+        <div className="flex items-center justify-between p-3 bg-sky-50 rounded-lg">
+          <span className="font-medium">Sedan</span>
+          <span className="font-bold text-[#76453B]">₹2,200 - ₹2,500</span>
+        </div>
+        <div className="flex items-center justify-between p-3 bg-sky-50 rounded-lg">
+          <span className="font-medium">SUV</span>
+          <span className="font-bold text-[#76453B]">₹3,000 - ₹3,500</span>
+        </div>
+        <div className="flex items-center justify-between p-3 bg-sky-50 rounded-lg">
+          <span className="font-medium">Luxury</span>
+          <span className="font-bold text-[#76453B]">₹4,500 - ₹5,000</span>
+        </div>
+      </div>
+      <div className="mt-4 p-3 bg-yellow-50 border border-yellow-100 rounded-lg text-sm text-yellow-800">
+        <svg className="w-5 h-5 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        Prices are approximate and may vary based on route & toll charges.
+      </div>
+    </div>
+  </div>
+
+  {/* Travel Duration Card */}
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">🕒</span> Travel Time
+      </h3>
+    </div>
+    <div className="p-6">
+      <div className="flex items-center mb-4">
+        <div className="bg-sky-100 p-2 rounded-lg mr-3">
+          <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 className="font-bold">Duration</h4>
+          <p className="text-gray-600">3.5 to 4.5 hours (depending on traffic)</p>
+        </div>
+      </div>
+      
+      <div className="flex items-center mb-4">
+        <div className="bg-sky-100 p-2 rounded-lg mr-3">
+          <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 className="font-bold">Route</h4>
+          <p className="text-gray-600">Mumbai-Pune Expressway (150 km)</p>
+        </div>
+      </div>
+      
+      <div className="bg-blue-50 p-3 rounded-lg border border-blue-100">
+        <div className="flex">
+          <svg className="w-5 h-5 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <p className="text-sm text-[#76453B]">Travel Tip: Plan your journey during early mornings or late evenings for a smoother ride.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Booking Services - Card Version */}
+<section className="mt-8">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">🏙️</span> Booking Services
+      </h3>
+    </div>
+    <div className="p-6 grid gap-6 md:grid-cols-2">
+      {/* Service Cards */}
+      <div className="border border-gray-200 rounded-lg p-4 hover:border-sky-300 transition-colors">
+        <div className="flex items-start">
+          <div className="bg-sky-100 text-sky-800 rounded-full p-2 mr-3">1️⃣</div>
+          <div>
+            <h4 className="font-bold text-sky-800">One-Way Taxi</h4>
+            <p className="text-gray-600 text-sm mt-1">Budget-friendly single journey without return fare charges</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="border border-gray-200 rounded-lg p-4 hover:border-sky-300 transition-colors">
+        <div className="flex items-start">
+          <div className="bg-sky-100 text-sky-800 rounded-full p-2 mr-3">2️⃣</div>
+          <div>
+            <h4 className="font-bold text-sky-800">Round-Trip Cab</h4>
+            <p className="text-gray-600 text-sm mt-1">Convenient return journey option for weekend getaways</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="border border-gray-200 rounded-lg p-4 hover:border-sky-300 transition-colors">
+        <div className="flex items-start">
+          <div className="bg-sky-100 text-sky-800 rounded-full p-2 mr-3">3️⃣</div>
+          <div>
+            <h4 className="font-bold text-sky-800">Airport Taxi</h4>
+            <p className="text-gray-600 text-sm mt-1">On-time pickups with real-time tracking for flights</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="border border-gray-200 rounded-lg p-4 hover:border-sky-300 transition-colors">
+        <div className="flex items-start">
+          <div className="bg-sky-100 text-sky-800 rounded-full p-2 mr-3">4️⃣</div>
+          <div>
+            <h4 className="font-bold text-sky-800">Cab Sharing</h4>
+            <p className="text-gray-600 text-sm mt-1">Cost-effective option to split travel costs</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="border border-gray-200 rounded-lg p-4 hover:border-sky-300 transition-colors md:col-span-2">
+        <div className="flex items-start">
+          <div className="bg-sky-100 text-sky-800 rounded-full p-2 mr-3">5️⃣</div>
+          <div>
+            <h4 className="font-bold text-sky-800">Outstation Cab</h4>
+            <p className="text-gray-600 text-sm mt-1">Extended journeys to Goa, Nashik, Mahabaleshwar, etc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* How to Book - Card Version */}
+<section className="mt-8">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">📖</span> How to Book
+      </h3>
+    </div>
+    <div className="p-6">
+      <div className="flex items-start mb-6">
+        <div className="bg-sky-100 p-2 rounded-lg mr-4">
+          <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg mb-2">Simple & Fast Booking Process</h4>
+          <ol className="list-decimal pl-5 space-y-2 text-gray-700">
+            <li>Visit <a href="https://aimcab.com" className="text-sky-600 underline">aimcab.com</a></li>
+            <li>Enter Pickup & Drop Location</li>
+            <li>Choose Your Cab Type</li>
+            <li>Confirm Booking & Make Payment</li>
+            <li>Get Instant Confirmation</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-start">
+        <svg className="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+        </svg>
+        <div>
+          <p className="font-medium text-[#76453B]">Need help? Call/WhatsApp us at <a href="tel:+9191305454491" className="underline">+91 91305454491</a> for instant support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* FAQ - Card Version */}
+<section className="mt-8">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">❓</span> Frequently Asked Questions
+      </h3>
+    </div>
+    <div className="p-6">
+      <div className="space-y-4">
+        {faqItems.map((item, index) => (
+          <div key={index} className="border-b border-gray-200 pb-4 last:border-0 last:pb-0">
+            <h4 className="font-bold text-sky-800">{item.question}</h4>
+            <p className="text-gray-600 mt-1">{item.answer}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-6 bg-gradient-to-r from-sky-50 to-blue-50 p-4 rounded-lg border border-sky-200 text-center">
+        <p className="font-bold text-sky-800 text-lg">🚗 Book your Pune to Mumbai cab now & enjoy a smooth ride!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* About Aim Cab - Card Version */}
+<section className="mt-8 mb-12">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
+    <div className="bg-[#76453B] p-4">
+      <h3 className="text-2xl font-bold text-white flex items-center">
+        <span className="mr-2">🏅</span> About Aim Cab
+      </h3>
+    </div>
+    <div className="p-6">
+      <div className="flex items-start mb-6">
+        <div className="bg-sky-100 p-2 rounded-lg mr-4">
+          <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4 className="font-bold text-lg mb-2">Trusted Since 2001</h4>
+          <p className="text-gray-700">With over two decades of experience, Aim Cab has built a reputation as the most reliable and customer-friendly cab service in Pune.</p>
+        </div>
+      </div>
+      
+      <div className="mb-6">
+        <h4 className="font-bold text-lg mb-3 flex items-center">
+          <svg className="w-5 h-5 text-[#76453B] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+          Expansive Fleet & Network
+        </h4>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="bg-sky-50 p-3 rounded-lg">
+            <p className="font-medium text-sky-800">50+ Personal Cabs</p>
+            <p className="text-sm text-gray-600">Across India</p>
+          </div>
+          <div className="bg-sky-50 p-3 rounded-lg">
+            <p className="font-medium text-sky-800">500+ Registered Cabs</p>
+            <p className="text-sm text-gray-600">For intercity trips</p>
+          </div>
+          <div className="bg-sky-50 p-3 rounded-lg">
+            <p className="font-medium text-sky-800">2,00,000+ Customers</p>
+            <p className="text-sm text-gray-600">Happy travelers</p>
+          </div>
+          <div className="bg-sky-50 p-3 rounded-lg">
+            <p className="font-medium text-sky-800">3,000+ Trips</p>
+            <p className="text-sm text-gray-600">Completed</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="space-y-4">
+        <div className="flex items-start">
+          <div className="bg-sky-100 p-1 rounded-full mr-3 mt-1">
+            <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <p className="text-gray-700"><strong className="text-sky-800">Our Mission:</strong> To make travel affordable, accessible, and hassle-free for everyone.</p>
+        </div>
+        
+        <div className="flex items-start">
+          <div className="bg-sky-100 p-1 rounded-full mr-3 mt-1">
+            <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <p className="text-gray-700"><strong className="text-sky-800">Our Promise:</strong> Reliable, Affordable & Safe Travel – That's Aim Cab!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+        {/* Footer */}
+        <div>
+          {/* Redesigned Responsive Footer */}
+          <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-white py-8 sm:py-10">
+            {/* Footer content area */}
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                {/* Additional footer columns can be added here */}
+              </div>
+            </div>
+
+            {/* Popular Cities Section */}
+            <div className="container mx-auto px-4 text-center mb-6">
+              <b className="text-sky-200 text-lg transition-all duration-300 ease-in-out hover:text-white">
+                POPULAR CITIES:
+              </b>
+              <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-4 flex-wrap gap-4">
+                {/* Pune Button */}
+                <a
+                  href="/Pune"
+                  className="relative inline-block px-8 sm:px-16 py-3 rounded-full 
+                         bg-white text-[#76453B] font-bold uppercase shadow-md 
+                         transform transition-all duration-500 ease-in-out 
+                         hover:scale-105 hover:bg-sky-100 hover:shadow-lg"
+                >
+                  Pune
+                </a>
+
+                {/* Mumbai Button */}
+                <a
+                  href="/Mumbai"
+                  className="relative inline-block px-8 sm:px-16 py-3 rounded-full 
+                         bg-white text-[#76453B] font-bold uppercase shadow-md 
+                         transform transition-all duration-500 ease-in-out 
+                         hover:scale-105 hover:bg-sky-100 hover:shadow-lg"
+                >
+                  Mumbai
+                </a>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <hr className="border-sky-600 my-8 max-w-4xl mx-auto opacity-30" />
+
+            {/* Quick Links Section */}
+            <div className="container mx-auto px-4 text-center mb-8">
+              <b className="text-sky-200 transition-all duration-300 ease-in-out hover:text-white">QUICK LINKS:</b>
+              <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
+                {[
+                  "HOME",
+                  "UPDATES",
+                  "ABOUT",
+                  "SERVICES",
+                  "CONTACT US",
+                  "CAREER",
+                  "FAQ's",
+                  "PRIVACY POLICY",
+                  "TERMS & CONDITIONS",
+                ].map((link, i) => (
+                  // eslint-disable-next-line @next/next/no-html-link-for-pages
+                  <a
+                    key={i}
+                    href="/"
+                    className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-sky-200"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Divider */}
+            <hr className="border-sky-600 my-8 max-w-4xl mx-auto opacity-30" />
+
+            {/* Designed by Section */}
+            <div className="container mx-auto px-4 text-center mb-8">
+              <h4 className="text-sky-200 transition-all duration-300 ease-in-out hover:text-white">DESIGNED BY</h4>
+              <a
+                href="https://cobaztech.com"
+                target="_blank"
+                className="text-white transition-all duration-300 ease-in-out font-semibold block mt-2 hover:text-sky-200 hover:scale-105"
+                rel="noreferrer"
+              >
+                COBAZTECH
+              </a>
+            </div>
+
+            {/* Social Media Section */}
+            <div className="container mx-auto px-4 text-center mt-6">
+              <span className="flex justify-center flex-wrap gap-4">
+                <a
+                  href="https://wa.me/9130030054"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/whatsapp.png" alt="WhatsApp" />
+                </a>
+                <a
+                  href="https://www.facebook.com/Aimcab"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/facebook.png" alt="Facebook" />
+                </a>
+                <a
+                  href="https://www.youtube.com/@AimCab"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/youtube.png" alt="YouTube" />
+                </a>
+                <a
+                  href="https://twitter.com/aim_cab"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/twitter.png" alt="Twitter" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aim-cab-77356b208/"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/linked-in.png" alt="LinkedIn" />
+                </a>
+                <a
+                  href="https://join.skype.com/invite/sRT2FTyb7d1H"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/skype.png" alt="Skype" />
+                </a>
+                <a
+                  href="https://www.instagram.com/aimcabs/"
+                  target="_blank"
+                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
+                  rel="noreferrer"
+                >
+                  <img className="w-6 h-6" src="images/instagram.png" alt="Instagram" />
+                </a>
+              </span>
+            </div>
+          </div>
+
+          {/* Copyright Section */}
+          <div className="bg-sky-950 text-white py-4">
+            <div className="container mx-auto px-4 text-center">
+              <p className="transition-all duration-300 ease-in-out hover:text-sky-300">
+                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default page

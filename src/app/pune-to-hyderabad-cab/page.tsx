@@ -1,4 +1,5 @@
 import React from 'react'
+import BookingForm from '../../components/BookingForm';
 
 const page = () => {
   return (
@@ -22,6 +23,8 @@ const page = () => {
       <h2 className="text-3xl font-bold mt-4 text-center">
         Pune to Hyderabad Cab - Book Affordable & Reliable Cabs
       </h2>
+
+      <BookingForm />
       
       {/* Service Description */}
       <section className="mt-6 p-6">
@@ -184,7 +187,7 @@ const page = () => {
         <p className="mt-4 text-lg">
           Do not wait! Experience a comfortable and stress-free journey with Aim Cab. Book your Pune to Hyderabad taxi today for the best travel experience.
           <br />
-          <strong>Call us at:</strong> [Your Contact Number] <br />
+          <strong>Call us at:</strong> +91 91305454491 <br />
           <strong>Visit us at:</strong> <a href="https://aimcab.com" className="text-blue-500 underline">aimcab.com</a>
         </p>
       </section>

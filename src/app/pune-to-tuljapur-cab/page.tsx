@@ -1,4 +1,5 @@
 import React from 'react'
+import BookingForm from '../../components/BookingForm';
 
 const page = () => {
   return (
@@ -22,6 +23,8 @@ const page = () => {
       <h2 className="text-3xl font-bold mt-4 text-center">
         Pune to Tuljapur Cab – Affordable & Comfortable Travel with Aim Cab
       </h2>
+
+      <BookingForm />
 
       {/* Service Description */}
       <section className="mt-6 p-6">

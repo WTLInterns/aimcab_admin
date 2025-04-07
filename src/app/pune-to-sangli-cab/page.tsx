@@ -1,4 +1,5 @@
 import React from 'react'
+import BookingForm from '../../components/BookingForm';
 
 const page = () => {
   return (
@@ -22,194 +23,320 @@ const page = () => {
       <h2 className="text-3xl font-bold mt-4 text-center">
         Pune to Sangli Cab Service – Book a Comfortable & Affordable Ride
       </h2>
+
+      <BookingForm />
       
-      {/* Service Description */}
-      <section className="mt-6 p-6">
-        <h3 className="text-2xl font-bold">Book Your Pune to Sangli Cab with Aim Cab</h3>
-        <p className="mt-4 text-lg">
-          Looking for a  <strong>Pune to Sangli cab? </strong>Aim Cab offers a seamless and budget-friendly taxi service for travelers seeking a comfortable and safe journey. Whether you need a cab for business, leisure, or emergencies, our well-maintained cars and experienced drivers ensure a smooth ride.
+ {/* Service Description */}
+{/* Hero Section */}
+<section className="mt-8 p-8 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl text-white shadow-lg">
+  <div className="max-w-5xl mx-auto text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">Pune to Sangli Cab Service</h1>
+    <p className="text-xl md:text-2xl leading-relaxed">
+      <span className="block mb-3">🚗 Comfortable & Affordable Cab Service</span>
+      <span className="font-semibold">Starting at just ₹11/km • 24/7 Availability • Instant Booking</span>
+    </p>
+    <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="https://aimcab.com" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors text-center">
+        Book Online Now
+      </a>
+      <a href="tel:+9191305454491" className="bg-transparent border-2 border-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-colors text-center">
+        Call: +91 91305454491
+      </a>
+    </div>
+  </div>
+</section>
+
+{/* Why Choose Us - Card Grid */}
+<section className="mt-16 p-6">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-indigo-800 mb-12">
+      Why Choose Aim Cab for Pune to Sangli?
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:shadow-lg transition-shadow">
+        <div className="text-blue-500 text-3xl mb-4">💰</div>
+        <h3 className="text-xl font-bold mb-2">Lowest Price Guarantee</h3>
+        <p className="text-gray-700">Starting at ₹11/km - cheapest rates guaranteed</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:shadow-lg transition-shadow">
+        <div className="text-blue-500 text-3xl mb-4">🚙</div>
+        <h3 className="text-xl font-bold mb-2">Multiple Cab Options</h3>
+        <p className="text-gray-700">Hatchbacks, sedans, SUVs & luxury vehicles</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:shadow-lg transition-shadow">
+        <div className="text-blue-500 text-3xl mb-4">👨‍✈️</div>
+        <h3 className="text-xl font-bold mb-2">Professional Drivers</h3>
+        <p className="text-gray-700">Experienced, verified & courteous chauffeurs</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:shadow-lg transition-shadow">
+        <div className="text-blue-500 text-3xl mb-4">⏱️</div>
+        <h3 className="text-xl font-bold mb-2">24/7 Availability</h3>
+        <p className="text-gray-700">Book anytime, even for late-night travel</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:shadow-lg transition-shadow">
+        <div className="text-blue-500 text-3xl mb-4">🔒</div>
+        <h3 className="text-xl font-bold mb-2">Safe & Secure</h3>
+        <p className="text-gray-700">GPS-tracked rides for your safety</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 hover:shadow-lg transition-shadow">
+        <div className="text-blue-500 text-3xl mb-4">📱</div>
+        <h3 className="text-xl font-bold mb-2">Easy Booking</h3>
+        <p className="text-gray-700">Instant confirmation via website or call</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Pricing Section */}
+<section className="mt-16 p-8 bg-gray-50 rounded-xl">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-indigo-800 mb-2">
+      Pune to Sangli Cab Fare
+    </h2>
+    <p className="text-center text-gray-600 mb-8">Transparent pricing with no hidden charges</p>
+    
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse rounded-lg overflow-hidden shadow-md">
+        <thead>
+          <tr className="bg-blue-600 text-white">
+            <th className="p-4 text-left">Cab Type</th>
+            <th className="p-4 text-left">Model Examples</th>
+            <th className="p-4 text-right">Price Per KM</th>
+            <th className="p-4 text-right">Approx. Total Fare</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-gray-200 hover:bg-blue-50">
+            <td className="p-4 font-medium">Hatchback</td>
+            <td className="p-4 text-gray-600">Indica, WagonR, Swift</td>
+            <td className="p-4 text-right">₹11/km</td>
+            <td className="p-4 text-right font-bold">₹2,530</td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-blue-50">
+            <td className="p-4 font-medium">Sedan</td>
+            <td className="p-4 text-gray-600">Dzire, Etios, Verna</td>
+            <td className="p-4 text-right">₹12/km</td>
+            <td className="p-4 text-right font-bold">₹2,760</td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-blue-50">
+            <td className="p-4 font-medium">SUV</td>
+            <td className="p-4 text-gray-600">Innova, Ertiga, Xylo</td>
+            <td className="p-4 text-right">₹15/km</td>
+            <td className="p-4 text-right font-bold">₹3,450</td>
+          </tr>
+          <tr className="hover:bg-blue-50">
+            <td className="p-4 font-medium">Luxury</td>
+            <td className="p-4 text-gray-600">Crysta, Ciaz, Mercedes</td>
+            <td className="p-4 text-right">On Request</td>
+            <td className="p-4 text-right font-bold">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div className="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+      <p className="text-yellow-700">*Approximate 230km distance | Additional tolls and night charges may apply</p>
+    </div>
+  </div>
+</section>
+
+{/* Journey Info */}
+<section className="mt-16">
+  <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+    <div className="bg-white p-6 rounded-xl shadow-md">
+      <h3 className="text-2xl font-bold text-indigo-800 mb-4 flex items-center">
+        <span className="mr-3">🛣️</span> Route & Distance
+      </h3>
+      <p className="text-gray-700 mb-4">
+        <strong>Distance:</strong> 230 km<br />
+        <strong>Travel Time:</strong> 4-5 hours<br />
+        <strong>Best Route:</strong> Pune → Satara → Sangli (NH48)
+      </p>
+      <div className="bg-blue-50 p-4 rounded-lg">
+        <h4 className="font-bold mb-2">Alternative Route:</h4>
+        <p className="text-gray-700">Pune → Pandharpur → Sangli (NH166)<br />
+        <span className="text-sm">250 km • Scenic but slightly longer</span></p>
+      </div>
+    </div>
+    
+    <div className="bg-white p-6 rounded-xl shadow-md">
+      <h3 className="text-2xl font-bold text-indigo-800 mb-4 flex items-center">
+        <span className="mr-3">📱</span> Easy Booking Process
+      </h3>
+      <ol className="list-decimal list-inside space-y-3 text-gray-700">
+        <li>Visit <a href="https://aimcab.com" className="text-blue-500 underline">AimCab.com</a></li>
+        <li>Select 'Pune to Sangli' route</li>
+        <li>Choose your preferred vehicle</li>
+        <li>Confirm booking & get instant SMS</li>
+        <li>Or simply call <strong>+91 91305454491</strong></li>
+      </ol>
+      <div className="mt-6">
+        <a href="https://aimcab.com" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+          Book Now →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Attractions */}
+<section className="mt-16 p-8 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+      Top Places to Visit in Sangli
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+        <h3 className="text-xl font-bold text-green-700 mb-2">🛕 Sangli Ganpati Temple</h3>
+        <p className="text-gray-700">Famous temple attracting thousands of devotees annually</p>
+      </div>
+      <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+        <h3 className="text-xl font-bold text-green-700 mb-2">⛰️ Dandoba Hills</h3>
+        <p className="text-gray-700">Perfect for trekking with breathtaking views</p>
+      </div>
+      <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+        <h3 className="text-xl font-bold text-green-700 mb-2">🛕 Sangameshwar Temple</h3>
+        <p className="text-gray-700">Ancient Shiva temple at river confluence</p>
+      </div>
+      <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+        <h3 className="text-xl font-bold text-green-700 mb-2">🌊 Krishna River</h3>
+        <p className="text-gray-700">Ideal for peaceful boat rides and picnics</p>
+      </div>
+      <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+        <h3 className="text-xl font-bold text-green-700 mb-2">🐅 Chandoli National Park</h3>
+        <p className="text-gray-700">Wildlife sanctuary with tigers and diverse flora</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* FAQ Section */}
+<section className="mt-16 p-6">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-indigo-800 mb-8">
+      Frequently Asked Questions
+    </h2>
+    
+    <div className="space-y-4">
+      <div className="border-b border-gray-200 pb-4">
+        <button className="flex justify-between items-center w-full text-left font-bold text-lg text-gray-800">
+          <span>What is the Pune to Sangli cab fare?</span>
+          <span className="text-blue-500 text-2xl">+</span>
+        </button>
+        <div className="mt-2 text-gray-700">
+          Our cab fares start at ₹11/km for hatchbacks, making it the most budget-friendly option. The approximate total fare for 230km is ₹2,530.
+        </div>
+      </div>
+      
+      <div className="border-b border-gray-200 pb-4">
+        <button className="flex justify-between items-center w-full text-left font-bold text-lg text-gray-800">
+          <span>Can I book a one-way cab?</span>
+          <span className="text-blue-500 text-2xl">+</span>
+        </button>
+        <div className="mt-2 text-gray-700">
+          Yes! We offer both one-way and round-trip services. One-way bookings are perfect for those not returning immediately.
+        </div>
+      </div>
+      
+      <div className="border-b border-gray-200 pb-4">
+        <button className="flex justify-between items-center w-full text-left font-bold text-lg text-gray-800">
+          <span>How long does the journey take?</span>
+          <span className="text-blue-500 text-2xl">+</span>
+        </button>
+        <div className="mt-2 text-gray-700">
+          Typically 4-5 hours depending on traffic and route taken. Our drivers take the most efficient path.
+        </div>
+      </div>
+      
+      <div className="border-b border-gray-200 pb-4">
+        <button className="flex justify-between items-center w-full text-left font-bold text-lg text-gray-800">
+          <span>Are there extra charges for night travel?</span>
+          <span className="text-blue-500 text-2xl">+</span>
+        </button>
+        <div className="mt-2 text-gray-700">
+          A nominal night charge may apply for journeys between 10 PM to 6 AM. This covers driver safety and convenience.
+        </div>
+      </div>
+      
+      <div className="border-b border-gray-200 pb-4">
+        <button className="flex justify-between items-center w-full text-left font-bold text-lg text-gray-800">
+          <span>What payment methods do you accept?</span>
+          <span className="text-blue-500 text-2xl">+</span>
+        </button>
+        <div className="mt-2 text-gray-700">
+          We accept all major payment options: Credit/Debit cards, UPI (Google Pay, PhonePe), Net Banking, and cash payments.
+        </div>
+      </div>
+    </div>
+    
+    <div className="mt-8 text-center">
+      <a href="#contact" className="text-blue-500 font-semibold hover:underline">
+        View all 10 FAQs ↓
+      </a>
+    </div>
+  </div>
+</section>
+
+{/* CTA Section */}
+<section className="mt-16 p-10 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl text-white text-center">
+  <h2 className="text-3xl font-bold mb-4">Ready for Your Pune to Sangli Trip?</h2>
+  <p className="text-xl mb-8 max-w-2xl mx-auto">
+    Book your comfortable cab today and enjoy a stress-free journey at the best prices!
+  </p>
+  <div className="flex flex-col sm:flex-row justify-center gap-4">
+    <a href="https://aimcab.com" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors text-lg">
+      🚗 Book Online Instantly
+    </a>
+    <a href="tel:+9191305454491" className="bg-transparent border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-colors text-lg">
+      📞 Call: +91 91305454491
+    </a>
+  </div>
+</section>
+
+{/* About Section */}
+<section className="mt-16 p-8 bg-white rounded-xl shadow-md">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-indigo-800 mb-8">
+      About Aim Cab - Your Trusted Travel Partner
+    </h2>
+    <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <p className="text-lg text-gray-700 mb-6">
+          Established in 2001, Aim Cab has grown to become one of Maharashtra's most reliable cab services, completing over 3,000 successful outstation trips.
         </p>
-      </section>
-      
-      {/* Why Choose Aim Cab */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Why Choose Aim Cab for Your Pune to Sangli Journey?</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li><strong>Lowest Price Guarantee – </strong>We offer the most affordable Pune to Sangli cab service starting at just ₹11/km.</li>
-          <li><strong>Convenient Booking – </strong>Hassle-free online cab booking from Pune to Sangli with instant confirmation.</li>
-          <li><strong>Variety of Cabs – </strong>Choose from hatchbacks, sedans, SUVs, and luxury cars.</li>
-          <li><strong>Professional Drivers – </strong>Our skilled and courteous drivers ensure a safe ride.</li>
-          <li><strong>Flexible Pickup & Drop – </strong>Travel at your convenience, with doorstep pickup and drop-off services.</li>
-        </ul>
-      </section>
-      
-      {/* Cab Fare & Pricing */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Pune to Sangli Cab Fare & Pricing</h4>
-        <p className="mt-4 text-lg">
-          Our pricing is competitive, ensuring the lowest Pune to Sangli cab fare with no hidden costs.
-        </p>
-        <table className="mt-4 w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Cab Type</th>
-              <th className="border border-gray-300 p-2">Fare (₹/km)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 p-2"><strong>Hatchback (Indica, WagonR, etc.)</strong></td>
-              <td className="border border-gray-300 p-2">₹11/km</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2"><strong>Sedan (Dzire, Etios, etc.)</strong></td>
-              <td className="border border-gray-300 p-2">₹12/km</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2"><strong>SUV (Innova, Ertiga, etc.)</strong></td>
-              <td className="border border-gray-300 p-2">₹15/km</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2"><strong>Luxury Cars</strong></td>
-              <td className="border border-gray-300 p-2">Available on request</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      
-      {/* Distance & Travel Time */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Pune to Sangli Distance by Road & Travel Time</h4>
-        <p className="mt-4 text-lg">
-          The Pune to Sangli distance by road is approximately 230 km, and the journey typically takes around 4-5 hours, depending on traffic and road conditions.
-        </p>
-      </section>
-      
-      {/* Best Routes */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Best Routes for Pune to Sangli Cab Service</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>
-            <strong>Route 1: Via NH48 (Pune – Satara – Sangli)</strong>
-            <br />
-           <li>Distance: 230 km </li> 
-            <li> Travel Time: 4 hours 30 minutes  </li> 
-           <li> Road Condition: Smooth and fast highway route </li> 
+        <ul className="space-y-3 text-gray-700">
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">✓</span>
+            <span><strong>20+ Years</strong> of trusted service</span>
           </li>
-          <li>
-            <strong>Route 2: Via NH166 (Pune – Pandharpur – Sangli)</strong>
-            <br />
-           <li> Distance: 250 km </li> 
-            <li> Travel Time: 5 hours  </li> 
-            <li> Road Condition: Scenic route with local attractions along the way </li> 
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">✓</span>
+            <span><strong>500+ Vehicles</strong> in our network</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">✓</span>
+            <span><strong>2 Lakh+</strong> satisfied customers</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">✓</span>
+            <span><strong>24/7</strong> customer support</span>
           </li>
         </ul>
-      </section>
-      
-      {/* Online Booking */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Online Cab Booking from Pune to Sangli</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>Visit our website <a href="https://aimcab.com" className="text-blue-500 underline">AimCab.com</a></li>
-          <li>Enter your pickup and drop-off location.</li>
-          <li>Select your preferred cab type.</li>
-          <li>Confirm your booking and get an instant confirmation.</li>
-          <li>Or call us at <strong>+91 91305454491</strong> to book your ride instantly.</li>
-        </ul>
-      </section>
-      
-      {/* Travel Guide */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Travel Guide – Best Places to Visit in Sangli</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>
-            <strong>Sangli Ganpati Temple – </strong>
-            A famous temple dedicated to Lord Ganesha, attracting thousands of devotees every year.
-          </li>
-          <li>
-            <strong>Dandoba Hills – </strong>
-            Perfect for trekking and nature lovers, offering breathtaking views.
-          </li>
-          <li>
-            <strong>Sangameshwar Temple – </strong>
-            An ancient Shiva temple located at the confluence of the Krishna and Warana rivers.
-          </li>
-          <li>
-            <strong>Krishna River – </strong>
-            Ideal for a peaceful boat ride or riverside picnic with family and friends.
-          </li>
-          <li>
-            <strong>Chandoli National Park – </strong>
-            A perfect destination for wildlife lovers, home to tigers, deer, and diverse flora.
-          </li>
-        </ul>
-      </section>
-      
-      {/* FAQs */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">FAQs – Pune to Sangli Cab Service</h4>
-        <ul className="mt-4 text-lg list-disc pl-6">
-          <li>
-            <strong>What is the Pune to Sangli cab fare?</strong><br />
-            Our cab fares start at ₹11/km, ensuring the most budget-friendly rates.
-          </li><br />
-          <li>
-            <strong>Can I book a one-way cab from Pune to Sangli?</strong><br />
-            Yes, we offer both one-way and round-trip services.
-          </li><br />
-          <li>
-            <strong>What are the payment options for booking a Pune to Sangli cab?</strong><br />
-            We accept online payments, UPI, net banking, and cash payments.
-          </li><br />
-          <li>
-            <strong>How long does it take to travel from Pune to Sangli by cab?</strong><br />
-            It takes around 4-5 hours, depending on road conditions and traffic.
-          </li><br />
-          <li>
-            <strong>Are there additional charges for night travel?</strong><br />
-            Night charges may apply. Contact us for detailed pricing.
-          </li><br />
-          <li>
-            <strong>Is online cab booking from Pune to Sangli safe?</strong><br />
-            Yes, we provide secure and verified bookings with experienced drivers.
-          </li><br />
-          <li>
-            <strong>Do you provide an airport pickup service for Pune to Sangli?</strong><br />
-            Yes, we offer airport pickups and drop-offs.
-          </li><br />
-          <li>
-            <strong>Can I book a cab from Sangli to Pune as well?</strong><br />
-            Yes, we offer return trip bookings from Karad to Pune and other locations.
-          </li><br />
-          <li>
-            <strong>What makes Aim Cab the best Pune to Sangli cab service?</strong><br />
-            We provide affordable pricing, comfortable rides, and top-notch service.
-          </li><br />
-          <li>
-            <strong>Is there a cancellation policy?</strong><br />
-            Yes, we have a flexible cancellation policy. Contact customer support for details.
-          </li> <br />
-        </ul>
-      </section>
-      
-      {/* Call to Action */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">Book Your Pune to Sangli Cab Now!</h4>
-        <p className="mt-4 text-lg">
-          Ready to travel? Book your Pune to Sangli cab today with Aim Cab and enjoy a safe, comfortable, and budget-friendly ride.
-          <br />
-          <strong>Call us:</strong> +91 91305454491 <br />
-          <strong>Visit us:</strong> <a href="https://aimcab.com" className="text-blue-500 underline">AimCab.com</a>
-        </p>
-      </section>
-      
-      {/* About Aim Cab */}
-      <section className="mt-6 p-6">
-        <h4 className="text-2xl font-bold">About Aim Cab – Trusted Travel Partner</h4>
-        <p className="mt-4 text-lg">
-          Aim Cab is a trusted cab booking company, established in 2001, with a strong presence across India. Our fleet includes 50+ personal cabs, and we have a network of 500+ registered cabs, serving 2 lakh+ happy customers and completing 3,000+ outstation trips successfully.
-        </p>
-      </section>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-lg border border-gray-200">
+        <h3 className="text-xl font-bold mb-4 text-center">Our Service Areas</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-white p-3 rounded shadow-sm text-center">Pune</div>
+          <div className="bg-white p-3 rounded shadow-sm text-center">Mumbai</div>
+          <div className="bg-white p-3 rounded shadow-sm text-center">Sangli</div>
+          <div className="bg-white p-3 rounded shadow-sm text-center">Satara</div>
+          <div className="bg-white p-3 rounded shadow-sm text-center">Kolhapur</div>
+          <div className="bg-white p-3 rounded shadow-sm text-center">All Maharashtra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {/* Redesigned Responsive Footer */}
 <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
