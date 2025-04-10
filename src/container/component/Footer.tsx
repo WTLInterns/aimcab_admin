@@ -1,89 +1,126 @@
-    'use client';
+"use client";
+import Link from "next/link";
+import { ArrowRight, Facebook, Twitter, Linkedin, Instagram, MapPin, Mail, Phone, Globe, Youtube } from "lucide-react";
+import { useRouter } from 'next/navigation'; // Updated import
 
-    export default function Footer() {
-      return (
-        <div className="bg-gradient-to-r from-[#8B6A4D] to-[#564632] font-semibold text-white py-8 sm:py-10 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Combined Cities and Quick Links in compact layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            {/* Popular Cities */}
-            <div>
-              <h3 className="text-lg font-bold text-white mb-4 text-center md:text-left">Our Top Cities</h3>
-              <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                {['Pune', 'Mumbai', 'Bangalore', 'Delhi'].map((city) => (
-                  <a 
-                    href={`/${city}`} 
-                    key={city}
-                    className="px-3 py-1 text-sm bg-white/10 rounded-full text-white hover:bg-white/20 hover:text-white transition-all"
-                  >
-                    {city}
-                  </a>
-                ))}
-              </div>
-            </div>
-      
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-bold text-white mb-4 text-center md:text-left">Quick Links</h3>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  {name: 'Home', link: '/'},
-                  {name: 'About', link: '/#about'},
-                  {name: 'Services', link: '/#service'},
-                  {name: 'Contact', link: '/Contact'},
-                  {name: 'FAQ', link: '/FAQ'},
-                  {name: 'Privacy', link: '/PrivacyPolicy'},
-                ].map((item) => (
-                  <a 
-                    href={item.link} 
-                    key={item.name}
-                    className="text-sm text-white hover:text-white transition-colors text-center md:text-left"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
+export default function Footer() {
+  const router = useRouter();
+  return (
+    <footer className="w-full">
+      {/* Main Footer */}
+      <div className="bg-slate-800 text-gray-300 py-12 px-4 md:px-8">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* About Section */}
+          <div>
+            <h3 className="text-white text-xl font-semibold mb-4">About AIMCAB</h3>
+            <p className="text-gray-400 mb-6">
+              We provide premium transportation services with comfort and reliability. Enjoy seamless travel experiences
+              with our professional drivers and modern fleet.
+            </p>
+            <div className="flex space-x-3">
+              <Link href="https://www.facebook.com/Aimcab" className="bg-slate-700 hover:bg-slate-600 p-2 rounded-md transition-colors">
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link href="https://x.com/aim_cab" className="bg-slate-700 hover:bg-slate-600 p-2 rounded-md transition-colors">
+                <Twitter className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.linkedin.com/in/aim-cab-77356b208/" className="bg-slate-700 hover:bg-slate-600 p-2 rounded-md transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.instagram.com/aimcabs/" className="bg-slate-700 hover:bg-slate-600 p-2 rounded-md transition-colors">
+                <Instagram className="h-5 w-5" />
+              </Link>
+              <Link href="https://www.youtube.com/@AimCab" className="bg-slate-700 hover:bg-slate-600 p-2 rounded-md transition-colors">
+                <Youtube className="h-5 w-5" />
+              </Link>
             </div>
           </div>
-      
-          {/* Divider */}
-          <hr className="border-white/20 my-4" />
-      
-          {/* Bottom compact row */}
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
-            <div className="text-sm text-white/80 text-center sm:text-left">
-              © {new Date().getFullYear()} Aimcab | 
-              Designed by <a 
-                href="https://cobaztech.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:text-white"
-              >
-                Cobaztech
-              </a>
-            </div>
-      
-            {/* Social Media - Compact */}
-            <div className="flex justify-center gap-3">
-              {['facebook', 'instagram', 'youtube', 'whatsapp'].map((platform) => (
-                <a 
-                  key={platform}
-                  href={`https://${platform}.com/Aimcab`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-6 h-6 hover:opacity-80 transition-opacity"
-                >
-                  <img 
-                    className="w-full h-full object-contain" 
-                    src={`images/${platform}.png`} 
-                    alt={platform} 
-                  />
-                </a>
+
+          {/* Explore Links */}
+          <div>
+            <h3 className="text-white text-xl font-semibold mb-4">Explore Links</h3>
+            <ul className="space-y-2">
+              {["Pune", "Mumbai"].map((item) => (
+                <li key={item}>
+                  <div 
+                    onClick={() => router.push(`/${item.toWellFormed()}`)}
+                    className="text-gray-400 hover:text-white transition-colors flex items-center cursor-pointer"
+                  >
+                    <ArrowRight className="mr-2 h-4 w-4" /> {item}
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+  <h3 className="text-white text-xl font-semibold mb-4">Quick Links</h3>
+  <ul className="space-y-2">
+    {[
+      { name: "About", path: "/aboutus" },
+      { name: "Services", path: "#services" },
+      { name: "Contact Us", path: "/Contact" }
+    ].map((item) => (
+      <li key={item.name}>
+        <Link href={item.path} className="text-gray-400 hover:text-white transition-colors flex items-center">
+          <ArrowRight className="mr-2 h-4 w-4" /> {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-white text-xl font-semibold mb-4">Contact Info</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <MapPin className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <span>City Vista, Kharadi, Pune</span>
+              </li>
+              <li className="flex items-center">
+                <Mail className="mr-3 h-5 w-5 text-red-500 flex-shrink-0" />
+                <a href="mailto:aimcabhelp@gmail.com" className="hover:text-white transition-colors">
+                  aimcabhelp@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center">
+                <Phone className="mr-3 h-5 w-5 text-red-500 flex-shrink-0" />
+                <a href="tel:+91 9130030054" className="hover:text-white transition-colors">
+                  +91 9130030054
+                </a>
+              </li>
+              <li className="flex items-center">
+                <Globe className="mr-3 h-5 w-5 text-red-500 flex-shrink-0" />
+                <a
+                  href="https://aimcab.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  aimcab.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+
+        {/* Copyright */}
+        <div className="border-t border-slate-700 mt-12 pt-6 text-center">
+          <li> Designed by <a
+                  href="https://cobaztech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white text-[#f5e537] transition-colors"
+                >
+                cobaztech.com
+                </a></li>
+        </div>
+        <div className="border-slate-700 pt-6 text-center">
+          <p>© {new Date().getFullYear()} cobaztech.com All rights reserved.</p>
+        </div>
       </div>
-      );
-    }
+    </footer>
+  )
+}

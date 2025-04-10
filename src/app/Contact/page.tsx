@@ -1,10 +1,12 @@
 'use client';
 import 'animate.css';
 import Footer from '../../container/component/Footer';
+import Navbar from '../../container/component/Navbar';
 
 export default function Contact() {
   return (
-    <div className="bg-gradient-to-br from-[#F8FAE5] to-[#B19470] py-8 md:py-16 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-[#F8FAFC] to-[#F8FAFC]  relative overflow-hidden">
+      <Navbar/>
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
       <div className="absolute -bottom-20 -right-20 w-40 h-40 md:w-64 md:h-64 bg-yellow-400/10 rounded-full"></div>

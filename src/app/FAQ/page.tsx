@@ -73,36 +73,58 @@ export default function FAQPage() {
   }
 
   return (
-    <div className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden ">
-      <Navbar />
+    <div className="min-h-screen bg-[#B19470] font-semibold">
+       <div className="fixed top-0 left-0 w-full z-50">
+        <Navbar />
+      </div>
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-blue-800 to-blue-600 py-20 px-4 text-white">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 
-            ref={headingRef}
-            className="text-4xl md:text-5xl font-bold mb-4"
-          >
-           Frequently Asked Questions
-          </h1>
-          
-          <p 
-            ref={paragraphRef}
-            className="text-xl md:text-2xl mb-8 font-light"
-          >
-               Everything you need to know about our cab services
-          </p>
-          
-       
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
-
-
-
-
-        </section>
+        <section className="relative bg-gradient-to-r h-[32rem] from-[#76453B] via-[#9C6F5D] to-[#F3B664] py-20 px-4 text-white overflow-hidden">
+  {/* Animated background elements */}
+  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+  
+  {/* Floating circles decoration */}
+  <div className="absolute top-20 -left-20 w-64 h-64 rounded-full bg-[#F3B664]/10 blur-xl"></div>
+  <div className="absolute bottom-10 -right-10 w-80 h-80 rounded-full bg-[#76453B]/10 blur-xl"></div>
+  
+  {/* Content */}
+  <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center px-4">
+    <div className="text-center lg:text-left">
+      <h1 
+        ref={headingRef}
+        className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+      >
+        Frequently Asked <span className="text-[#F3B664]">Questions</span>
+      </h1>
+      
+      <p 
+        ref={paragraphRef}
+        className="text-xl md:text-2xl max-w-3xl mx-auto lg:mx-0 mb-10 font-light opacity-90"
+      >
+        Everything you need to know about our premium cab services
+      </p>
+      
+      {/* Animated search input for FAQs */}
+      {/* <div className="max-w-xl mx-auto lg:mx-0 relative">
+        <input 
+          type="text" 
+          placeholder="Search your questions..."
+          className="w-full py-4 px-6 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#F3B664] placeholder-white/70 transition-all duration-300 hover:bg-white/15"
+        />
+        <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#F3B664] text-[#76453B] p-2 rounded-md hover:bg-[#f8c982] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div> */}
+    </div>
+  </div>
+  
+  {/* Dynamic bottom wave effect */}
+       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-r from-[#B19470] to-[#F8FAE5] font-semibold transform skew-y-2 origin-bottom"></div>
+</section>
 
 
        
@@ -113,7 +135,7 @@ export default function FAQPage() {
 
 
         {/* FAQ Section */}
-        <section className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <section className="max-w-6xl mx-auto py-16 ">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
               Common Questions
@@ -128,7 +150,7 @@ export default function FAQPage() {
               <div 
                 key={index}
                 className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'ring-2 ring-blue-500' : 'hover:shadow-lg'
+                  openIndex === index ? 'ring-2 ring-[#76453B]' : 'hover:shadow-lg'
                 }`}
               >
                 <button

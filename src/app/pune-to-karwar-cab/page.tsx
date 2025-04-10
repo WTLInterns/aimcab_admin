@@ -1,7 +1,32 @@
+"use client"
 import React from 'react'
 import BookingForm from '../../components/BookingForm';
-
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import Navbar from '../../container/component/Navbar'
+import Footer from '../../container/component/Footer';
+import About_Aimcab from '../../components/About_Aimcab';
 const page = () => {
+  const headingRef = useRef(null);
+    const paragraphRef = useRef(null);
+    const buttonsRef = useRef(null);
+  
+    useEffect(() => {
+      // Create a timeline for sequential animations
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      
+      // Animate elements one by one
+      tl.from(headingRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 0.8
+      })
+      .from(paragraphRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 0.6
+      }, "+=0.2") // starts 0.2s after previous animation ends
+    }, []);
   return (
     <div>
       <head>
@@ -15,13 +40,30 @@ const page = () => {
       </head>
       
       {/* Header */}
-      <header className="bg-green-500 text-white py-4 text-center">
-        <h1 className="text-3xl font-bold">AIMCAB Pune Routes</h1>
-        <p className="mt-2 text-lg">Book your cab and explore Pune with ease</p>
+      <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center ">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-bold mb-4 "
+          >
+            AIMCAB Pune Routes
+          </h1>
+          
+          <p 
+            ref={paragraphRef}
+            className="text-xl md:text-2xl mb-8 font-light"
+          >
+            Book your cab and explore Pune with ease
+          </p>
+          
+       
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
       </header>
       
       {/* Main Title */}
-      <h2 className="text-3xl font-bold mt-4 text-center">
+      <h2 className="text-3xl font-bold mt-4 text-center text-[#76453B]">
       Pune to Karwar Cab Services - Comfortable & Affordable Travel
       </h2>
 
@@ -29,40 +71,40 @@ const page = () => {
       
   {/* Service Description */}
 <section className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-md">
-  <h3 className="text-3xl font-bold text-[#76453B] mb-4">Premium Pune to Karwar Cab Services</h3>
+  <h3 className="text-3xl font-bold text-[#76453B] mb-4">Book Pune to Karwar Cab Services with Aim Cab</h3>
   <p className="text-lg text-gray-700 leading-relaxed">
-    <span className="text-blue-600 font-semibold">Looking for a reliable Pune to Karwar cab service?</span> Aim Cab offers <span className="font-bold text-[#76453B]">affordable, comfortable, and well-maintained</span> cabs for your journey. Whether you're planning a leisure trip, business visit, or family vacation, our <span className="underline decoration-blue-400">Pune to Karwar cab services</span> ensure a smooth and hassle-free ride.
+    <span className="text-[#76453B] font-semibold">Looking for a reliable Pune to Karwar cab service?</span> Aim Cab offers <span className="font-bold text-[#76453B]">affordable, comfortable, and well-maintained</span> cabs for your journey. Whether you're planning a leisure trip, business visit, or family vacation, our <span className="underline decoration-blue-400">Pune to Karwar cab services</span> ensure a smooth and hassle-free ride.
   </p>
 </section>
 
 {/* Why Choose Aim Cab */}
 <section className="mt-8 p-6 bg-white rounded-xl shadow-md border-l-4 border-blue-600">
   <h4 className="text-2xl font-bold text-[#76453B] mb-6 flex items-center">
-    <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 mr-2 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
     </svg>
     Why Choose Aim Cab for Pune to Karwar Travel?
   </h4>
   <ul className="space-y-3">
     <li className="flex items-start">
-      <span className="text-blue-600 mr-2">✓</span>
-      <span><strong className="text-[#76453B]">Lowest Fare in Market –</strong> Most competitive rates for Pune to Karwar travel</span>
+      <span className="text-[#76453B] mr-2">✓</span>
+      <span><strong className="text-[#76453B]">Lowest Fare in Market –</strong> We offer the most competitive cab rates for Pune to Karwar travel.</span>
     </li>
     <li className="flex items-start">
-      <span className="text-blue-600 mr-2">✓</span>
-      <span><strong className="text-[#76453B]">Experienced Drivers –</strong> Professional drivers knowing the best routes</span>
+      <span className="text-[#76453B] mr-2">✓</span>
+      <span><strong className="text-[#76453B]">Experienced & Professional Drivers –</strong> Our drivers are well-versed with the best routes, ensuring a safe journey.</span>
     </li>
     <li className="flex items-start">
-      <span className="text-blue-600 mr-2">✓</span>
-      <span><strong className="text-[#76453B]">Wide Vehicle Range –</strong> Hatchbacks, sedans, SUVs, and luxury cabs</span>
+      <span className="text-[#76453B] mr-2">✓</span>
+      <span><strong className="text-[#76453B]">Wide Range of Vehicles –</strong> Choose from hatchbacks, sedans, SUVs, and luxury cabs.</span>
     </li>
     <li className="flex items-start">
-      <span className="text-blue-600 mr-2">✓</span>
-      <span><strong className="text-[#76453B]">No Hidden Charges –</strong> Transparent pricing with upfront details</span>
+      <span className="text-[#76453B] mr-2">✓</span>
+      <span><strong className="text-[#76453B]">No Hidden Charges –</strong> Transparent pricing with upfront fare details.</span>
     </li>
     <li className="flex items-start">
-      <span className="text-blue-600 mr-2">✓</span>
-      <span><strong className="text-[#76453B]">24/7 Support –</strong> Booking assistance anytime</span>
+      <span className="text-[#76453B] mr-2">✓</span>
+      <span><strong className="text-[#76453B]">24/7 Booking Assistance –</strong> Get support anytime for your travel needs.</span>
     </li>
   </ul>
 </section>
@@ -78,9 +120,9 @@ const page = () => {
     <div className="overflow-x-auto">
       <table className="w-full border-collapse">
         <thead>
-          <tr className="bg-blue-800 text-white">
+          <tr className="bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white">
             <th className="p-3 text-left rounded-tl-lg">Cab Type</th>
-            <th className="p-3 text-center">Capacity</th>
+            <th className="p-3 text-center">Passenger Capacity</th>
             <th className="p-3 text-right rounded-tr-lg">Approx. Fare</th>
           </tr>
         </thead>
@@ -110,7 +152,7 @@ const page = () => {
     </div>
     
     <p className="mt-4 text-sm text-gray-600 italic">
-      *Toll charges, state taxes, and parking fees may be additional
+    Note: Toll charges, state taxes, and parking fees may be additional.
     </p>
   </div>
 </section>
@@ -149,7 +191,7 @@ const page = () => {
 
 {/* Travel Route & Attractions */}
 <section className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-md">
-  <h4 className="text-2xl font-bold text-[#76453B] mb-6">Pune to Karwar Route Highlights</h4>
+  <h4 className="text-2xl font-bold text-[#76453B] mb-6">Pune to Karwar Travel Route & Attractions Along the Way</h4>
   
   <div className="grid md:grid-cols-3 gap-6">
     <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
@@ -245,7 +287,7 @@ const page = () => {
       </div>
       <div>
         <h5 className="font-bold text-[#76453B]">Sadashivgad Fort</h5>
-        <p className="text-gray-700">Breathtaking views of the Arabian Sea</p>
+        <p className="text-gray-700">Offers breathtaking views of the Arabian Sea.</p>
       </div>
     </div>
     
@@ -258,6 +300,18 @@ const page = () => {
       <div>
         <h5 className="font-bold text-[#76453B]">Kali River Estuary</h5>
         <p className="text-gray-700">Great for boating, birdwatching, and nature photography</p>
+      </div>
+    </div>
+
+    <div className="flex items-start">
+      <div className="bg-blue-100 p-2 rounded-lg mr-4">
+        <svg className="w-5 h-5 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <div>
+        <h5 className="font-bold text-[#76453B]">Warship Museum</h5>
+        <p className="text-gray-700">A must-visit for history enthusiasts.</p>
       </div>
     </div>
   </div>
@@ -287,9 +341,9 @@ const page = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </span>
-        How long does the journey take?
+        How long does it take to travel from Pune to Karwar by cab?
       </h5>
-      <p className="mt-2 text-gray-700 pl-6">Approximately 9-10 hours.</p>
+      <p className="mt-2 text-gray-700 pl-6">The journey takes approximately 9-10 hours.</p>
     </div>
     
     <div className="bg-white p-4 rounded-lg shadow-sm">
@@ -299,50 +353,101 @@ const page = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </span>
-        Can I book a cab from Pune Airport?
+        Can I book a cab from Pune Airport to Karwar?
       </h5>
       <p className="mt-2 text-gray-700 pl-6">Yes, we provide airport pick-up and drop services.</p>
     </div>
+
+    <div className="bg-white p-4 rounded-lg shadow-sm">
+      <h5 className="font-bold text-[#76453B] flex items-center">
+        <span className="bg-blue-100 p-1 rounded-full mr-2">
+          <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </span>
+        Do you offer one-way cab services from Pune to Karwar?
+      </h5>
+      <p className="mt-2 text-gray-700 pl-6">Yes, both one-way and round-trip options are available.</p>
+    </div>
+
+    <div className="bg-white p-4 rounded-lg shadow-sm">
+      <h5 className="font-bold text-[#76453B] flex items-center">
+        <span className="bg-blue-100 p-1 rounded-full mr-2">
+          <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </span>
+        Is it safe to travel at night?
+      </h5>
+      <p className="mt-2 text-gray-700 pl-6">Yes, all our cabs are GPS-enabled, ensuring a safe journey.</p>
+    </div>
+
+    <div className="bg-white p-4 rounded-lg shadow-sm">
+      <h5 className="font-bold text-[#76453B] flex items-center">
+        <span className="bg-blue-100 p-1 rounded-full mr-2">
+          <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </span>
+        Are toll charges included in the fare?
+      </h5>
+      <p className="mt-2 text-gray-700 pl-6">No, toll charges are additional and may range between ₹500 - ₹700.</p>
+    </div>
+
+    <div className="bg-white p-4 rounded-lg shadow-sm">
+      <h5 className="font-bold text-[#76453B] flex items-center">
+        <span className="bg-blue-100 p-1 rounded-full mr-2">
+          <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </span>
+        What are the best sightseeing spots on the way?
+      </h5>
+      <p className="mt-2 text-gray-700 pl-6">Kolhapur, Belgaum, and optional stops in Goa.</p>
+    </div>
+
+    <div className="bg-white p-4 rounded-lg shadow-sm">
+      <h5 className="font-bold text-[#76453B] flex items-center">
+        <span className="bg-blue-100 p-1 rounded-full mr-2">
+          <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </span>
+        Can I choose my preferred cab model?
+      </h5>
+      <p className="mt-2 text-gray-700 pl-6"> Yes, choose from hatchbacks, sedans, SUVs, and luxury cars.</p>
+    </div>
+
+    <div className="bg-white p-4 rounded-lg shadow-sm">
+      <h5 className="font-bold text-[#76453B] flex items-center">
+        <span className="bg-blue-100 p-1 rounded-full mr-2">
+          <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </span>
+        Do you offer discounts for round trips?
+      </h5>
+      <p className="mt-2 text-gray-700 pl-6">Yes, we offer special discounts for round-trip bookings.</p>
+    </div>
+    
   </div>
   
-  <div className="mt-4 text-center">
-    <button className="text-blue-600 font-semibold hover:underline">
+  {/* <div className="mt-4 text-center">
+    <button className="text-[#76453B] font-semibold hover:underline">
       View all 10 FAQs →
     </button>
-  </div>
+  </div> */}
 </section>
 
 {/* About Aim Cab */}
-<section className="mt-8 p-6 bg-gradient-to-r from-blue-800 to-blue-600 text-white rounded-xl shadow-md">
-  <h4 className="text-2xl font-bold mb-6">Why 2 Lakh+ Customers Trust Aim Cab</h4>
-  
-  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-    <div className="text-center">
-      <div className="text-3xl font-bold mb-2">50+</div>
-      <p>Personal Cabs</p>
-    </div>
-    <div className="text-center">
-      <div className="text-3xl font-bold mb-2">500+</div>
-      <p>Registered Cabs</p>
-    </div>
-    <div className="text-center">
-      <div className="text-3xl font-bold mb-2">2L+</div>
-      <p>Happy Customers</p>
-    </div>
-    <div className="text-center">
-      <div className="text-3xl font-bold mb-2">3K+</div>
-      <p>Outstation Trips</p>
-    </div>
-  </div>
-</section>
-
+<About_Aimcab  />
 {/* CTA */}
-<section className="mt-8 p-6 bg-white rounded-xl shadow-lg border-2 border-blue-600 text-center">
-  <h4 className="text-2xl font-bold text-[#76453B] mb-4">Ready for Your Pune to Karwar Journey?</h4>
-  <p className="text-lg text-gray-700 mb-6">Experience premium comfort at unbeatable prices</p>
+<section className="mt-8 p-6 bg-gradient-to-r from-[#F3B664] to-[#76453B] rounded-xl shadow-lg border-2  text-center mb-10">
+  <h4 className="text-2xl font-bold text-[#ffffff] mb-4">Ready for Your Pune to Karwar Journey?</h4>
+  <p className="text-lg text-gray-100 mb-6">Experience premium comfort at unbeatable prices</p>
   
   <div className="flex flex-col sm:flex-row justify-center gap-4">
-    <a href="tel:+9191305454491" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center transition-colors">
+    <a href="tel:+9191305454491" className="bg-[#76453B] hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center transition-colors">
       <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
       </svg>
@@ -359,185 +464,10 @@ const page = () => {
 </section>
 
 
-{/* Redesigned Responsive Footer */}
-<div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-              {/* Footer content area */}
-              <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                  {/* You can add additional footer columns here if needed */}
-                </div>
-              </div>
 
-              {/* Popular Cities Section */}
-              <div className="container mx-auto px-4 text-center mb-4">
-                <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-                  POPULAR CITIES:
-                </b>
-                <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-                  {/* Pune Button */}
-                  <a
-                    href="/Pune"
-                    className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                               bg-gradient-to-r from-blue-400 to-yellow-300 
-                               text-gray-800 font-bold uppercase shadow-md 
-                               transform transition-all duration-500 ease-in-out 
-                               hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-                  >
-                    Pune
-                  </a>
 
-                  {/* Mumbai Button */}
-                  <a
-                    href="/Mumbai"
-                    className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                               bg-gradient-to-r from-blue-400 to-yellow-300 
-                               text-gray-800 font-bold uppercase shadow-md 
-                               transform transition-all duration-500 ease-in-out 
-                               hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-                  >
-                    Mumbai
-                  </a>
-                </div>
-              </div>
 
-              {/* Divider */}
-              <hr className="border-gray-300 my-8" />
-
-              {/* Quick Links Section */}
-              <div className="container mx-auto px-4 text-center mb-8">
-                <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-                  QUICK LINKS:
-                </b>
-                <div className="mt-2 flex flex-wrap justify-center">
-                  {[
-                    "HOME",
-                    "UPDATES",
-                    "ABOUT",
-                    "SERVICES",
-                    "CONTACT US",
-                    "CAREER",
-                    "FAQ's",
-                    "PRIVACY POLICY",
-                    "TERMS & CONDITIONS",
-                  ].map((link, i) => (
-                    <a
-                      key={i}
-                      href="/"
-                      className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
-                    >
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Divider */}
-              <hr className="border-gray-300 my-8" />
-
-              {/* Designed by Section */}
-              <div className="container mx-auto px-4 text-center mb-8">
-                <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-                  DESIGNED BY
-                </h4>
-                <a
-                  href="https://cobaztech.com"
-                  target="_blank"
-                  className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
-                >
-                  COBAZTECH
-                </a>
-              </div>
-
-              {/* Social Media Section */}
-              <div className="container mx-auto px-4 text-center mt-6">
-                <span className="flex justify-center flex-wrap">
-                  <a
-                    href="https://wa.me/9130030054"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/whatsapp.png"
-                      alt="WhatsApp"
-                    />
-                  </a>
-                  <a
-                    href="https://www.facebook.com/Aimcab"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/facebook.png"
-                      alt="Facebook"
-                    />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@AimCab"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/youtube.png"
-                      alt="YouTube"
-                    />
-                  </a>
-                  <a
-                    href="https://twitter.com/aim_cab"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/twitter.png"
-                      alt="Twitter"
-                    />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/aim-cab-77356b208/"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/linked-in.png"
-                      alt="LinkedIn"
-                    />
-                  </a>
-                  <a
-                    href="https://join.skype.com/invite/sRT2FTyb7d1H"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/skype.png"
-                      alt="Skype"
-                    />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/aimcabs/"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                  >
-                    <img
-                      className="w-8 h-8 inline-block mb-2"
-                      src="images/instagram.png"
-                      alt="Instagram"
-                    />
-                  </a>
-                </span>
-              </div>
-            </div>
-
-            {/* Copyright Section */}
-            <div className="container mx-auto px-4 text-center">
-              <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-              </p>
-            </div>
+            <div> <Footer/></div>
           </div>
 
       

@@ -6,6 +6,7 @@ import BookingForm from '../../components/BookingForm'
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import About_Aimcab from '../../components/About_Aimcab';
+import Footer from '../../container/component/Footer';
 const Page = () => {
    const headingRef = useRef(null);
     const paragraphRef = useRef(null);
@@ -489,87 +490,7 @@ const Page = () => {
   </div>
 
  {/* Footer */}
-      <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-        {/* Popular Cities Section */}
-        <div className="container mx-auto px-4 text-center mb-4">
-          <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-            POPULAR CITIES:
-          </b>
-          <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-            <a
-              href="/Pune"
-              className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-blue-400 to-yellow-300 
-                         text-gray-800 font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-            >
-              Pune
-            </a>
-            <a
-              href="/Mumbai"
-              className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-blue-400 to-yellow-300 
-                         text-gray-800 font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-            >
-              Mumbai
-            </a>
-          </div>
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="container mx-auto px-4 text-center mb-8">
-          <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-            QUICK LINKS:
-          </b>
-          <div className="mt-2 flex flex-wrap justify-center">
-            {[
-              "HOME",
-              "UPDATES",
-              "ABOUT",
-              "SERVICES",
-              "CONTACT US",
-              "CAREER",
-              "FAQ's",
-              "PRIVACY POLICY",
-              "TERMS & CONDITIONS",
-            ].map((link, i) => (
-              <a
-                key={i}
-                href="/"
-                className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Social Media Section */}
-        <div className="container mx-auto px-4 text-center mt-6">
-          <span className="flex justify-center flex-wrap">
-            {/* Social Media Links */}
-            <a
-              href="https://wa.me/9130030054"
-              target="_blank"
-              className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              rel="noreferrer"
-            >
-              <img className="w-8 h-8 inline-block mb-2" src="images/whatsapp.png" alt="WhatsApp" />
-            </a>
-            {/* Add other social media links similarly */}
-          </span>
-        </div>
-      </div>
-
-      {/* Copyright Section */}
-      <div className="container mx-auto px-4 text-center">
-        <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-          &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-        </p>
-      </div>
+  <div><Footer/></div>
     </div>
   )
 }

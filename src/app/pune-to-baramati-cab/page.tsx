@@ -4,7 +4,8 @@ import React from 'react'
 import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import Navbar from '../../container/component/Navbar'
+import Footer from "../../container/component/Footer";
+import About_Aimcab from '../../components/About_Aimcab';
 const styles = {
   container: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
   section: "bg-white rounded-lg shadow-lg p-6 mb-8",
@@ -356,136 +357,10 @@ const Page = () => {
 </section>
 
 {/* About & CTA */}
-<section className="mt-12 p-8 bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white rounded-xl shadow-lg">
-  <div className="text-white mx-auto">
-    <h2 className="text-3xl font-bold text-center mb-6">About Aim Cab</h2>
-    
-    <p className="text-center mb-8">
-      Established in 2001, Aim Cab has been a trusted name in the travel industry, providing top-notch cab services across India.
-    </p>
-    
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-8">
-      <div className="bg-white/20 p-4 rounded-lg">
-        <p className="text-2xl font-bold">50+</p>
-        <p className="text-sm">Personal Cabs</p>
-      </div>
-      <div className="bg-white/20 p-4 rounded-lg">
-        <p className="text-2xl font-bold">500+</p>
-        <p className="text-sm">Registered Cabs</p>
-      </div>
-      <div className="bg-white/20 p-4 rounded-lg">
-        <p className="text-2xl font-bold">2L+</p>
-        <p className="text-sm">Happy Customers</p>
-      </div>
-      <div className="bg-white/20 p-4 rounded-lg">
-        <p className="text-2xl font-bold">3K+</p>
-        <p className="text-sm">Outstation Trips</p>
-      </div>
-    </div>
-    
-    <div className="text-center">
-      <h3 className="text-2xl font-bold mb-4">Book Your Pune to Baramati Cab Now!</h3>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <a 
-          href="https://aimcab.com" 
-          className="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors shadow-md"
-        >
-          Book Online
-        </a>
-        <a 
-          href="tel:+919834577766" 
-          className="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-colors"
-        >
-          Call +91 9834577766
-        </a>
-      </div>
-      <p className="mt-4 text-sm">Visit: <a href="https://aimcab.com" className="underline">www.aimcab.com</a></p>
-    </div>
-  </div>
-</section>
+<About_Aimcab  />
 
       {/* Footer */}
-      <div className="bg-gradient-to-r from-gray-900 to-black text-white py-6 sm:py-8">
-              {/* Popular Cities Section */}
-              <div className="container mx-auto px-4 text-center mb-4">
-          <b className="text-gray-300 text-lg transition-all duration-300 ease-in-out hover:text-white">
-                  POPULAR CITIES:
-                </b>
-                <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-                  <a
-                    href="/Pune"
-                    className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-gray-200 to-white 
-                               text-gray-800 font-bold uppercase shadow-md 
-                               transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 hover:shadow-lg hover:text-black"
-                  >
-                    Pune
-                  </a>
-                  <a
-                    href="/Mumbai"
-                    className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                         bg-gradient-to-r from-gray-200 to-white 
-                               text-gray-800 font-bold uppercase shadow-md 
-                               transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-gradient-to-r hover:from-gray-800 hover:to-black hover:shadow-lg hover:text-white"
-                  >
-                    Mumbai
-                  </a>
-                </div>
-              </div>
-
-              {/* Quick Links Section */}
-              <div className="container mx-auto px-4 text-center mb-8">
-          <b className="text-gray-300 transition-all duration-300 ease-in-out hover:text-white">
-                  QUICK LINKS:
-                </b>
-                <div className="mt-2 flex flex-wrap justify-center">
-                  {[
-                    "HOME",
-                    "UPDATES",
-                    "ABOUT",
-                    "SERVICES",
-                    "CONTACT US",
-                    "CAREER",
-                    "FAQ's",
-                    "PRIVACY POLICY",
-                    "TERMS & CONDITIONS",
-                  ].map((link, i) => (
-                    <a
-                      key={i}
-                      href="/"
-                className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-gray-300 mx-2 mb-2 sm:mb-0"
-                    >
-                      {link}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Social Media Section */}
-              <div className="container mx-auto px-4 text-center mt-6">
-                <span className="flex justify-center flex-wrap">
-            {/* Social Media Links */}
-                  <a
-                    href="https://wa.me/9130030054"
-                    target="_blank"
-                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              rel="noreferrer"
-            >
-              <img className="w-8 h-8 inline-block mb-2 filter grayscale hover:grayscale-0" src="images/whatsapp.png" alt="WhatsApp" />
-            </a>
-            {/* Add other social media links similarly */}
-                </span>
-              </div>
-            </div>
-
-            {/* Copyright Section */}
-            <div className="container mx-auto px-4 text-center">
-        <p className="transition-all duration-300 ease-in-out hover:text-gray-600">
-                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-              </p>
-            </div>
+    <div> <Footer /></div>
           </div>
   );
 };

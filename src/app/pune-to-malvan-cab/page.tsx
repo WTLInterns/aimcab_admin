@@ -1,8 +1,33 @@
+"use client";
 import React from 'react';
 import Head from 'next/head';
 import BookingForm from '../../components/BookingForm';
-
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import Navbar from '../../container/component/Navbar'
+import Footer from '../../container/component/Footer';
+import About_Aimcab from '../../components/About_Aimcab';
 const page = () => {
+  const headingRef = useRef(null);
+    const paragraphRef = useRef(null);
+    const buttonsRef = useRef(null);
+  
+    useEffect(() => {
+      // Create a timeline for sequential animations
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      
+      // Animate elements one by one
+      tl.from(headingRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 0.8
+      })
+      .from(paragraphRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 0.6
+      }, "+=0.2") // starts 0.2s after previous animation ends
+    }, []);
   return (
     <>
       <div>
@@ -16,12 +41,12 @@ const page = () => {
         </Head>
 
         {/* Header */}
-          <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
+        <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center ">
         <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
+        <div className="relative z-10  mx-auto px-4">
           <h1 
             ref={headingRef}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl md:text-5xl font-bold mb-4 "
           >
             AIMCAB Pune Routes
           </h1>
@@ -33,63 +58,52 @@ const page = () => {
             Book your cab and explore Pune with ease
           </p>
           
-          {/* <div 
-            ref={buttonsRef}
-            className="flex justify-center space-x-4"
-          >
-            <button className="bg-white text-[#76453B] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Book Now
-            </button>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-[#76453B] transition-all duration-300">
-              Call Us
-            </button>
-          </div> */}
+       
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
       </header>
 
         {/* Main Title */}
-        <h2 className="text-3xl font-bold mt-4 text-center">
+        <h2 className="text-3xl font-bold mt-4 text-center text-[#76453B]">
         Pune to Malvan Cab Services – Affordable & Comfortable Travel
         </h2>
 
         <BookingForm />
 
 {/* Hero Section */}
-<section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12 px-6 rounded-xl shadow-lg">
-  <div className="max-w-4xl mx-auto text-center">
-    <h1 className="text-4xl md:text-5xl font-bold mb-6">Pune to Malvan Cab Service</h1>
-    <p className="text-xl md:text-2xl mb-8">Comfortable • Affordable • Reliable</p>
-    <div className="bg-white text-blue-900 inline-block px-6 py-3 rounded-full font-bold shadow-md hover:shadow-xl transition duration-300">
-      <a href="tel:+9191305454491">Call Now: +91 91305454491</a>
-    </div>
+<section className="bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white py-12 px-6 rounded-xl shadow-lg">
+  <div className=" mx-auto text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">Book Pune to Malvan Cab Services with Aim Cab</h1>
+    <p className="text-xl md:text-1xl mb-2">Looking for a reliable Pune to Malvan cab service? Aim Cab provides the best and most affordable cab services for your journey from Pune to Malvan. Whether you’re planning a family vacation, a solo trip, or a business visit, our Pune to Malvan cab ensures a comfortable and hassle-free experience.
+
+</p>
   </div>
 </section>
 
 {/* Service Highlights */}
 <section className="mt-12 p-8 bg-white rounded-xl shadow-md">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold text-blue-700 mb-6">Premium Pune to Malvan Cab Services</h2>
+  <div className=" mx-auto">
+    <h2 className="text-3xl font-bold text-[#76453B] mb-6">Why Choose Aim Cab for Your Pune to Malvan Trip?</h2>
     <p className="text-lg text-gray-700 mb-6">
       Experience the perfect blend of comfort and affordability with Aim Cab's Pune to Malvan taxi service. Whether you're traveling for leisure or business, we ensure a smooth journey with professional drivers and well-maintained vehicles.
     </p>
     
     <div className="grid md:grid-cols-2 gap-6 mt-8">
-      <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-        <h3 className="text-xl font-semibold text-[#76453B] mb-3">Best Fare Guarantee</h3>
-        <p className="text-gray-700">Starting at just ₹11/km - the most competitive rates in the market</p>
+      <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-[#76453B]">
+        <h3 className="text-xl font-semibold text-[#76453B] mb-3">Lowest Fare Guarantee</h3>
+        <p className="text-gray-700"> We offer Pune to Malvan cab services at the most competitive rates.</p>
       </div>
-      <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-        <h3 className="text-xl font-semibold text-green-800 mb-3">24/7 Service</h3>
-        <p className="text-gray-700">Round-the-clock availability for your convenience</p>
+      <div className="bg-green-50 p-6 rounded-lg border-l-4 border-[#76453B]">
+        <h3 className="text-xl font-semibold text-[#76453B] mb-3">24/7 Customer Support</h3>
+        <p className="text-gray-700">Assistance available anytime for bookings and queries.</p>
       </div>
-      <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
-        <h3 className="text-xl font-semibold text-purple-800 mb-3">Multiple Options</h3>
-        <p className="text-gray-700">Hatchbacks, Sedans, SUVs, and Luxury vehicles available</p>
+      <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-[#76453B]">
+        <h3 className="text-xl font-semibold text-[#76453B] mb-3">Multiple Car Options</h3>
+        <p className="text-gray-700">Choose from a variety of cars including hatchbacks, sedans, SUVs, and luxury vehicles.</p>
       </div>
-      <div className="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
-        <h3 className="text-xl font-semibold text-orange-800 mb-3">GPS Tracking</h3>
-        <p className="text-gray-700">All cabs equipped with GPS for safe and efficient travel</p>
+      <div className="bg-orange-50 p-6 rounded-lg border-l-4 border-[#76453B]">
+        <h3 className="text-xl font-semibold text-[#76453B] mb-3">Reliable & Professional Drivers</h3>
+        <p className="text-gray-700">Our drivers are well-trained and knowledgeable about the best routes.</p>
       </div>
     </div>
   </div>
@@ -97,15 +111,15 @@ const page = () => {
 
 {/* Pricing Section */}
 <section className="mt-12 p-8 bg-gray-50 rounded-xl">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">Transparent Pricing</h2>
+  <div className=" mx-auto">
+    <h2 className="text-3xl font-bold text-center text-[#76453B] mb-8">Pune to Malvan Cab Fare & Charges</h2>
     
     <div className="overflow-x-auto">
       <table className="w-full bg-white rounded-lg overflow-hidden shadow-md">
-        <thead className="bg-blue-600 text-white">
+        <thead className="bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white">
           <tr>
             <th className="py-4 px-6 text-left">Cab Type</th>
-            <th className="py-4 px-6 text-center">Capacity</th>
+            <th className="py-4 px-6 text-center">Passenger Capacity</th>
             <th className="py-4 px-6 text-right">Fare (Approx.)</th>
           </tr>
         </thead>
@@ -140,21 +154,22 @@ const page = () => {
 
 {/* Journey Info */}
 <section className="mt-12 p-8 bg-white rounded-xl shadow-md">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold text-blue-700 mb-8">Journey Information</h2>
+  <div className=" mx-auto">
+    <h2 className="text-3xl font-bold text-[#76453B] mb-8">Distance, Toll Charges & Travel Time from Pune to Malvan by Cab</h2>
     
     <div className="grid md:grid-cols-3 gap-6">
       <div className="bg-blue-50 p-6 rounded-lg text-center">
-        <div className="text-4xl font-bold text-blue-600 mb-2">385 km</div>
-        <div className="text-gray-700">Distance</div>
+        <div className="text-4xl font-bold text-[#76453B] mb-2">Distance</div>
+        <div className="text-gray-700">Approximately 385 km</div>
       </div>
       <div className="bg-green-50 p-6 rounded-lg text-center">
-        <div className="text-4xl font-bold text-green-600 mb-2">7-8 hrs</div>
-        <div className="text-gray-700">Travel Time</div>
+        <div className="text-4xl font-bold text-[#76453B] mb-2">Travel Time
+        </div>
+        <div className="text-gray-700">Around 7-8 hours, depending on road conditions and traffic.</div>
       </div>
       <div className="bg-purple-50 p-6 rounded-lg text-center">
-        <div className="text-4xl font-bold text-purple-600 mb-2">₹400-600</div>
-        <div className="text-gray-700">Toll Charges</div>
+        <div className="text-4xl font-bold text-[#76453B] mb-2">Toll Charges</div>
+        <div className="text-gray-700">Approximately ₹400 - ₹600 (may vary based on the route taken).</div>
       </div>
     </div>
   </div>
@@ -162,42 +177,66 @@ const page = () => {
 
 {/* Attractions Section */}
 <section className="mt-12">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">Explore the Route</h2>
+  <div className=" mx-auto">
+    <h2 className="text-3xl font-bold text-center text-[#76453B] mb-8">Pune to Malvan Travel Route & Attractions Along the Way</h2>
     
     <div className="grid md:grid-cols-2 gap-8">
       <div className="bg-white p-6 rounded-xl shadow-md">
-        <h3 className="text-2xl font-semibold text-blue-600 mb-4">Enroute Attractions</h3>
+        <h3 className="text-2xl font-semibold text-[#76453B] mb-4">Enroute Attractions</h3>
         <ul className="space-y-3">
           <li className="flex items-start">
             <span className="text-blue-500 mr-2">📍</span>
-            <span><strong>Mahabaleshwar:</strong> Famous hill station with stunning viewpoints</span>
+            <span><strong>Mahabaleshwar:</strong> A famous hill station known for its stunning viewpoints and strawberries.</span>
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 mr-2">📍</span>
-            <span><strong>Kolhapur:</strong> Mahalakshmi Temple and Rankala Lake</span>
+            <span><strong>Kolhapur:</strong> Known for the Mahalakshmi Temple and Rankala Lake.</span>
           </li>
           <li className="flex items-start">
             <span className="text-blue-500 mr-2">📍</span>
-            <span><strong>Tarkarli Beach:</strong> Perfect for water sports and scuba diving</span>
+            <span><strong>Tarkarli Beach:</strong> Perfect for scuba diving, snorkeling, and water sports.</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-blue-500 mr-2">📍</span>
+            <span><strong>Kankavli:</strong> A peaceful town before entering Malvan’s coastal beauty.</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-blue-500 mr-2">📍</span>
+            <span><strong>Sindhudurg Fort</strong> A historic fort built by Chhatrapati Shivaji Maharaj.</span>
           </li>
         </ul>
       </div>
       
       <div className="bg-white p-6 rounded-xl shadow-md">
-        <h3 className="text-2xl font-semibold text-blue-600 mb-4">Malvan Attractions</h3>
+        <h3 className="text-2xl font-semibold text-[#76453B] mb-4">Malvan Attractions</h3>
         <ul className="space-y-3">
           <li className="flex items-start">
-            <span className="text-green-500 mr-2">🏖️</span>
-            <span><strong>Tarkarli Beach:</strong> Crystal-clear waters for water sports</span>
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Tarkarli Beach:</strong> Crystal-clear water, perfect for water sports and scuba diving.</span>
           </li>
           <li className="flex items-start">
-            <span className="text-green-500 mr-2">🏰</span>
-            <span><strong>Sindhudurg Fort:</strong> Historic 17th-century sea fort</span>
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Sindhudurg Fort:</strong> A 17th-century sea fort with breathtaking views.</span>
           </li>
           <li className="flex items-start">
-            <span className="text-green-500 mr-2">🌊</span>
-            <span><strong>Malvan Marine Sanctuary:</strong> Vibrant coral reefs and marine life</span>
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Malvan Marine Sanctuary:</strong> Home to vibrant coral reefs and marine biodiversity.</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Devbagh Beach:</strong> A serene beach with stunning sunrise and sunset views.</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Rock Garden:</strong>  A beautiful ocean-side garden with spectacular wave views.</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Rameshwar Temple:</strong>  A famous Shiva temple known for its architecture.</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-green-500 mr-2">📍</span>
+            <span><strong>Chivla Beach:</strong> A quiet and less crowded beach for relaxation.</span>
           </li>
         </ul>
       </div>
@@ -205,60 +244,13 @@ const page = () => {
   </div>
 </section>
 
-{/* About Us */}
-<section className="mt-12 p-8 bg-blue-50 rounded-xl">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">Why Choose Aim Cab?</h2>
-    
-    <div className="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <p className="text-lg text-gray-700 mb-6">
-          Established in 2001, Aim Cab has grown into a leading travel company with a commitment to reliable and affordable transportation solutions across India.
-        </p>
-        <ul className="space-y-3">
-          <li className="flex items-center">
-            <span className="bg-blue-100 text-[#76453B] p-2 rounded-full mr-3">✓</span>
-            <span>50+ personal cabs operating nationwide</span>
-          </li>
-          <li className="flex items-center">
-            <span className="bg-blue-100 text-[#76453B] p-2 rounded-full mr-3">✓</span>
-            <span>500+ registered cabs in our network</span>
-          </li>
-          <li className="flex items-center">
-            <span className="bg-blue-100 text-[#76453B] p-2 rounded-full mr-3">✓</span>
-            <span>2 lakh+ satisfied customers</span>
-          </li>
-        </ul>
-      </div>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold mb-4 text-center">Our Achievements</h3>
-        <div className="grid grid-cols-2 gap-4 text-center">
-          <div className="bg-white p-4 rounded-lg border border-blue-200">
-            <div className="text-3xl font-bold text-blue-600">2001</div>
-            <div className="text-gray-600">Established</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg border border-blue-200">
-            <div className="text-3xl font-bold text-blue-600">2L+</div>
-            <div className="text-gray-600">Happy Customers</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg border border-blue-200">
-            <div className="text-3xl font-bold text-blue-600">3K+</div>
-            <div className="text-gray-600">Trips Completed</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg border border-blue-200">
-            <div className="text-3xl font-bold text-blue-600">550+</div>
-            <div className="text-gray-600">Cab Fleet</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 
 {/* FAQ Section */}
 <section className="mt-12 p-8 bg-white rounded-xl shadow-md">
-  <div className="max-w-4xl mx-auto">
-    <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">Frequently Asked Questions</h2>
+  <div className=" mx-auto">
+    <h2 className="text-3xl font-bold text-center text-[#76453B] mb-8">Frequently Asked Questions</h2>
     
     <div className="space-y-6">
       {[
@@ -279,17 +271,37 @@ const page = () => {
           answer: "Yes, our cabs are equipped with GPS, and we ensure safe travel with professional drivers."
         },
         {
+          question: "Are toll charges included in the fare?",
+          answer: "Toll charges are additional and must be paid separately. Approximate toll charges for the Pune to Malvan route range between ₹400 - ₹600."
+        },
+        {
+          question: " Can I book a cab from Pune Airport to Malvan?",
+          answer: "Yes, we offer pick-up and drop-off services from Pune Airport."
+        },
+        {
+          question: "What are the best sightseeing spots on the way to Malvan?",
+          answer: "Mahabaleshwar, Kolhapur, Tarkarli Beach, and Sindhudurg Fort are some of the best places."
+        },
+        {
+          question: "Can I choose my preferred cab model?",
+          answer: "Yes, you can select from hatchbacks, sedans, SUVs, and luxury cars."
+        },
+        {
+          question: "Do you offer discounts for round trips?",
+          answer: "Yes, we have special discounts for round trips. Contact us for details."
+        },
+        {
           question: "How can I book Pune to Malvan cab services?",
           answer: <>
-            You can book via our website <a href="https://aimcab.com" className="text-blue-600 underline">aimcab.com</a> or call us at{" "}
-            <a href="tel:+9191305454491" className="text-blue-600 underline">+91 91305454491</a>.
+            You can book via our website <a href="https://aimcab.com" className="text-[#76453B] underline">aimcab.com</a> or call us at{" "}
+            <a href="tel:+9191305454491" className="text-[#76453B] underline">+91 91305454491</a>.
           </>
         }
       ].map((faq, index) => (
         <div key={index} className="border-b border-gray-200 pb-4">
           <button className="flex justify-between items-center w-full text-left font-semibold text-lg text-[#76453B]">
             <span>{faq.question}</span>
-            <span className="text-blue-600 text-2xl">+</span>
+            <span className="text-[#76453B] text-2xl">+</span>
           </button>
           <div className="mt-2 text-gray-700">
             {faq.answer}
@@ -300,17 +312,20 @@ const page = () => {
   </div>
 </section>
 
+{/* About Us */}
+<About_Aimcab  />
+
 {/* CTA Section */}
-<section className="mt-12 p-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl shadow-xl">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-3xl font-bold mb-6">Ready for Your Malvan Adventure?</h2>
-    <p className="text-xl mb-8">Book your comfortable Pune to Malvan cab today and travel with peace of mind!</p>
+<section className="mt-12 p-8 bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white rounded-xl shadow-xl">
+  <div className=" mx-auto text-center">
+    <h2 className="text-3xl font-bold mb-6">🚖 Book Your Pune to Malvan Cab Now!</h2>
+    <p className="text-xl mb-8">Enjoy a comfortable and stress-free journey with Aim Cab’s Pune to Malvan cab services. Whether you’re traveling for leisure or business, we guarantee the best service at the lowest price.</p>
     
     <div className="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="tel:+9191305454491" className="bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-md">
+      <a href="tel:+9191305454491" className="bg-white text-[#76453B] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 shadow-md">
         Call Now: +91 91305454491
       </a>
-      <a href="https://aimcab.com" className="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-blue-700 transition duration-300">
+      <a href="https://aimcab.com" className="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-[#76453B] transition duration-300">
         Visit Our Website
       </a>
     </div>
@@ -338,172 +353,11 @@ const page = () => {
 
         
         {/* Redesigned Footer */}
-        <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-          {/* Footer content area */}
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-              {/* You can add additional footer columns here if needed */}
-            </div>
-          </div>
-
-          {/* Popular Cities Section */}
-          <div className="container mx-auto px-4 text-center mb-4">
-            <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-              POPULAR CITIES:
-            </b>
-            <div className="flex justify-center items-center space-x-6 mt-2">
-              {/* Pune Button */}
-              <a
-                href="/Pune"
-                className="relative inline-block px-20 py-4 rounded-full 
-                           bg-gradient-to-r from-blue-400 to-yellow-300 
-                           text-gray-800 font-bold uppercase shadow-md 
-                           transform transition-all duration-500 ease-in-out 
-                           hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-              >
-                Pune
-              </a>
-              
-              {/* Mumbai Button */}
-              <a
-                href="/Mumbai"
-                className="relative inline-block px-20 py-4 rounded-full 
-                           bg-gradient-to-r from-blue-400 to-yellow-300 
-                           text-gray-800 font-bold uppercase shadow-md 
-                           transform transition-all duration-500 ease-in-out 
-                           hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-              >
-                Mumbai
-              </a>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <hr className="border-gray-300 my-8" />
-
-          {/* Quick Links Section */}
-          <div className="container mx-auto px-4 text-center mb-8">
-            <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">QUICK LINKS:</b>
-            <div className="mt-2 flex flex-wrap justify-center">
-              {["HOME", "UPDATES", "ABOUT", "SERVICES", "CONTACT US", "CAREER", "FAQ's", "PRIVACY POLICY", "TERMS & CONDITIONS"].map((link, i) => (
-                <a
-                  key={i}
-                  href="/"
-                  className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Divider */}
-          <hr className="border-gray-300 my-8" />
-
-          {/* Designed by Section */}
-          <div className="container mx-auto px-4 text-center mb-8">
-            <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-              DESIGNED BY
-            </h4>
-            <a
-              href="https://cobaztech.com"
-              target="_blank"
-              className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
-            >
-              COBAZTECH
-            </a>
-          </div>
-
-          {/* Social Media Section */}
-          <div className="container mx-auto px-4 text-center mt-6">
-            <span className="flex justify-center flex-wrap">
-              <a
-                href="https://wa.me/9130030054"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/whatsapp.png"
-                  alt="WhatsApp"
-                />
-              </a>
-              <a
-                href="https://www.facebook.com/Aimcab"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/facebook.png"
-                  alt="Facebook"
-                />
-              </a>
-              <a
-                href="https://www.youtube.com/@AimCab"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/youtube.png"
-                  alt="YouTube"
-                />
-              </a>
-              <a
-                href="https://twitter.com/aim_cab"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/twitter.png"
-                  alt="Twitter"
-                />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/aim-cab-77356b208/"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/linked-in.png"
-                  alt="LinkedIn"
-                />
-              </a>
-              <a
-                href="https://join.skype.com/invite/sRT2FTyb7d1H"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/skype.png"
-                  alt="Skype"
-                />
-              </a>
-              <a
-                href="https://www.instagram.com/aimcabs/"
-                target="_blank"
-                className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-              >
-                <img
-                  className="w-8 h-8 inline-block mb-2"
-                  src="images/instagram.png"
-                  alt="Instagram"
-                />
-              </a>
-            </span>
-          </div>
-        </div>
         
-        {/* Copyright Section */}
-        <div className="container mx-auto px-4 text-center">
-          <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-            &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-          </p>
-        </div>
+        
+   
+
+        <div> <Footer/></div>
       </div>
     </>
   );

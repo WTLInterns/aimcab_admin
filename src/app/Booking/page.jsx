@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import Image from "next/image"
+import Footer from "../../container/component/Footer"
+import Navbar from "../../container/component/Navbar"
 
 export default function Home() {
   const [cars, setCars] = useState([])
@@ -139,7 +141,7 @@ export default function Home() {
 
       console.log("Booking response:", res.data)
       setLoadingData({ [index]: false })
-      route.push("/Invoice")
+      route.push("/ThankYou")
     } catch (error) {
       console.error("Error in handleBookNow:", error)
       setLoadingData({ [index]: false })
@@ -147,29 +149,132 @@ export default function Home() {
     }
   }
 
+  // return (
+  //   <div>
+  //     {/* Header */}
+  //     <header className="bg-[#CDC7C7] w-full">
+  //     <Navbar/>
+  //     </header>
+
+  //     {/* Main Content */}
+  //     <main className="bg-[#F8F9FA]">
+  //       {/* Hero Section */}
+  //       <section className="text-center py-4 bg-gradient-to-r from-[#faa499] to-[#f7dd85]">
+  //         <h1 className="text-4xl font-bold">Welcome to Our Car Rental Service</h1>
+  //         <p className="text-xl mt-4">Explore the best cars available for your trips.</p>
+  //       </section>
+
+  //       {loading ? (
+  //         <div className="flex items-center justify-center min-h-screen bg-gray-100">
+  //           <div className="text-xl font-semibold text-gray-600">
+  //             Loading
+  //             <span className="animate-pulse">.</span>
+  //             <span className="animate-pulse animation-delay-200">.</span>
+  //             <span className="animate-pulse animation-delay-400">.</span>
+  //           </div>
+  //         </div>
+  //       ) : (
+  //         <section className="py-16 px-4">
+
+  //           {/* Responsive grid for car cards */}
+  //           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  //             {cars.map(
+  //               (car, index) =>
+  //                 car.price > 0 && (
+  //                   <div key={car.id} className="card p-6 bg-white shadow-lg rounded-lg w-80">
+  //                     <Image
+  //                       src={car.image || "/placeholder.svg"}
+  //                       alt={car.name}
+  //                       width={320}
+  //                       height={130}
+  //                       loading="lazy"
+  //                       className="w-90 h-30 object-cover rounded-lg"
+  //                     />
+  //                     <h3 className="text-2xl mt-4">{car.name}</h3>
+  //                     <p className="mt-4 text-lg">{car.description}</p>
+
+  //                     {/* Facilities Section */}
+  //                     <div className="mt-4">
+  //                       <h4 className="text-lg font-semibold">Facilities:</h4>
+  //                       <ul className="mt-2">
+  //                         {car.facilities.map((facility, facilityIndex) => (
+  //                           <li key={facilityIndex} className="flex items-center mt-2">
+  //                             <img
+  //                               src={facility.icon || "/placeholder.svg"}
+  //                               alt={facility.name}
+  //                               className="w-8 h-8 mr-2"
+  //                             />
+  //                             <p>{facility.name}</p>
+  //                           </li>
+  //                         ))}
+  //                       </ul>
+  //                     </div>
+
+  //                     <div className="mt-4 flex justify-between items-center">
+  //                       <p className="text-xl font-semibold">Rs. {car.price}/-</p>
+  //                       <button
+  //                         className="relative px-6 py-3 text-white bg-yellow-300 rounded-lg disabled:bg-blue-300 disabled:cursor-not-allowed"
+  //                         disabled={loadingData[index]}
+  //                         onClick={() => handleBookNow(car, index)}
+  //                       >
+  //                         {loadingData[index] ? (
+  //                           <div role="status">
+  //                             <svg
+  //                               aria-hidden="true"
+  //                               className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-white"
+  //                               viewBox="0 0 100 101"
+  //                               fill="none"
+  //                               xmlns="http://www.w3.org/2000/svg"
+  //                             >
+  //                               <path
+  //                                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+  //                                 fill="currentColor"
+  //                               />
+  //                               <path
+  //                                 d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+  //                                 fill="currentFill"
+  //                               />
+  //                             </svg>
+  //                             <span>Loading...</span>
+  //                           </div>
+  //                         ) : (
+  //                           <span>Book Now</span>
+  //                         )}
+  //                       </button>
+  //                     </div>
+  //                   </div>
+  //                 ),
+  //             )}
+  //           </div>
+  //         </section>
+  //       )}
+
+  //       {/* Footer */}
+  //      <Footer/>
+  //     </main>
+  //   </div>
+  // )
+  // ... existing code ...
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       {/* Header */}
-      <header className="bg-[#CDC7C7] w-full">
-        <nav className="bg-[#CDC7C7] mb-0">
-          <ul className="flex space-x-4 p-4">
-            <a href="/">Home</a>
-            <a href="/#about">About</a>
-            <a href="/#service">Services</a>
-          </ul>
-        </nav>
+      <header className="bg-white shadow-md w-full sticky top-0 z-50">
+        <Navbar/>
       </header>
 
       {/* Main Content */}
       <main className="bg-[#F8F9FA]">
         {/* Hero Section */}
-        <section className="text-center py-4 bg-gradient-to-r from-[#faa499] to-[#f7dd85]">
-          <h1 className="text-4xl font-bold">Welcome to Our Car Rental Service</h1>
-          <p className="text-xl mt-4">Explore the best cars available for your trips.</p>
+        <section className="relative text-center py-12 bg-gradient-to-r from-[#faa499] to-[#f7dd85] overflow-hidden">
+          <div className="absolute inset-0 bg-black opacity-10"></div>
+          <div className="relative z-10">
+            <h1 className="text-5xl font-bold text-gray-800 mb-4 animate-fade-in">Welcome to Our Car Rental Service</h1>
+            <p className="text-xl text-gray-700">Explore the best cars available for your trips</p>
+          </div>
         </section>
 
         {loading ? (
-          <div className="flex items-center justify-center min-h-screen bg-gray-100">
+          <div className="flex items-center justify-center min-h-[60vh]">
             <div className="text-xl font-semibold text-gray-600">
               Loading
               <span className="animate-pulse">.</span>
@@ -178,54 +283,62 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <section className="py-16 px-4">
-
-            {/* Responsive grid for car cards */}
+          <section className="py-16 px-4 max-w-7xl mx-auto">
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {cars.map(
                 (car, index) =>
                   car.price > 0 && (
-                    <div key={car.id} className="card p-6 bg-white shadow-lg rounded-lg w-80">
-                      <Image
-                        src={car.image || "/placeholder.svg"}
-                        alt={car.name}
-                        width={320}
-                        height={130}
-                        loading="lazy"
-                        className="w-90 h-30 object-cover rounded-lg"
-                      />
-                      <h3 className="text-2xl mt-4">{car.name}</h3>
-                      <p className="mt-4 text-lg">{car.description}</p>
+                    <div 
+                      key={car.id} 
+                      className="card p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                     <div className="relative w-full h-36 overflow-hidden rounded-lg">
+  <Image
+    src={car.image || "/placeholder.svg"}
+    alt={car.name}
+    fill
+    loading="lazy"
+    className="object-cover transition-transform duration-300 hover:scale-105"
+  />
+</div>
+
+                      <h3 className="text-2xl mt-4 font-bold text-gray-800">{car.name}</h3>
+                      <p className="mt-2 text-gray-600">{car.description}</p>
 
                       {/* Facilities Section */}
-                      <div className="mt-4">
-                        <h4 className="text-lg font-semibold">Facilities:</h4>
-                        <ul className="mt-2">
+                      <div className="mt-6">
+                        <h4 className="text-lg font-semibold text-gray-800 mb-3">Facilities:</h4>
+                        <ul className="space-y-2">
                           {car.facilities.map((facility, facilityIndex) => (
-                            <li key={facilityIndex} className="flex items-center mt-2">
-                              <img
-                                src={facility.icon || "/placeholder.svg"}
-                                alt={facility.name}
-                                className="w-8 h-8 mr-2"
-                              />
-                              <p>{facility.name}</p>
+                            <li key={facilityIndex} className="flex items-center">
+                              <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                                <img
+                                  src={facility.icon || "/placeholder.svg"}
+                                  alt={facility.name}
+                                  className="w-5 h-5"
+                                />
+                              </div>
+                              <p className="text-gray-700">{facility.name}</p>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="mt-4 flex justify-between items-center">
-                        <p className="text-xl font-semibold">Rs. {car.price}/-</p>
+                      <div className="mt-6 flex justify-between items-center">
+                        <div>
+                          <p className="text-sm text-gray-500">Starting from</p>
+                          <p className="text-2xl font-bold text-gray-800">Rs. {car.price}/-</p>
+                        </div>
                         <button
-                          className="relative px-6 py-3 text-white bg-yellow-300 rounded-lg disabled:bg-blue-300 disabled:cursor-not-allowed"
+                          className="relative px-6 py-3 text-white bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                           disabled={loadingData[index]}
                           onClick={() => handleBookNow(car, index)}
                         >
                           {loadingData[index] ? (
-                            <div role="status">
+                            <div className="flex items-center space-x-2">
                               <svg
                                 aria-hidden="true"
-                                className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-white"
+                                className="w-5 h-5 text-white animate-spin"
                                 viewBox="0 0 100 101"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -239,7 +352,7 @@ export default function Home() {
                                   fill="currentFill"
                                 />
                               </svg>
-                              <span>Loading...</span>
+                              <span>Processing...</span>
                             </div>
                           ) : (
                             <span>Book Now</span>
@@ -254,20 +367,9 @@ export default function Home() {
         )}
 
         {/* Footer */}
-        <footer className="bg-black text-[#FFC107] py-12">
-          <div className="footer text-center">
-            <h5 className="text-white text-2xl">Quick Links</h5>
-            <div className="footerconatiner text-left mt-6">
-              <ul className="no-bullets mt-4">
-                <li className="py-2">Home</li>
-                <li className="py-2">About</li>
-                <li className="py-2">Services</li>
-                <li className="py-2">Contact</li>
-              </ul>
-            </div>
-          </div>
-        </footer>
+        <Footer/>
       </main>
     </div>
   )
+
 }

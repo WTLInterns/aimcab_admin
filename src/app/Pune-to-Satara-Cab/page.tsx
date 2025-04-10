@@ -5,6 +5,8 @@ import { gsap } from 'gsap';
 import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
 import Navbar from '../../container/component/Navbar';
+import Footer from '../../container/component/Footer';
+import About_Aimcab from '../../components/About_Aimcab';
 const Page = () => {
   
   const headingRef = useRef(null);
@@ -44,7 +46,7 @@ const Page = () => {
       </Head>
 
       <div>
-       
+       <Navbar/>
         {/* Header */}
         <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -567,189 +569,9 @@ const Page = () => {
     </p>
   </div>
 </section>
-
+ <About_Aimcab />
         {/* Footer */}
-        <div>
-          {/* Redesigned Responsive Footer */}
-          <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-            {/* Footer content area */}
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                {/* Additional footer columns can be added here */}
-              </div>
-            </div>
-
-            {/* Popular Cities Section */}
-            <div className="container mx-auto px-4 text-center mb-4">
-              <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-                POPULAR CITIES:
-              </b>
-              <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-                {/* Pune Button */}
-                <a
-                  href="/Pune"
-                  className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                             bg-gradient-to-r from-blue-400 to-yellow-300 
-                             text-gray-800 font-bold uppercase shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-                >
-                  Pune
-                </a>
-
-                {/* Mumbai Button */}
-                <a
-                  href="/Mumbai"
-                  className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                             bg-gradient-to-r from-blue-400 to-yellow-300 
-                             text-gray-800 font-bold uppercase shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-                >
-                  Mumbai
-                </a>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-gray-300 my-8" />
-
-            {/* Quick Links Section */}
-            <div className="container mx-auto px-4 text-center mb-8">
-              <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-                QUICK LINKS:
-              </b>
-              <div className="mt-2 flex flex-wrap justify-center">
-                {[
-                  "HOME",
-                  "UPDATES",
-                  "ABOUT",
-                  "SERVICES",
-                  "CONTACT US",
-                  "CAREER",
-                  "FAQ's",
-                  "PRIVACY POLICY",
-                  "TERMS & CONDITIONS",
-                ].map((link, i) => (
-                  <a
-                    key={i}
-                    href="/"
-                    className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-gray-300 my-8" />
-
-            {/* Designed by Section */}
-            <div className="container mx-auto px-4 text-center mb-8">
-              <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-                DESIGNED BY
-              </h4>
-              <a
-                href="https://cobaztech.com"
-                target="_blank"
-                className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
-              >
-                COBAZTECH
-              </a>
-            </div>
-
-            {/* Social Media Section */}
-            <div className="container mx-auto px-4 text-center mt-6">
-              <span className="flex justify-center flex-wrap">
-                <a
-                  href="https://wa.me/9130030054"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/whatsapp.png"
-                    alt="WhatsApp"
-                  />
-                </a>
-                <a
-                  href="https://www.facebook.com/Aimcab"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/facebook.png"
-                    alt="Facebook"
-                  />
-                </a>
-                <a
-                  href="https://www.youtube.com/@AimCab"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/youtube.png"
-                    alt="YouTube"
-                  />
-                </a>
-                <a
-                  href="https://twitter.com/aim_cab"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/twitter.png"
-                    alt="Twitter"
-                  />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/aim-cab-77356b208/"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/linked-in.png"
-                    alt="LinkedIn"
-                  />
-                </a>
-                <a
-                  href="https://join.skype.com/invite/sRT2FTyb7d1H"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/skype.png"
-                    alt="Skype"
-                  />
-                </a>
-                <a
-                  href="https://www.instagram.com/aimcabs/"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/instagram.png"
-                    alt="Instagram"
-                  />
-                </a>
-              </span>
-            </div>
-          </div>
-
-          {/* Copyright Section */}
-          <div className="container mx-auto px-4 text-center">
-            <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-              &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-            </p>
-          </div>
-        </div>
+         <div><Footer/></div>
       </div>
     </>
   );

@@ -1,55 +1,55 @@
 import Image from 'next/image';
-
+import Footer from '../../container/component/Footer';
 export default function PuneRoute() {
   // List of cities and routes
   const routes = [
-    { "name": "Mumbai to Kolhapur", "description": "A comfortable and scenic journey from Mumbai to Kolhapur, where you can experience the historic Mahalakshmi Temple and explore the rich cultural heritage of the city.", "link": "/City/MumbaiToKolhapur" },
-    { "name": "Mumbai to Satara", "description": "A peaceful and scenic drive from Mumbai to Satara, known for its historical forts, temples, and the beautiful Kaas Plateau, a UNESCO World Heritage site.", "link": "/City/MumbaiToSatara" },
-    { "name": "Mumbai to Shirdi", "description": "A spiritual journey from Mumbai to Shirdi, home to the revered Sai Baba Temple, offering a serene and peaceful experience for devotees and tourists alike.", "link": "/City/MumbaiToShirdi" },
-    { "name": "Mumbai to Mahabaleshwar", "description": "A scenic and refreshing journey from Mumbai to Mahabaleshwar, a beautiful hill station known for its stunning views, lush greenery, and pleasant weather.", "link": "/City/MumbaiToMahabaleshwar" },
-    { "name": "Mumbai to Panchgani", "description": "A charming drive from Mumbai to Panchgani, a peaceful hill station surrounded by hills, lush forests, and cool climate, perfect for a relaxing getaway.", "link": "/City/MumbaiToPanchgani" },
-    { "name": "Mumbai to Nashik", "description": "A scenic drive from Mumbai to Nashik, known for its vineyards, temples, and historical significance, making it a perfect blend of culture and nature.", "link": "/City/MumbaiToNashik" },
-    { "name": "Mumbai to Thane", "description": "A smooth journey from Mumbai to Thane, a bustling city that combines urban convenience with scenic lakes and hills, offering a perfect escape.", "link": "/City/MumbaiToThane" },
-    { "name": "Mumbai to Kalyan", "description": "A convenient ride from Mumbai to Kalyan, a city known for its rich history, vibrant markets, and proximity to beautiful temples and landmarks.", "link": "/City/MumbaiToKalyan" },
-    { "name": "Mumbai to Ahmednagar", "description": "A comfortable ride from Mumbai to Ahmednagar, a historic city known for its forts, temples, and rich cultural heritage.", "link": "/City/MumbaiToAhmednagar" },
-    { "name": "Mumbai to Solapur", "description": "A smooth and scenic ride from Mumbai to Solapur, a city renowned for its historical sites, temples, and vibrant textile industry.", "link": "/City/MumbaiToSolapur" },
+    { "name": "Mumbai to Kolhapur", "description": "A comfortable and scenic journey from Mumbai to Kolhapur, where you can experience the historic Mahalakshmi Temple and explore the rich cultural heritage of the city.", "link": "/MumbaitoKolhapur" },
+    { "name": "Mumbai to Satara", "description": "A peaceful and scenic drive from Mumbai to Satara, known for its historical forts, temples, and the beautiful Kaas Plateau, a UNESCO World Heritage site.", "link": "/MumbaiToSatara" },
+    { "name": "Mumbai to Shirdi", "description": "A spiritual journey from Mumbai to Shirdi, home to the revered Sai Baba Temple, offering a serene and peaceful experience for devotees and tourists alike.", "link": "/MumbaiToShirdi" },
+    { "name": "Mumbai to Mahabaleshwar", "description": "A scenic and refreshing journey from Mumbai to Mahabaleshwar, a beautiful hill station known for its stunning views, lush greenery, and pleasant weather.", "link": "/MumbaiToMahabaleshwar" },
+    { "name": "Mumbai to Panchgani", "description": "A charming drive from Mumbai to Panchgani, a peaceful hill station surrounded by hills, lush forests, and cool climate, perfect for a relaxing getaway.", "link": "/MumbaiToPanchgani" },
+    { "name": "Mumbai to Nashik", "description": "A scenic drive from Mumbai to Nashik, known for its vineyards, temples, and historical significance, making it a perfect blend of culture and nature.", "link": "/MumbaiToNashik" },
+    { "name": "Mumbai to Thane", "description": "A smooth journey from Mumbai to Thane, a bustling city that combines urban convenience with scenic lakes and hills, offering a perfect escape.", "link": "/MumbaiToThane" },
+    { "name": "Mumbai to Kalyan", "description": "A convenient ride from Mumbai to Kalyan, a city known for its rich history, vibrant markets, and proximity to beautiful temples and landmarks.", "link": "/MumbaiToKalyan" },
+    { "name": "Mumbai to Ahmednagar", "description": "A comfortable ride from Mumbai to Ahmednagar, a historic city known for its forts, temples, and rich cultural heritage.", "link": "/MumbaiToAhmednagar" },
+    { "name": "Mumbai to Solapur", "description": "A smooth and scenic ride from Mumbai to Solapur, a city renowned for its historical sites, temples, and vibrant textile industry.", "link": "/MumbaiToSolapur" },
     { "name": "Mumbai to Alibaug", "description": "A relaxing ride from Mumbai to Alibaug, a coastal town famous for its beaches, fort, and serene atmosphere.", "link": "/Mumbai-to-Alibaug-Cab-Service" },
-    { "name": "Mumbai to Lonavala", "description": "A scenic drive from Mumbai to Lonavala, a popular hill station known for its lush green landscapes, valleys, and pleasant weather.", "link": "/City/MumbaiToLonavala" },
-    { "name": "Mumbai to Igatpuri", "description": "A serene drive from Mumbai to Igatpuri, a tranquil hill station nestled in the Western Ghats, offering scenic landscapes and a refreshing escape.", "link": "/City/MumbaiToIgatpuri" },
-    { "name": "Mumbai to Bhimashankar", "description": "A spiritual journey from Mumbai to Bhimashankar, home to the famous Bhimashankar Temple, set amidst lush forests and tranquil surroundings.", "link": "/City/MumbaiToBhimashankar" },
-    { "name": "Mumbai to Aurangabad", "description": "A scenic ride from Mumbai to Aurangabad, known for its historical landmarks, including the Ellora and Ajanta Caves, rich in culture and heritage.", "link": "/City/MumbaiToAurangabad" },
-    { "name": "Mumbai to Khandala", "description": "A picturesque journey from Mumbai to Khandala, a popular hill station known for its scenic landscapes, pleasant weather, and beautiful viewpoints.", "link": "/City/MumbaiToKhandala" },
-    { "name": "Mumbai to Pandharpur", "description": "Embark on a spiritual journey from Mumbai to Pandharpur, home to the revered Vithoba temple, a pilgrimage destination for devotees seeking blessings.", "link": "/City/MumbaiToPandharpur" },
-    { "name": "Mumbai to Baramati", "description": "Travel from Mumbai to Baramati, a town known for its agricultural heritage and the famous Baramati Temple, offering a peaceful and scenic escape.", "link": "/City/MumbaiToBaramati" },
-    { "name": "Mumbai to Lavasa", "description": "Embark on a refreshing journey from Mumbai to Lavasa, a picturesque hill station known for its scenic views, tranquil lakes, and beautiful landscapes.", "link": "/City/MumbaiToLavasa" },
-    { "name": "Mumbai to Dapoli", "description": "Experience a serene and scenic drive from Mumbai to Dapoli, a coastal town known for its beautiful beaches, lush greenery, and historic forts.", "link": "/City/MumbaiToDapoli" },
-    { "name": "Mumbai to Ganpati Pule", "description": "Embark on a peaceful journey from Mumbai to Ganpati Pule, a popular destination known for its beautiful beaches and the famous Ganapati temple.", "link": "/City/MumbaiToGanpatiPule" },
-    { "name": "Mumbai to Ratnagiri", "description": "Experience a scenic journey from Mumbai to Ratnagiri, a coastal town known for its beautiful beaches, historical forts, and the famous Ratnagiri mangoes.", "link": "/City/MumbaiToRatnagiri" },
-    { "name": "Mumbai to Islampur", "description": "Embark on a peaceful journey from Mumbai to Islampur, a town known for its serene landscapes, temples, and rich cultural heritage.", "link": "/City/MumbaiToIslampur" },
-    { "name": "Mumbai to Karad", "description": "Enjoy a scenic and comfortable ride from Mumbai to Karad, a town known for its historic temples and picturesque surroundings.", "link": "/City/MumbaiToKarad" },
-    { "name": "Mumbai to Chiplun", "description": "Embark on a beautiful journey from Mumbai to Chiplun, a town nestled between lush greenery and serene rivers, known for its scenic beauty.", "link": "/City/MumbaiToChiplun" },
-    { "name": "Mumbai to Sangli", "description": "Travel from Mumbai to Sangli, a city known for its rich history, temples, and vibrant culture, offering a unique blend of tradition and modernity.", "link": "/City/MumbaiToSangli" },
-    { "name": "Mumbai to Miraj", "description": "Enjoy a peaceful journey from Mumbai to Miraj, a city known for its historical sites, temples, and vibrant cultural heritage.", "link": "/City/MumbaiToMiraj" },
-    { "name": "Mumbai to Hubali", "description": "Experience a scenic and comfortable ride from Mumbai to Hubali, a city known for its rich history, cultural heritage, and vibrant markets.", "link": "/City/MumbaiToHubali" },
-    { "name": "Mumbai to Belgaon", "description": "Travel from Mumbai to Belgaon, a city known for its natural beauty, vibrant culture, and historical landmarks.", "link": "/City/MumbaiToBelgaon" },
-    { "name": "Mumbai to Nippani", "description": "Embark on a journey from Mumbai to Nippani, a town known for its peaceful atmosphere and proximity to picturesque landscapes.", "link": "/City/MumbaiToNippani" },
-    { "name": "Mumbai to Goa", "description": "Enjoy a relaxed ride from Mumbai to Goa, a popular coastal destination renowned for its pristine beaches, vibrant nightlife, and scenic beauty.", "link": "/City/MumbaiToGoa" },
-    { "name": "Mumbai to Malvan", "description": "Take a scenic drive from Mumbai to Malvan, a coastal town famous for its beautiful beaches, fresh seafood, and historical forts.", "link": "/City/MumbaiToMalvan" },
-    { "name": "Mumbai to Karwar", "description": "Journey from Mumbai to Karwar, a town known for its serene beaches, lush landscapes, and rich cultural heritage.", "link": "/City/MumbaiToKarwar" },
-    { "name": "Mumbai to Hyderabad", "description": "Travel comfortably from Mumbai to Hyderabad, a city renowned for its historical monuments, rich culture, and delectable cuisine.", "link": "/City/MumbaiToHyderabad" },
-    { "name": "Mumbai to Bangalore", "description": "Experience a smooth and scenic journey from Mumbai to Bangalore, a city known for its technology industry, gardens, and vibrant nightlife.", "link": "/City/MumbaiToBangalore" },
-    { "name": "Mumbai to Indore", "description": "Travel from Mumbai to Indore, a city known for its historical landmarks, vibrant culture, and delicious street food.", "link": "/City/MumbaiToIndore" },
-    { "name": "Mumbai to Ujjain", "description": "Embark on a spiritual journey from Mumbai to Ujjain, a city famous for its ancient temples and rich religious history.", "link": "/City/MumbaiToUjjain" },
-    { "name": "Mumbai to Nagpur", "description": "Enjoy a smooth ride from Mumbai to Nagpur, a city known for its historical significance, vibrant markets, and orange orchards.", "link": "/City/MumbaiToNagpur" },
-    { "name": "Mumbai to Amravati", "description": "Take a journey from Mumbai to Amravati, a city known for its rich cultural heritage, historic sites, and proximity to nature.", "link": "/City/MumbaiToAmravati" },
-    { "name": "Mumbai to Dhule", "description": "Travel comfortably from Mumbai to Dhule, a city known for its historical landmarks and its connection to the Maratha Empire.", "link": "/City/MumbaiToDhule" },
-    { "name": "Mumbai to Jalgaon", "description": "Journey from Mumbai to Jalgaon, a city famous for its mangoes, cotton industry, and scenic landscapes.", "link": "/City/MumbaiToJalgaon" },
-    { "name": "Mumbai to Jalna", "description": "Take a smooth ride from Mumbai to Jalna, a city known for its agricultural richness, particularly in sugarcane production.", "link": "/City/MumbaiToJalna" },
-    { "name": "Mumbai to Beed", "description": "Travel from Mumbai to Beed, a city rich in history, agriculture, and a great place to experience rural Maharashtra.", "link": "/City/MumbaiToBeed" },
-    { "name": "Mumbai to Barshi", "description": "Enjoy a scenic journey from Mumbai to Barshi, a small town known for its religious significance and historical temples.", "link": "/City/MumbaiToBarshi" },
-    { "name": "Mumbai to Akkalkot", "description": "Embark on a spiritual journey from Mumbai to Akkalkot, a town renowned for its temple dedicated to Shri Swaminarayan.", "link": "/City/MumbaiToAkkalkot" },
-    { "name": "Mumbai to Tuljapur", "description": "Experience a spiritual journey from Mumbai to Tuljapur, a town famous for its historic temple of Goddess Tulja Bhavani.", "link": "/City/MumbaiToTuljapur" },
-    { "name": "Mumbai to Akola", "description": "Travel comfortably from Mumbai to Akola, a city known for its agricultural importance and rich history.", "link": "/City/MumbaiToAkola" }
+    { "name": "Mumbai to Lonavala", "description": "A scenic drive from Mumbai to Lonavala, a popular hill station known for its lush green landscapes, valleys, and pleasant weather.", "link": "/MumbaiToLonavala" },
+    { "name": "Mumbai to Igatpuri", "description": "A serene drive from Mumbai to Igatpuri, a tranquil hill station nestled in the Western Ghats, offering scenic landscapes and a refreshing escape.", "link": "/MumbaiToIgatpuri" },
+    { "name": "Mumbai to Bhimashankar", "description": "A spiritual journey from Mumbai to Bhimashankar, home to the famous Bhimashankar Temple, set amidst lush forests and tranquil surroundings.", "link": "/MumbaiToBhimashankar" },
+    { "name": "Mumbai to Aurangabad", "description": "A scenic ride from Mumbai to Aurangabad, known for its historical landmarks, including the Ellora and Ajanta Caves, rich in culture and heritage.", "link": "/MumbaiToAurangabad" },
+    { "name": "Mumbai to Khandala", "description": "A picturesque journey from Mumbai to Khandala, a popular hill station known for its scenic landscapes, pleasant weather, and beautiful viewpoints.", "link": "/MumbaiToKhandala" },
+    { "name": "Mumbai to Pandharpur", "description": "Embark on a spiritual journey from Mumbai to Pandharpur, home to the revered Vithoba temple, a pilgrimage destination for devotees seeking blessings.", "link": "/MumbaiToPandharpur" },
+    { "name": "Mumbai to Baramati", "description": "Travel from Mumbai to Baramati, a town known for its agricultural heritage and the famous Baramati Temple, offering a peaceful and scenic escape.", "link": "/MumbaiToBaramati" },
+    { "name": "Mumbai to Lavasa", "description": "Embark on a refreshing journey from Mumbai to Lavasa, a picturesque hill station known for its scenic views, tranquil lakes, and beautiful landscapes.", "link": "/MumbaiToLavasa" },
+    { "name": "Mumbai to Dapoli", "description": "Experience a serene and scenic drive from Mumbai to Dapoli, a coastal town known for its beautiful beaches, lush greenery, and historic forts.", "link": "/MumbaiToDapoli" },
+    { "name": "Mumbai to Ganpati Pule", "description": "Embark on a peaceful journey from Mumbai to Ganpati Pule, a popular destination known for its beautiful beaches and the famous Ganapati temple.", "link": "/MumbaiToGanpatiPule" },
+    { "name": "Mumbai to Ratnagiri", "description": "Experience a scenic journey from Mumbai to Ratnagiri, a coastal town known for its beautiful beaches, historical forts, and the famous Ratnagiri mangoes.", "link": "/MumbaiToRatnagiri" },
+    { "name": "Mumbai to Islampur", "description": "Embark on a peaceful journey from Mumbai to Islampur, a town known for its serene landscapes, temples, and rich cultural heritage.", "link": "/MumbaiToIslampur" },
+    { "name": "Mumbai to Karad", "description": "Enjoy a scenic and comfortable ride from Mumbai to Karad, a town known for its historic temples and picturesque surroundings.", "link": "/MumbaiToKarad" },
+    { "name": "Mumbai to Chiplun", "description": "Embark on a beautiful journey from Mumbai to Chiplun, a town nestled between lush greenery and serene rivers, known for its scenic beauty.", "link": "/MumbaiToChiplun" },
+    { "name": "Mumbai to Sangli", "description": "Travel from Mumbai to Sangli, a city known for its rich history, temples, and vibrant culture, offering a unique blend of tradition and modernity.", "link": "/MumbaiToSangli" },
+    { "name": "Mumbai to Miraj", "description": "Enjoy a peaceful journey from Mumbai to Miraj, a city known for its historical sites, temples, and vibrant cultural heritage.", "link": "/MumbaiToMiraj" },
+    { "name": "Mumbai to Hubali", "description": "Experience a scenic and comfortable ride from Mumbai to Hubali, a city known for its rich history, cultural heritage, and vibrant markets.", "link": "/MumbaiToHubali" },
+    { "name": "Mumbai to Belgaon", "description": "Travel from Mumbai to Belgaon, a city known for its natural beauty, vibrant culture, and historical landmarks.", "link": "/MumbaiToBelgaon" },
+    { "name": "Mumbai to Nippani", "description": "Embark on a journey from Mumbai to Nippani, a town known for its peaceful atmosphere and proximity to picturesque landscapes.", "link": "/Mumbai-to-Nippani-Cab" },
+    { "name": "Mumbai to Goa", "description": "Enjoy a relaxed ride from Mumbai to Goa, a popular coastal destination renowned for its pristine beaches, vibrant nightlife, and scenic beauty.", "link": "/MumbaiToGoa" },
+    { "name": "Mumbai to Malvan", "description": "Take a scenic drive from Mumbai to Malvan, a coastal town famous for its beautiful beaches, fresh seafood, and historical forts.", "link": "/Mumbai-to-Malvan-Cab" },
+    { "name": "Mumbai to Karwar", "description": "Journey from Mumbai to Karwar, a town known for its serene beaches, lush landscapes, and rich cultural heritage.", "link": "/MumbaiToKarwar" },
+    { "name": "Mumbai to Hyderabad", "description": "Travel comfortably from Mumbai to Hyderabad, a city renowned for its historical monuments, rich culture, and delectable cuisine.", "link": "/MumbaiToHyderabad" },
+    { "name": "Mumbai to Bangalore", "description": "Experience a smooth and scenic journey from Mumbai to Bangalore, a city known for its technology industry, gardens, and vibrant nightlife.", "link": "/MumbaiToBangalore" },
+    { "name": "Mumbai to Indore", "description": "Travel from Mumbai to Indore, a city known for its historical landmarks, vibrant culture, and delicious street food.", "link": "/MumbaiToIndore" },
+    { "name": "Mumbai to Ujjain", "description": "Embark on a spiritual journey from Mumbai to Ujjain, a city famous for its ancient temples and rich religious history.", "link": "/MumbaiToUjjain" },
+    { "name": "Mumbai to Nagpur", "description": "Enjoy a smooth ride from Mumbai to Nagpur, a city known for its historical significance, vibrant markets, and orange orchards.", "link": "/MumbaiToNagpur" },
+    { "name": "Mumbai to Amravati", "description": "Take a journey from Mumbai to Amravati, a city known for its rich cultural heritage, historic sites, and proximity to nature.", "link": "/MumbaiToAmravati" },
+    { "name": "Mumbai to Dhule", "description": "Travel comfortably from Mumbai to Dhule, a city known for its historical landmarks and its connection to the Maratha Empire.", "link": "/MumbaiToDhule" },
+    { "name": "Mumbai to Jalgaon", "description": "Journey from Mumbai to Jalgaon, a city famous for its mangoes, cotton industry, and scenic landscapes.", "link": "/MumbaiToJalgaon" },
+    { "name": "Mumbai to Jalna", "description": "Take a smooth ride from Mumbai to Jalna, a city known for its agricultural richness, particularly in sugarcane production.", "link": "/MumbaiToJalna" },
+    { "name": "Mumbai to Beed", "description": "Travel from Mumbai to Beed, a city rich in history, agriculture, and a great place to experience rural Maharashtra.", "link": "/MumbaiToBeed" },
+    { "name": "Mumbai to Barshi", "description": "Enjoy a scenic journey from Mumbai to Barshi, a small town known for its religious significance and historical temples.", "link": "/MumbaiToBarshi" },
+    { "name": "Mumbai to Akkalkot", "description": "Embark on a spiritual journey from Mumbai to Akkalkot, a town renowned for its temple dedicated to Shri Swaminarayan.", "link": "/MumbaiToAkkalkot" },
+    { "name": "Mumbai to Tuljapur", "description": "Experience a spiritual journey from Mumbai to Tuljapur, a town famous for its historic temple of Goddess Tulja Bhavani.", "link": "/MumbaiToTuljapur" },
+    { "name": "Mumbai to Akola", "description": "Travel comfortably from Mumbai to Akola, a city known for its agricultural importance and rich history.", "link": "/MumbaiToAkola" }
 
 ];
 return (
@@ -78,187 +78,7 @@ return (
         </div>
       </section>
        {/* Footer */}
-       <div>
-          {/* Redesigned Responsive Footer */}
-          <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
-            {/* Footer content area */}
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                {/* Additional footer columns can be added here */}
-              </div>
-            </div>
-
-            {/* Popular Cities Section */}
-            <div className="container mx-auto px-4 text-center mb-4">
-              <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
-                POPULAR CITIES:
-              </b>
-              <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
-                {/* Pune Button */}
-                <a
-                  href="/Pune"
-                  className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                             bg-gradient-to-r from-blue-400 to-yellow-300 
-                             text-gray-800 font-bold uppercase shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
-                >
-                  Pune
-                </a>
-
-                {/* Mumbai Button */}
-                <a
-                  href="/Mumbai"
-                  className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
-                             bg-gradient-to-r from-blue-400 to-yellow-300 
-                             text-gray-800 font-bold uppercase shadow-md 
-                             transform transition-all duration-500 ease-in-out 
-                             hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
-                >
-                  Mumbai
-                </a>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-gray-300 my-8" />
-
-            {/* Quick Links Section */}
-            <div className="container mx-auto px-4 text-center mb-8">
-              <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-                QUICK LINKS:
-              </b>
-              <div className="mt-2 flex flex-wrap justify-center">
-                {[
-                  "HOME",
-                  "UPDATES",
-                  "ABOUT",
-                  "SERVICES",
-                  "CONTACT US",
-                  "CAREER",
-                  "FAQ's",
-                  "PRIVACY POLICY",
-                  "TERMS & CONDITIONS",
-                ].map((link, i) => (
-                  <a
-                    key={i}
-                    href="/"
-                    className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-gray-300 my-8" />
-
-            {/* Designed by Section */}
-            <div className="container mx-auto px-4 text-center mb-8">
-              <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
-                DESIGNED BY
-              </h4>
-              <a
-                href="https://cobaztech.com"
-                target="_blank"
-                className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
-              >
-                COBAZTECH
-              </a>
-            </div>
-
-            {/* Social Media Section */}
-            <div className="container mx-auto px-4 text-center mt-6">
-              <span className="flex justify-center flex-wrap">
-                <a
-                  href="https://wa.me/9130030054"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/whatsapp.png"
-                    alt="WhatsApp"
-                  />
-                </a>
-                <a
-                  href="https://www.facebook.com/Aimcab"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/facebook.png"
-                    alt="Facebook"
-                  />
-                </a>
-                <a
-                  href="https://www.youtube.com/@AimCab"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/youtube.png"
-                    alt="YouTube"
-                  />
-                </a>
-                <a
-                  href="https://twitter.com/aim_cab"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/twitter.png"
-                    alt="Twitter"
-                  />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/aim-cab-77356b208/"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/linked-in.png"
-                    alt="LinkedIn"
-                  />
-                </a>
-                <a
-                  href="https://join.skype.com/invite/sRT2FTyb7d1H"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/skype.png"
-                    alt="Skype"
-                  />
-                </a>
-                <a
-                  href="https://www.instagram.com/aimcabs/"
-                  target="_blank"
-                  className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
-                >
-                  <img
-                    className="w-8 h-8 inline-block mb-2"
-                    src="images/instagram.png"
-                    alt="Instagram"
-                  />
-                </a>
-              </span>
-            </div>
-          </div>
-
-          {/* Copyright Section */}
-          <div className="container mx-auto px-4 text-center">
-            <p className="transition-all duration-300 ease-in-out hover:text-green-200">
-              &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-            </p>
-          </div>
-        </div>
+       <div> <Footer /></div>
       </div>
  
   );
