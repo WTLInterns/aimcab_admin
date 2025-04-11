@@ -345,7 +345,7 @@ const BookingForm = () => {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full py-4 px-6 bg-[#cfc126] hover:bg-[#0F0E0E] text-[#0F0E0E] hover:text-[#F3B664] font-bold text-lg rounded-lg border-2 border-[#F3B664] transition duration-300 flex justify-center items-center"
+                      className="w-full py-4 px-6 bg-[#2B2B2B] text-[#D5D5D5] hover:bg-[#0F0E0E]  hover:text-[#F3B664] font-bold text-lg rounded-lg border-2 border-[#F3B664] transition duration-300 flex justify-center items-center"
                       disabled={loading}
                     >
                       {loading ? (

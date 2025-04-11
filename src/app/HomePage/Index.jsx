@@ -234,7 +234,7 @@ export default function Home() {
 
               <a
                 href={service.action.link}
-                className="inline-block bg-[#2B2B2B] text-[#D5D5D5] px-4 py-2 rounded-md font-medium hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all duration-300"
+                className="inline-block bg-[#2B2B2B] text-[#D5D5D5] px-4 py-2 rounded-md font-medium hover:bg-[#0F0E0E] border-2 border-[#F3B664] hover:text-[#F3B664] transition-all duration-300"
               >
                 {service.action.text}
               </a>
@@ -284,7 +284,7 @@ export default function Home() {
               </ul>
               <a
                 href="/"
-                className="w-full py-3 bg-[#F3B664] text-[#0F0E0E] font-semibold rounded-lg duration-300 text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
+                className="w-full py-3 bg-[#2B2B2B] text-[#D5D5D5] font-semibold rounded-lg duration-300 border-2 border-[#F3B664]  text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
               >
                 Book Your Cab Now
               </a>
@@ -306,7 +306,7 @@ export default function Home() {
               </ul>
               <a
                 href="/"
-                className="w-full py-3 bg-[#F3B664] text-[#0F0E0E] font-semibold rounded-lg duration-300 text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
+                className="w-full py-3 bg-[#2B2B2B] text-[#D5D5D5] font-semibold rounded-lg border-2 border-[#F3B664] duration-300 text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
               >
                 Book Outstation Cab
               </a>
@@ -325,7 +325,7 @@ export default function Home() {
               </ul>
               <a
                 href="/"
-                className="w-full py-3 bg-[#F3B664] text-[#0F0E0E] font-semibold rounded-lg duration-300 text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
+                className="w-full py-3 bg-[#2B2B2B] text-[#D5D5D5] font-semibold rounded-lg border-2 border-[#F3B664] duration-300 text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
               >
                 Book Airport Transfer
               </a>
@@ -355,7 +355,7 @@ Ready to <span className="text-[#76453B]">  Experience a Hassle-Free Ride?</span
           <div className="text-center mb-12 animate__animated animate__fadeInUp animate__delay-2s">
             <a
               href="/"
-              className="inline-block bg-[#F3B664] text-[#0F0E0E] px-6 py-3 rounded-full text-lg sm:text-xl font-semibold transform hover:scale-105 hover:bg-[#0F0E0E] hover:text-[#F3B664] shadow-lg hover:shadow-[#FCC737]/50 transition-all duration-300"
+              className="inline-block bg-[#2B2B2B] text-[#D5D5D5] px-6 py-4 rounded-lg  text-lg sm:text-xl font-semibold transform border-2 border-[#F3B664] hover:scale-105 hover:bg-[#0F0E0E] hover:text-[#F3B664] shadow-lg hover:shadow-[#FCC737]/50 transition-all duration-300"
             >
               Book Your Ride Now
             </a>
@@ -379,7 +379,7 @@ Ready to <span className="text-[#76453B]">  Experience a Hassle-Free Ride?</span
             </p>
             <a
               href="/Contact"
-              className="inline-block bg-[#F3B664] text-[#0F0E0E] px-6 py-3 rounded-full text-lg sm:text-xl font-semibold transform hover:scale-105 hover:bg-[#0F0E0E] hover:text-[#F3B664] shadow-lg hover:shadow-[#FCC737]/50 transition-all duration-300"
+              className="inline-block bg-[#2B2B2B] text-[#D5D5D5] px-6 py-3 rounded-lg  text-lg sm:text-xl font-semibold transform border-2 border-[#F3B664] hover:scale-105 hover:bg-[#0F0E0E] hover:text-[#F3B664] shadow-lg hover:shadow-[#FCC737]/50 transition-all duration-300"
             >
               Contact Us
             </a>

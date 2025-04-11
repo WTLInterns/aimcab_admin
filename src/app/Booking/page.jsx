@@ -141,7 +141,12 @@ export default function Home() {
 
       console.log("Booking response:", res.data)
       setLoadingData({ [index]: false })
-      route.push("/ThankYou")
+
+      // Store car image in localStorage for the invoice page
+      localStorage.setItem("bookedCarImage", car.image)
+      localStorage.setItem("bookedCarModel", car.name)
+
+      route.push("/Invoice")
     } catch (error) {
       console.error("Error in handleBookNow:", error)
       setLoadingData({ [index]: false })
@@ -149,117 +154,11 @@ export default function Home() {
     }
   }
 
-  // return (
-  //   <div>
-  //     {/* Header */}
-  //     <header className="bg-[#CDC7C7] w-full">
-  //     <Navbar/>
-  //     </header>
-
-  //     {/* Main Content */}
-  //     <main className="bg-[#F8F9FA]">
-  //       {/* Hero Section */}
-  //       <section className="text-center py-4 bg-gradient-to-r from-[#faa499] to-[#f7dd85]">
-  //         <h1 className="text-4xl font-bold">Welcome to Our Car Rental Service</h1>
-  //         <p className="text-xl mt-4">Explore the best cars available for your trips.</p>
-  //       </section>
-
-  //       {loading ? (
-  //         <div className="flex items-center justify-center min-h-screen bg-gray-100">
-  //           <div className="text-xl font-semibold text-gray-600">
-  //             Loading
-  //             <span className="animate-pulse">.</span>
-  //             <span className="animate-pulse animation-delay-200">.</span>
-  //             <span className="animate-pulse animation-delay-400">.</span>
-  //           </div>
-  //         </div>
-  //       ) : (
-  //         <section className="py-16 px-4">
-
-  //           {/* Responsive grid for car cards */}
-  //           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-  //             {cars.map(
-  //               (car, index) =>
-  //                 car.price > 0 && (
-  //                   <div key={car.id} className="card p-6 bg-white shadow-lg rounded-lg w-80">
-  //                     <Image
-  //                       src={car.image || "/placeholder.svg"}
-  //                       alt={car.name}
-  //                       width={320}
-  //                       height={130}
-  //                       loading="lazy"
-  //                       className="w-90 h-30 object-cover rounded-lg"
-  //                     />
-  //                     <h3 className="text-2xl mt-4">{car.name}</h3>
-  //                     <p className="mt-4 text-lg">{car.description}</p>
-
-  //                     {/* Facilities Section */}
-  //                     <div className="mt-4">
-  //                       <h4 className="text-lg font-semibold">Facilities:</h4>
-  //                       <ul className="mt-2">
-  //                         {car.facilities.map((facility, facilityIndex) => (
-  //                           <li key={facilityIndex} className="flex items-center mt-2">
-  //                             <img
-  //                               src={facility.icon || "/placeholder.svg"}
-  //                               alt={facility.name}
-  //                               className="w-8 h-8 mr-2"
-  //                             />
-  //                             <p>{facility.name}</p>
-  //                           </li>
-  //                         ))}
-  //                       </ul>
-  //                     </div>
-
-  //                     <div className="mt-4 flex justify-between items-center">
-  //                       <p className="text-xl font-semibold">Rs. {car.price}/-</p>
-  //                       <button
-  //                         className="relative px-6 py-3 text-white bg-yellow-300 rounded-lg disabled:bg-blue-300 disabled:cursor-not-allowed"
-  //                         disabled={loadingData[index]}
-  //                         onClick={() => handleBookNow(car, index)}
-  //                       >
-  //                         {loadingData[index] ? (
-  //                           <div role="status">
-  //                             <svg
-  //                               aria-hidden="true"
-  //                               className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-white"
-  //                               viewBox="0 0 100 101"
-  //                               fill="none"
-  //                               xmlns="http://www.w3.org/2000/svg"
-  //                             >
-  //                               <path
-  //                                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-  //                                 fill="currentColor"
-  //                               />
-  //                               <path
-  //                                 d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-  //                                 fill="currentFill"
-  //                               />
-  //                             </svg>
-  //                             <span>Loading...</span>
-  //                           </div>
-  //                         ) : (
-  //                           <span>Book Now</span>
-  //                         )}
-  //                       </button>
-  //                     </div>
-  //                   </div>
-  //                 ),
-  //             )}
-  //           </div>
-  //         </section>
-  //       )}
-
-  //       {/* Footer */}
-  //      <Footer/>
-  //     </main>
-  //   </div>
-  // )
-  // ... existing code ...
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       {/* Header */}
       <header className="bg-white shadow-md w-full sticky top-0 z-50">
-        <Navbar/>
+        <Navbar />
       </header>
 
       {/* Main Content */}
@@ -283,81 +182,124 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <section className="py-16 px-4 max-w-7xl mx-auto">
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div className="mt-8 space-y-8">
               {cars.map(
                 (car, index) =>
                   car.price > 0 && (
-                    <div 
-                      key={car.id} 
-                      className="card p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    <div
+                      key={car.id}
+                      className="card p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row gap-6 border border-gray-100 hover:border-yellow-100"
                     >
-                     <div className="relative w-full h-36 overflow-hidden rounded-lg">
-  <Image
-    src={car.image || "/placeholder.svg"}
-    alt={car.name}
-    fill
-    loading="lazy"
-    className="object-cover transition-transform duration-300 hover:scale-105"
-  />
-</div>
-
-                      <h3 className="text-2xl mt-4 font-bold text-gray-800">{car.name}</h3>
-                      <p className="mt-2 text-gray-600">{car.description}</p>
-
-                      {/* Facilities Section */}
-                      <div className="mt-6">
-                        <h4 className="text-lg font-semibold text-gray-800 mb-3">Facilities:</h4>
-                        <ul className="space-y-2">
-                          {car.facilities.map((facility, facilityIndex) => (
-                            <li key={facilityIndex} className="flex items-center">
-                              <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
-                                <img
-                                  src={facility.icon || "/placeholder.svg"}
-                                  alt={facility.name}
-                                  className="w-5 h-5"
-                                />
-                              </div>
-                              <p className="text-gray-700">{facility.name}</p>
-                            </li>
-                          ))}
-                        </ul>
+                      {/* Image section - responsive with proper aspect ratio */}
+                      <div className="w-full md:w-2/5 lg:w-1/3 h-64 md:h-auto overflow-hidden rounded-lg shadow-sm relative">
+                        <Image
+                          src={car.image || "/placeholder-car.svg"}
+                          alt={car.name}
+                          width={600}
+                          height={400}
+                          loading="lazy"
+                          className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
+                          style={{ aspectRatio: "3/2" }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
                       </div>
 
-                      <div className="mt-6 flex justify-between items-center">
-                        <div>
-                          <p className="text-sm text-gray-500">Starting from</p>
-                          <p className="text-2xl font-bold text-gray-800">Rs. {car.price}/-</p>
-                        </div>
-                        <button
-                          className="relative px-6 py-3 text-white bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
-                          disabled={loadingData[index]}
-                          onClick={() => handleBookNow(car, index)}
-                        >
-                          {loadingData[index] ? (
-                            <div className="flex items-center space-x-2">
-                              <svg
-                                aria-hidden="true"
-                                className="w-5 h-5 text-white animate-spin"
-                                viewBox="0 0 100 101"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                  fill="currentColor"
-                                />
-                                <path
-                                  d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                  fill="currentFill"
-                                />
-                              </svg>
-                              <span>Processing...</span>
+                      {/* Content section */}
+                      <div className="w-full md:w-3/5 lg:w-2/3 flex flex-col">
+                        <div className="flex-1">
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <h3 className="text-2xl font-bold text-gray-900">{car.name}</h3>
+                              <div className="flex items-center mt-1 space-x-2">
+                                <span className="text-sm font-medium text-yellow-600 bg-yellow-50 px-2 py-1 rounded">
+                                  {car.category}
+                                </span>
+                                <span className="text-sm text-gray-500">• {car.seats} seats</span>
+                              </div>
                             </div>
-                          ) : (
-                            <span>Book Now</span>
-                          )}
-                        </button>
+                            <div className="text-right">
+                              <p className="text-sm text-gray-500">Starting from</p>
+                              <p className="text-2xl font-bold text-gray-900">Rs. {car.price.toLocaleString()}/-</p>
+                              <p className="text-xs text-gray-400">per day</p>
+                            </div>
+                          </div>
+
+                          <p className="mt-3 text-gray-600 line-clamp-2">{car.description}</p>
+
+                          {/* Facilities Section */}
+                          <div className="mt-6">
+                            <h4 className="text-lg font-semibold text-gray-800 mb-3">Key Features:</h4>
+                            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                              {car.facilities.map((facility, facilityIndex) => (
+                                <li key={facilityIndex} className="flex items-center space-x-2">
+                                  <div className="w-7 h-7 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                                    <img
+                                      src={facility.icon || "/feature-icon.svg"}
+                                      alt={facility.name}
+                                      className="w-4 h-4 text-yellow-500"
+                                    />
+                                  </div>
+                                  <p className="text-sm text-gray-700">{facility.name}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Action buttons */}
+                        <div className="mt-8 pt-4 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                          <div className="flex items-center space-x-2">
+                            <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                              <path
+                                fillRule="evenodd"
+                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            <span className="text-sm text-gray-600">{car.location || "Available nationwide"}</span>
+                          </div>
+
+                          <button
+                            className="relative px-6 py-3 font-medium text-white bg-[#0F0E0E] border-2 border-[#F3B664] rounded-lg hover:text-[#F3B664] hover:bg-[#0F0E0E] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm hover:shadow-md w-full sm:w-auto text-center"
+                            disabled={loadingData[index]}
+                            onClick={() => handleBookNow(car, index)}
+                          >
+                            {loadingData[index] ? (
+                              <div className="flex items-center justify-center space-x-2">
+                                <svg
+                                  aria-hidden="true"
+                                  className="w-5 h-5 text-white animate-spin"
+                                  viewBox="0 0 100 101"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                    fill="currentColor"
+                                  />
+                                  <path
+                                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                    fill="currentFill"
+                                  />
+                                </svg>
+                                <span>Processing...</span>
+                              </div>
+                            ) : (
+                              <span className="flex items-center justify-center space-x-2">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                  />
+                                </svg>
+                                <span>Book Now</span>
+                              </span>
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ),
@@ -367,9 +309,8 @@ export default function Home() {
         )}
 
         {/* Footer */}
-        <Footer/>
+        <Footer />
       </main>
     </div>
   )
-
 }

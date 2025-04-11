@@ -1,5 +1,11 @@
 "use client"
-import React from 'react'
+
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { FaCar, FaRoute, FaMapMarkedAlt, FaMoneyBillWave, FaQuestionCircle, FaInfoCircle } from "react-icons/fa"
+import { MdAirportShuttle, MdPayment } from "react-icons/md"
+import { BsFillTelephoneFill } from "react-icons/bs"
+import { HiOutlineGift } from "react-icons/hi"
 import Head from 'next/head';
 import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
@@ -8,10 +14,9 @@ import Navbar from '../../container/component/Navbar'
 import Footer from '../../container/component/Footer';
 import About_Aimcab from '../../components/About_Aimcab';
 
-const Booking = () => {
+export default function MumbaiToGoa() {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
-  const buttonsRef = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -27,17 +32,19 @@ const Booking = () => {
       duration: 0.6
     }, "+=0.2")
   }, []);
-      
+
   return (
     <div>
       <Head>
-        <title>Mumbai to Belgaon Cab Services | Aim Cab Booking</title>
-        <meta name="description" content="Book Mumbai to Belgaon cab services with Aim Cab. Enjoy safe, private, one-way taxi rides and airport transfers at budget-friendly prices." />
-        <link rel="canonical" href="https://aimcab.com/mumbai-to-belgaon-cab-services" />
+        <title>Mumbai to Goa Cab Service | Aim Cab Booking</title>
+        <meta name="description" content="Book Mumbai to Goa cab with Aim Cab for a smooth, budget-friendly ride. One-way & round-trip taxi service with expert drivers available." />
+        <link rel="canonical" href="https://aimcab.com/Mumbai-to-Goa-Cab-Service" />
         <meta name="author" content="Aim Cab" />
-        <meta name="keywords" content="mumbai to belgaon cab Services, cab for mumbai airport to belgaon, one way cab from mumbai to belgaon, private cabs from mumbai to belgaon, belgaon to mumbai cab, mumbai to belgaon cab" />
+        <meta name="keywords" content="Mumbai To Goa Cab Services, Mumbai To Goa Cab, mumbai to goa cab booking, cab fare from mumbai to goa, mumbai to goa cab fare, Cab Services in Goa" />
         <meta name="robots" content="index, follow" />
       </Head>
+
+      <Navbar />
       
       {/* Header */}
       <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center">
@@ -47,34 +54,35 @@ const Booking = () => {
             ref={headingRef}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            Mumbai to Belgaon Cab Service
+            Mumbai to Goa Cab Service
           </h1>
           
           <p 
             ref={paragraphRef}
             className="text-xl md:text-2xl mb-8 font-light"
           >
-            The Best Way to Travel in Comfort
+            Your Ultimate Travel Guide
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
       </header>
       
       {/* Main Title */}
-      <h2 className="text-3xl font-bold mt-4 text-center text-[#76453B]">
-        Mumbai to Belgaon Cab Services – The Best Way to Travel in Comfort
+      <h2 className="text-3xl font-bold mt-4 text-center">
+        Mumbai to Goa Cab Services – Comfortable & Affordable Travel
       </h2>
 
       <BookingForm />
       
       {/* Introduction Section */}
       <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
-        <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Trusted Travel Partner</h3>
+        <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Reliable Travel Partner</h3>
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-lg text-gray-700 leading-relaxed">
-            Welcome to Aimcab, the leading provider of Mumbai to Belgaon cab services. Whether you're traveling for business, leisure, or a family visit, we offer reliable, safe, and affordable taxi services to ensure that your journey is as comfortable and enjoyable as possible. With a range of well-maintained vehicles, experienced drivers, and user-friendly booking options, Aimcab is your go-to solution for a seamless travel experience from Mumbai to Belgaon.
-            In this detailed guide, we'll cover all aspects of our Mumbai to Belgaon cab services, including our service options, booking process, the road trip experience, the best places to visit, pricing details, and more.
-            Let's explore how Aimcab can make your Mumbai to Belgaon cab experience unforgettable!
+            Welcome to Aimcab, your reliable partner for Mumbai to Goa cab services. Whether you're visiting for business, leisure, or a beach vacation, Goa, located on India's western coast, is a paradise offering beautiful beaches, vibrant nightlife, and rich Portuguese heritage. Our Mumbai to Goa cab service ensures that your travel experience is as comfortable and seamless as possible, whether you're visiting for a weekend getaway or planning a longer stay.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed mt-4">
+            This guide provides an in-depth look into our Mumbai to Goa cab services, the booking process, the road trip experience, top attractions in Goa, pricing details, and why Aimcab is the best choice for your next road trip to Goa.
           </p>
         </div>
       </section>
@@ -87,21 +95,21 @@ const Booking = () => {
           <div className="bg-blue-50 p-5 rounded-lg hover:shadow-md transition-shadow">
             <h5 className="font-bold text-lg text-[#76453B] mb-3">Oneway Cab Service</h5>
             <p className="text-gray-600">
-              If you're planning a one-way trip from Mumbai to Belgaon, we offer a one-way cab from Mumbai to Belgaon that ensures you get to your destination in comfort and style. There are no extra charges for waiting time, and our flexible service allows you to enjoy a hassle-free journey without worrying about returning to Mumbai immediately.
+              Our one-way cab service from Mumbai to Goa is perfect for travelers who need a direct ride to Goa without the return journey. Whether it's for a beach vacation, business trip, or personal visit, our one-way service offers the flexibility and ease of a comfortable, direct ride without the need for planning a return trip. We handle everything, so you can focus on your vacation.
             </p>
           </div>
           
           <div className="bg-blue-50 p-5 rounded-lg hover:shadow-md transition-shadow">
             <h5 className="font-bold text-lg text-[#76453B] mb-3">Roundtrip Cab Service</h5>
             <p className="text-gray-600">
-              For those who need to travel to Belgaon and return to Mumbai, our roundtrip cab service is the ideal choice. You can book your Mumbai to Belgaon cab for a roundtrip, and our driver will ensure you are picked up and dropped off at your preferred locations.
+              For travelers who plan to visit Goa and return to Mumbai, we offer round-trip cab services. When you choose a round-trip, we'll take care of the entire journey, ensuring that you get to Goa safely and comfortably, and return to Mumbai at the scheduled time. You can book your Mumbai to Goa taxi and enjoy a hassle-free experience both ways.
             </p>
           </div>
           
           <div className="bg-blue-50 p-5 rounded-lg hover:shadow-md transition-shadow">
             <h5 className="font-bold text-lg text-[#76453B] mb-3">Airport Pickup & Drop</h5>
             <p className="text-gray-600">
-              We offer Mumbai airport to Belgaon taxi services for travelers who need a reliable ride to or from the airport. Whether you're arriving at Mumbai International Airport or Chhatrapati Shivaji Maharaj International Airport, we can ensure a smooth and timely transfer to Belgaon.
+              If you're flying into Mumbai International Airport and need a ride to Goa, we offer airport pickup and drop services. Whether you're traveling for business, pleasure, or vacation, we ensure that you are picked up on time and transported to Goa in comfort. Similarly, we also offer Goa to Mumbai airport taxi services to ensure that your airport transfers are smooth and timely.
             </p>
           </div>
         </div>
@@ -115,21 +123,21 @@ const Booking = () => {
           <div className="bg-white p-5 rounded-lg shadow-sm">
             <h5 className="font-bold text-lg text-[#76453B] mb-3">Book Online via Website</h5>
             <p className="text-gray-600">
-              Booking your Mumbai to Belgaon taxi service is incredibly easy through our website. Just visit Aimcab.com, select your pickup and drop-off points, choose your vehicle type, and confirm your booking.
+              Booking your Mumbai to Goa cab online is fast and easy. Just visit Aimcab.com, enter your pickup and drop-off locations, choose the type of vehicle you prefer, and confirm your booking. You'll receive an instant confirmation with your trip details, including the driver's contact information, estimated pickup time, and other essential information.
             </p>
           </div>
           
           <div className="bg-white p-5 rounded-lg shadow-sm">
             <h5 className="font-bold text-lg text-[#76453B] mb-3">Book On Call</h5>
             <p className="text-gray-600">
-              If you prefer to speak directly to someone, you can always book your Mumbai to Belgaon cab by calling our customer service. Our team is available to help you with your booking, answer any questions, and ensure that everything is taken care of.
+              If you prefer a more personalized booking experience, you can book your Mumbai to Goa cab over the phone. Our customer service team is available 24/7 to assist you with booking, provide pricing details, and help you select the best vehicle for your needs. Whether it's a last-minute trip or a planned journey, our team will ensure your Mumbai to Goa cab booking is confirmed in no time.
             </p>
           </div>
           
           <div className="bg-white p-5 rounded-lg shadow-sm">
             <h5 className="font-bold text-lg text-[#76453B] mb-3">Book through App</h5>
             <p className="text-gray-600">
-              For those who are always on the go, our mobile app provides a convenient way to book your Mumbai to Belgaon cab service. The Aimcab app is available for both Android and iOS devices.
+              For on-the-go travelers, the Aimcab mobile app is the best way to book your Mumbai to Goa taxi service. Available for both Android and iOS, the app allows you to book a ride in just a few clicks, track your cab in real-time, communicate directly with your driver, and make secure payments. It's a convenient option for anyone who prefers managing their bookings from a smartphone.
             </p>
           </div>
         </div>
@@ -141,37 +149,39 @@ const Booking = () => {
         
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Route from Mumbai to Belgaon</h5>
+            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Route from Mumbai to Goa</h5>
             <p className="text-gray-700 mb-4">
-              The most common route from Mumbai to Belgaon is via the Mumbai Pune Expressway and NH4. This is the most direct and well-maintained route, and it provides a smooth driving experience. The highway is equipped with clear signs, and the route offers scenic views of the Western Ghats, making the drive enjoyable.
+              The drive from Mumbai to Goa is an enjoyable and scenic experience. Located approximately 600 kilometers from Mumbai, the journey typically takes around 10 to 12 hours, depending on traffic and road conditions. The most commonly used route is via National Highway 66 (NH66). This route is well-maintained and provides a smooth driving experience with beautiful coastal views.
             </p>
             <p className="text-gray-700 font-medium mb-4">
-              Mumbai → Pune → Satara → Kolhapur → Belgaon
+              Mumbai → Panvel → Alibaug → Pen → Kolhapur → Goa
             </p>
             <p className="text-gray-700">
-              As you leave Mumbai and head towards Belgaon, you'll pass through Pune and Satara before entering the beautiful landscapes of Kolhapur and finally reaching Belgaon.
+              Your journey starts from Mumbai, traveling through Panvel and Alibaug, before moving through the scenic coastal route via Pen and Kolhapur. As you approach Goa, you'll begin to see the beautiful beaches and the vibrant atmosphere that makes this destination so special.
             </p>
             
             <h5 className="text-xl font-semibold text-[#76453B] mt-6 mb-3">Travel Experience</h5>
             <p className="text-gray-700">
-              The Mumbai to Belgaon road trip offers an enjoyable travel experience, with a blend of both urban and rural landscapes:
+              The Mumbai to Goa road trip is one of those journeys where the experience itself is as rewarding as the destination. Here's what you can expect:
             </p>
             <ul className="list-disc pl-5 mt-2 text-gray-700 space-y-1">
-              <li>Urban to Rural Transition: Starting from Mumbai, you'll pass through busy city streets, highways, and suburbs before heading towards the more peaceful countryside</li>
-              <li>Scenic Views: As you approach Pune and continue towards Belgaon, you'll be treated to beautiful views of the Western Ghats and sprawling farmlands</li>
-              <li>Smooth Roads: The well-maintained expressway and highways ensure that you have a smooth and comfortable ride throughout the trip</li>
-              <li>Rest Stops: Along the way, you can make use of the rest stops, which are equipped with basic amenities like food stalls and washrooms</li>
+              <li><strong>From City to Coast:</strong> The drive begins with the busy streets of Mumbai, but as you move towards Panvel, the bustling city slowly transforms into beautiful coastal views and rural landscapes.</li>
+              <li><strong>Scenic Views:</strong> As you drive through National Highway 66, you'll pass beautiful views of the Arabian Sea, small coastal towns, and lush greenery. The route is especially stunning during the monsoon season.</li>
+              <li><strong>Smooth Roads:</strong> The NH66 is well-maintained, offering a smooth, pleasant drive with less traffic as you travel through the coastal route.</li>
             </ul>
+            <p className="text-gray-700 mt-4">
+              The road trip from Mumbai to Goa offers a mix of urban convenience and coastal beauty, making it an enjoyable journey that sets the tone for your time in Goa.
+            </p>
           </div>
           
           <div className="bg-indigo-100 p-6 rounded-lg flex items-center justify-center">
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#76453B]">500 km</div>
+              <div className="text-4xl font-bold text-[#76453B]">600 km</div>
               <div className="text-gray-600 mt-2">Distance</div>
             </div>
             <div className="mx-8 text-gray-400">|</div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#76453B]">8-9 hrs</div>
+              <div className="text-4xl font-bold text-[#76453B]">10-12 hrs</div>
               <div className="text-gray-600 mt-2">Travel Time</div>
             </div>
           </div>
@@ -184,43 +194,59 @@ const Booking = () => {
         
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Places to Visit Between Mumbai and Belgaon</h5>
+            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Places to Visit Between Mumbai and Goa</h5>
             <div className="space-y-4">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h6 className="font-bold text-[#76453B]">Lonavala and Khandala</h6>
-                <p className="text-gray-600">Famous hill stations known for their scenic beauty, waterfalls, and viewpoints.</p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h6 className="font-bold text-[#76453B]">Pune</h6>
-                <p className="text-gray-600">A vibrant city with historical landmarks, educational institutions, and cultural attractions.</p>
+                <h6 className="font-bold text-[#76453B]">Alibaug</h6>
+                <p className="text-gray-600">Located about 100 kilometers from Mumbai, Alibaug is a coastal town known for its beautiful beaches, historic forts, and serene atmosphere.</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
                 <h6 className="font-bold text-[#76453B]">Kolhapur</h6>
-                <p className="text-gray-600">Known for its rich history, temples, and famous Kolhapuri cuisine.</p>
+                <p className="text-gray-600">A significant city known for its temples, historical sites, and famous Kolhapuri cuisine. Popular spots include the Mahalaxmi Temple and Rankala Lake.</p>
               </div>
             </div>
           </div>
           
           <div>
-            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Must-Visit Spots in Belgaon</h5>
+            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Must-Visit Spots in Goa</h5>
             <div className="space-y-4">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h6 className="font-bold text-[#76453B]">Belgaon Fort</h6>
-                <p className="text-gray-600">A historical fort built during the reign of the Ratta dynasty, offering panoramic views of the city.</p>
+                <h6 className="font-bold text-[#76453B]">Baga Beach</h6>
+                <p className="text-gray-600">One of the most popular beaches in Goa, known for its vibrant nightlife, water sports, and beach shacks.</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h6 className="font-bold text-[#76453B]">Gokak Falls</h6>
-                <p className="text-gray-600">A beautiful waterfall located on the Ghataprabha River, surrounded by lush greenery.</p>
+                <h6 className="font-bold text-[#76453B]">Old Goa</h6>
+                <p className="text-gray-600">A UNESCO World Heritage Site featuring beautiful Portuguese-era churches and cathedrals.</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h6 className="font-bold text-[#76453B]">Kamala Basti</h6>
-                <p className="text-gray-600">A famous Jain temple known for its intricate carvings and peaceful atmosphere.</p>
+                <h6 className="font-bold text-[#76453B]">Dudhsagar Falls</h6>
+                <p className="text-gray-600">A majestic waterfall located on the Goa-Karnataka border, surrounded by lush greenery.</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h6 className="font-bold text-[#76453B]">Kittur Fort</h6>
-                <p className="text-gray-600">A historical fort associated with Rani Chennamma, a freedom fighter against British rule.</p>
+                <h6 className="font-bold text-[#76453B]">Fort Aguada</h6>
+                <p className="text-gray-600">A 17th-century Portuguese fort offering panoramic views of the Arabian Sea.</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <h5 className="text-xl font-semibold text-[#76453B] mt-8 mb-3">What Travelers Can Do and Explore in Goa</h5>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+          <div className="bg-white p-4 rounded-lg shadow-sm">
+            <h6 className="font-bold text-[#76453B]">Beach Activities</h6>
+            <p className="text-gray-600">Enjoy water sports, beach volleyball, or simply relax on Goa's beautiful beaches.</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm">
+            <h6 className="font-bold text-[#76453B]">Nightlife</h6>
+            <p className="text-gray-600">Experience Goa's vibrant nightlife with beach parties, clubs, and live music.</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm">
+            <h6 className="font-bold text-[#76453B]">Cultural Exploration</h6>
+            <p className="text-gray-600">Discover Goa's rich Portuguese heritage through its architecture, cuisine, and traditions.</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-sm">
+            <h6 className="font-bold text-[#76453B]">Adventure Sports</h6>
+            <p className="text-gray-600">Try parasailing, jet skiing, or scuba diving in Goa's clear waters.</p>
           </div>
         </div>
       </section>
@@ -286,7 +312,7 @@ const Booking = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <p className="text-gray-700"><strong className="text-[#76453B]">Always Neat & Clean Cabs:</strong> We ensure that all our cabs are regularly cleaned and sanitized, providing a comfortable and hygienic travel experience.</p>
+            <p className="text-gray-700"><strong className="text-[#76453B]">Always Neat & Clean Cabs:</strong> We ensure all our cabs are regularly cleaned and maintained to provide you with a hygienic and comfortable ride.</p>
           </div>
           
           <div className="bg-white p-5 rounded-lg flex items-start">
@@ -295,7 +321,7 @@ const Booking = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <p className="text-gray-700"><strong className="text-[#76453B]">On-Time Guarantee:</strong> We know the value of your time. Our Mumbai to Belgaon taxi service ensures that you are picked up and dropped off on time.</p>
+            <p className="text-gray-700"><strong className="text-[#76453B]">On-Time Guarantee:</strong> We value your time, which is why we guarantee timely pickups and drops for your Mumbai to Goa taxi service.</p>
           </div>
           
           <div className="bg-white p-5 rounded-lg flex items-start">
@@ -304,7 +330,7 @@ const Booking = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <p className="text-gray-700"><strong className="text-[#76453B]">Complimentary Gift for New Users:</strong> We offer a complimentary gift for new customers, making their first ride with Aimcab special and memorable.</p>
+            <p className="text-gray-700"><strong className="text-[#76453B]">Complimentary Gift for New Users:</strong> We appreciate new customers, and to make your first ride with us even more special, we offer a complimentary gift for new users.</p>
           </div>
           
           <div className="bg-white p-5 rounded-lg flex items-start">
@@ -313,7 +339,7 @@ const Booking = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <p className="text-gray-700"><strong className="text-[#76453B]">GPS Tracking in All Cabs:</strong> For your peace of mind, all of our vehicles come equipped with GPS tracking, allowing you to track your journey in real-time.</p>
+            <p className="text-gray-700"><strong className="text-[#76453B]">GPS Tracking in All Cabs:</strong> For your safety and peace of mind, all our vehicles come equipped with GPS tracking, allowing you to track your ride in real-time.</p>
           </div>
           
           <div className="bg-white p-5 rounded-lg flex items-start">
@@ -322,7 +348,7 @@ const Booking = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
-            <p className="text-gray-700"><strong className="text-[#76453B]">24x7 Helpline Available:</strong> Our customer support team is available around the clock, ensuring that we're always available to assist you with bookings or any concerns.</p>
+            <p className="text-gray-700"><strong className="text-[#76453B]">24x7 Helpline Available:</strong> Our customer service team is available around the clock to assist with bookings, queries, or any concerns you may have during your journey.</p>
           </div>
         </div>
       </section>
@@ -333,47 +359,42 @@ const Booking = () => {
         
         <div className="space-y-4">
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">What is the distance from Mumbai to Belgaon?</h5>
-            <p className="text-gray-700 mt-1">The distance between Mumbai and Belgaon is approximately 500 kilometers, and the journey takes about 8 to 9 hours.</p>
+            <h5 className="font-bold text-[#76453B]">What is the distance between Mumbai and Goa?</h5>
+            <p className="text-gray-700 mt-1">The distance from Mumbai to Goa is approximately 600 kilometers, and the journey usually takes about 10 to 12 hours.</p>
           </div>
           
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">How can I book a Mumbai to Belgaon cab?</h5>
-            <p className="text-gray-700 mt-1">You can book your Mumbai to Belgaon taxi service online through our website, by calling our customer support, or via the Aimcab mobile app.</p>
+            <h5 className="font-bold text-[#76453B]">How can I book a Mumbai to Goa cab?</h5>
+            <p className="text-gray-700 mt-1">You can book your Mumbai to Goa taxi service online via our website, by calling our customer service, or using the Aimcab app.</p>
           </div>
           
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">What is the cost of a one-way Mumbai to Belgaon cab?</h5>
-            <p className="text-gray-700 mt-1">The fare depends on the type of vehicle. Sedans start at ₹11/km.</p>
+            <h5 className="font-bold text-[#76453B]">What is the fare for a one-way Mumbai to Goa cab?</h5>
+            <p className="text-gray-700 mt-1">The fare depends on the type of vehicle you choose. For instance, Sedans start at ₹11/km.</p>
           </div>
           
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">Do you offer airport transfer services from Mumbai to Belgaon?</h5>
-            <p className="text-gray-700 mt-1">Yes, we provide cab for Mumbai airport to Belgaon for seamless airport transfers.</p>
+            <h5 className="font-bold text-[#76453B]">Do you offer airport transfer services from Mumbai to Goa?</h5>
+            <p className="text-gray-700 mt-1">Yes, we offer Mumbai to Goa airport transfers, ensuring timely pickups and comfortable transfers.</p>
           </div>
           
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">Is there any option for a private cab from Mumbai to Belgaon?</h5>
-            <p className="text-gray-700 mt-1">Yes, we offer private cabs from Mumbai to Belgaon to ensure comfort and privacy during your journey.</p>
+            <h5 className="font-bold text-[#76453B]">Can I book a round-trip cab for Mumbai to Goa?</h5>
+            <p className="text-gray-700 mt-1">Yes, we offer round-trip services for your Mumbai to Goa journey and back.</p>
           </div>
-          
-          <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">Can I book a round-trip cab for Mumbai to Belgaon?</h5>
-            <p className="text-gray-700 mt-1">Yes, we offer round-trip services for your Mumbai to Belgaon journey.</p>
-          </div>
-          
+
           <div className="border-b border-gray-200 pb-4">
             <h5 className="font-bold text-[#76453B]">Are there any hidden charges in the fare?</h5>
-            <p className="text-gray-700 mt-1">No, our pricing is transparent with no hidden charges. You only pay for the distance traveled.</p>
+            <p className="text-gray-700 mt-1">No, we provide transparent pricing with no hidden charges.</p>
           </div>
-          
+
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">What are the best attractions in Belgaon?</h5>
-            <p className="text-gray-700 mt-1">Some must-visit spots in Belgaon include Belgaon Fort, Gokak Falls, and Kamala Basti.</p>
+            <h5 className="font-bold text-[#76453B]">What are the best attractions in Goa?</h5>
+            <p className="text-gray-700 mt-1">Baga Beach, Old Goa, Dudhsagar Falls, and Fort Aguada are some of the top attractions in Goa.</p>
           </div>
-          
+
           <div className="border-b border-gray-200 pb-4">
-            <h5 className="font-bold text-[#76453B]">Do you offer cabs for group trips?</h5>
+            <h5 className="font-bold text-[#76453B]">Do you offer group trips from Mumbai to Goa?</h5>
             <p className="text-gray-700 mt-1">Yes, we offer Tempo Traveller services for group trips.</p>
           </div>
         </div>
@@ -386,5 +407,3 @@ const Booking = () => {
     </div>
   )
 }
-
-export default Booking;

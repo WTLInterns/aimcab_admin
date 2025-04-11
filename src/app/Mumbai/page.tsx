@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Footer from '../../container/component/Footer';
+import Navbar from '../../container/component/Navbar'
 export default function PuneRoute() {
   // List of cities and routes
   const routes = [
@@ -27,15 +28,15 @@ export default function PuneRoute() {
     { "name": "Mumbai to Ratnagiri", "description": "Experience a scenic journey from Mumbai to Ratnagiri, a coastal town known for its beautiful beaches, historical forts, and the famous Ratnagiri mangoes.", "link": "/MumbaiToRatnagiri" },
     { "name": "Mumbai to Islampur", "description": "Embark on a peaceful journey from Mumbai to Islampur, a town known for its serene landscapes, temples, and rich cultural heritage.", "link": "/MumbaiToIslampur" },
     { "name": "Mumbai to Karad", "description": "Enjoy a scenic and comfortable ride from Mumbai to Karad, a town known for its historic temples and picturesque surroundings.", "link": "/MumbaiToKarad" },
-    { "name": "Mumbai to Chiplun", "description": "Embark on a beautiful journey from Mumbai to Chiplun, a town nestled between lush greenery and serene rivers, known for its scenic beauty.", "link": "/MumbaiToChiplun" },
-    { "name": "Mumbai to Sangli", "description": "Travel from Mumbai to Sangli, a city known for its rich history, temples, and vibrant culture, offering a unique blend of tradition and modernity.", "link": "/MumbaiToSangli" },
-    { "name": "Mumbai to Miraj", "description": "Enjoy a peaceful journey from Mumbai to Miraj, a city known for its historical sites, temples, and vibrant cultural heritage.", "link": "/MumbaiToMiraj" },
-    { "name": "Mumbai to Hubali", "description": "Experience a scenic and comfortable ride from Mumbai to Hubali, a city known for its rich history, cultural heritage, and vibrant markets.", "link": "/MumbaiToHubali" },
-    { "name": "Mumbai to Belgaon", "description": "Travel from Mumbai to Belgaon, a city known for its natural beauty, vibrant culture, and historical landmarks.", "link": "/MumbaiToBelgaon" },
+    { "name": "Mumbai to Chiplun", "description": "Embark on a beautiful journey from Mumbai to Chiplun, a town nestled between lush greenery and serene rivers, known for its scenic beauty.", "link": "/Mumbai-to-Chiplun-Cab" },
+    { "name": "Mumbai to Sangli", "description": "Travel from Mumbai to Sangli, a city known for its rich history, temples, and vibrant culture, offering a unique blend of tradition and modernity.", "link": "/Mumbai-to-Sangli-Cab" },
+    { "name": "Mumbai to Miraj", "description": "Enjoy a peaceful journey from Mumbai to Miraj, a city known for its historical sites, temples, and vibrant cultural heritage.", "link": "/Mumbai-to-Miraj-Cab" },
+    { "name": "Mumbai to Hubali", "description": "Experience a scenic and comfortable ride from Mumbai to Hubali, a city known for its rich history, cultural heritage, and vibrant markets.", "link": "/Mumbai-to-Hubali-Cab" },
+    { "name": "Mumbai to Belgaon", "description": "Travel from Mumbai to Belgaon, a city known for its natural beauty, vibrant culture, and historical landmarks.", "link": "/Mumbai-to-Belgaon-Cab" },
     { "name": "Mumbai to Nippani", "description": "Embark on a journey from Mumbai to Nippani, a town known for its peaceful atmosphere and proximity to picturesque landscapes.", "link": "/Mumbai-to-Nippani-Cab" },
-    { "name": "Mumbai to Goa", "description": "Enjoy a relaxed ride from Mumbai to Goa, a popular coastal destination renowned for its pristine beaches, vibrant nightlife, and scenic beauty.", "link": "/MumbaiToGoa" },
+    { "name": "Mumbai to Goa", "description": "Enjoy a relaxed ride from Mumbai to Goa, a popular coastal destination renowned for its pristine beaches, vibrant nightlife, and scenic beauty.", "link": "/Mumbai-to-Goa-Cab" },
     { "name": "Mumbai to Malvan", "description": "Take a scenic drive from Mumbai to Malvan, a coastal town famous for its beautiful beaches, fresh seafood, and historical forts.", "link": "/Mumbai-to-Malvan-Cab" },
-    { "name": "Mumbai to Karwar", "description": "Journey from Mumbai to Karwar, a town known for its serene beaches, lush landscapes, and rich cultural heritage.", "link": "/MumbaiToKarwar" },
+    { "name": "Mumbai to Karwar", "description": "Journey from Mumbai to Karwar, a town known for its serene beaches, lush landscapes, and rich cultural heritage.", "link": "/Mumbai-to-Karwar-Cab" },
     { "name": "Mumbai to Hyderabad", "description": "Travel comfortably from Mumbai to Hyderabad, a city renowned for its historical monuments, rich culture, and delectable cuisine.", "link": "/MumbaiToHyderabad" },
     { "name": "Mumbai to Bangalore", "description": "Experience a smooth and scenic journey from Mumbai to Bangalore, a city known for its technology industry, gardens, and vibrant nightlife.", "link": "/MumbaiToBangalore" },
     { "name": "Mumbai to Indore", "description": "Travel from Mumbai to Indore, a city known for its historical landmarks, vibrant culture, and delicious street food.", "link": "/MumbaiToIndore" },
@@ -53,33 +54,62 @@ export default function PuneRoute() {
 
 ];
 return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header Section */}
-      <header className="bg-green-500 text-white py-4 text-center">
-        <h1 className="text-3xl font-bold">AIMCAB Mumbai Routes</h1>
-        <p className="mt-2 text-lg">Book your cab and explore Pune with ease</p>
-      </header>
-
-      {/* Route Information Section */}
-      <section className="mt-8 px-4">
-        <h2 className="text-2xl font-semibold text-center text-gray-700">Popular Routes in Pune</h2>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Dynamically render routes */}
-          {routes.map((route, index) => (
-            <a
-              key={index}
-              href={route.link}
-              className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-            >
-              <h3 className="text-xl font-semibold text-green-500">{route.name}</h3>
-              <p className="text-gray-600 mt-2">{route.description}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-       {/* Footer */}
-       <div> <Footer /></div>
+  <div className="min-h-screen bg-[#F8FAE5]">
+       <Navbar />
+  {/* Header Section */}
+  <header className="relative bg-gradient-to-r from-[#B19470] to-[#F8FAE5] py-12 md:py-20 text-center overflow-hidden">
+    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-[#B19470]/10 to-transparent"></div>
+    <div className="relative z-10 max-w-4xl mx-auto px-4">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#573027] leading-tight mb-6">
+        AIMCAB <span className="text-[#B19470]">Mumbai Routes</span>
+      </h2> 
+      <p className="text-xl md:text-2xl text-[#573027] mb-8">
+        Book your cab and explore Mumbai with ease
+      </p>
+      
+      <div className="flex justify-center space-x-4">
+        <a 
+          href="/" 
+          className="bg-[#573027] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#76453B] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          Book Now
+        </a>
+        <a
+          href="tel:9130030054"
+          className="border-2 border-[#573027] text-[#573027] px-6 py-3 rounded-full font-semibold hover:bg-[#573027] hover:text-white transition-all duration-300"
+        >
+          Call Us
+        </a>
       </div>
+    </div>
+    <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#F8FAE5] transform skew-y-2 origin-bottom"></div>
+  </header>
+
+  {/* Route Information Section */}
+  <section className="mt-8 px-4 py-8 max-w-7xl mx-auto">
+    <h2 className="text-3xl font-bold text-center text-[#573027] mb-8">Popular Routes in Mumbai</h2>  
+    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {routes.map((route, index) => (
+        <a
+          key={index} 
+          href={route.link}
+          className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-[#B19470]/20 hover:border-[#573027]"
+        >
+          <h3 className="text-xl font-bold text-[#573027]">{route.name}</h3>
+          <p className="text-[#573027] mt-2">{route.description}</p>
+          <div className="mt-4 text-right">
+            <span className="inline-block px-6 py-3 text-[#573027] bg-[#F8FAE5] font-semibold rounded-lg shadow-md hover:bg-[#573027] hover:text-white transform hover:scale-105 transition-all duration-300">
+              Book Now
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</div>
  
   );
 };
