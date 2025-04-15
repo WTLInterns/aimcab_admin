@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Footer from "../../container/component/Footer"
@@ -7,7 +7,7 @@ import Navbar from "../../container/component/Navbar"
 import axios from "axios"
 import { useSearchParams } from "next/navigation"
 
-export default function Home() {
+function BookingContent() {
   const route = useRouter()
   const [loadingData, setLoadingData] = useState({})
   const [cars, setCars] = useState([
@@ -231,3 +231,18 @@ export default function Home() {
     </div>
   )
 }
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    }>
+      <BookingContent />
+    </Suspense>
+  )
+}
+
+
+

@@ -202,9 +202,9 @@ const BookingForm = () => {
               {/* Date & Time */}
               <div className="grid  grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-white text-sm font-medium mb-2">Pickup Date</label>
+                  <label className="block  text-white text-sm font-medium mb-2">Pickup Date</label>
                   <input
-                    className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
+                    className="w-full p-3 cursor-pointer bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
                     name="date"
                     type="date"
                     value={formData.date}
@@ -215,7 +215,7 @@ const BookingForm = () => {
                 <div>
                   <label className="block text-white text-sm font-medium mb-2">Pickup Time</label>
                   <input
-                    className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
+                    className="w-full p-3 cursor-pointer bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
                     type="time"
                     name="time"
                     value={formData.time}

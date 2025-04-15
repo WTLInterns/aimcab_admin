@@ -179,7 +179,7 @@ export default function Home() {
     {/* Full-page background image */}
     <div 
       className="absolute inset-0 bg-fixed bg-cover bg-center z-0"
-      style={{ backgroundImage: 'url("/images/cabs5.webp")' }}
+      style={{ backgroundImage: 'url("/images/cabs2.jpg")' }}
     >
       <div className="absolute inset-0 bg-black opacity-30"></div>
       
