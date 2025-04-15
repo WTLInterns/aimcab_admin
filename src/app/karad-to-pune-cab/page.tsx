@@ -58,7 +58,7 @@ const Page = () => {
         }, "+=0.2") // starts 0.2s after previous animation ends
       }, []);
   return (
-    <div className={styles.container}>
+    <div >
       <head>
         <title>Pune to Karad Cab Service | Reliable & Affordable Travel</title>
         <meta name="description" content="Book a reliable Pune to Karad cab service with Aim Cab. Enjoy comfortable rides with professional drivers at the best rates. Easy online booking available." />

@@ -6,368 +6,329 @@ import axios from "axios"
 import { useRouter } from "next/navigation"
 import "animate.css"
 import Navbar from '../container/component/Navbar'
+
 const BookingForm = () => {
   const [tripType, setTripType] = useState("One Way")
   const [formData, setFormData] = useState({
-    from: "",
-    to: "",
-    date: "",
+    user_trip_type: "One Way",
+    user_pickup: "",
+    user_drop: "",
     time: "",
-    dateend: "",
-    timeend: "",
+    date: "",
+    return_date: "",
+    time_end: "",
+    package_type: "",
     name: "",
     phone: "",
     email: "",
-    selectPackage: "4",
-    pickup: "",
-    drop: "",
+    distance: "",
+    baseAmount: "",
+    car: "Sedan",
+    price_details: "",
   })
+
   const router = useRouter()
-  const pickupRef = useRef<google.maps.places.Autocomplete | null>(null)
-  const dropRef = useRef<google.maps.places.Autocomplete | null>(null)
+  const pickupRef = useRef<google.maps.places.Autocomplete | null>(null);
+  const dropRef = useRef<google.maps.places.Autocomplete | null>(null);
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
 
-  const handleSelectChange = (e) => {
-    setTripType(e.target.value)
+  const handleSelectChange = (e: any) => {
+    const value = e.target.value
+    setTripType(value)
+    setFormData((prev) => ({ ...prev, user_trip_type: value }))
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handlePlaceChanged = (field) => {
-    const place = field.getPlace()
+  const handlePlaceChanged = (
+    ref: google.maps.places.Autocomplete | null,
+    fieldName: string
+  ) => {
+    const place = ref?.getPlace();
     if (place && place.formatted_address) {
-      const geocoder = new window.google.maps.Geocoder()
-
-      geocoder.geocode({ address: place.formatted_address }, (result, status) => {
-        if (result && result.length > 0) {
-          setFormData((prevData) => ({
-            ...prevData,
-            [field === pickupRef.current ? "pickup" : "drop"]: place.formatted_address,
-            [field === pickupRef.current ? "from" : "to"]: place.formatted_address,
-          }))
-        }
-      })
+      setFormData((prev) => ({
+        ...prev,
+        [fieldName]: place.formatted_address,
+      }));
     }
-  }
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
     setLoading(true)
-    setError("")
-
+  
     const id = "AIM" + new Date().getTime()
     localStorage.setItem("bookid", id)
-
-    const visitor = {
-      bookid: id,
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      trip: tripType,
-      pickup_location: formData.pickup,
-      drop_location: formData.drop,
-      date: formData.date,
-      time: formData.time,
-      dateend: formData.dateend,
-      timeend: formData.timeend,
-      oneway_distance: "",
-      round_distance: "",
-      hours: formData.selectPackage,
-    }
-
+  
+    const visitor = { ...formData, bookingId: id };
+  
     try {
-      const destinationService = new window.google.maps.DirectionsService()
-
-      const request = {
-        origin: formData.from,
-        destination: formData.to,
-        travelMode: window.google.maps.TravelMode.DRIVING,
-      }
-
-      const result = await new Promise<google.maps.DirectionsResult>((resolve, reject) => {
-        destinationService.route(request, (result, status) => {
-          if (status === window.google.maps.DirectionsStatus.OK && result) {
-            resolve(result)
-          } else {
-            reject(new Error("Failed to get route"))
-          }
-        })
+      const response = await fetch("http://localhost:5000/api/booking/create-booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(visitor),
       })
-
-      if (result && result.routes[0].legs[0].distance) {
-        const distance = result.routes[0].legs[0].distance.value / 1000
-        if (tripType === "One Way") {
-          visitor.oneway_distance = distance.toString()
-        } else if (tripType === "Round") {
-          visitor.round_distance = distance.toString()
+  
+      // ✅ Wait for the JSON body
+      const data = await response.json()
+      console.log("----------",data.booking)
+  
+      if (!response.ok) {
+        console.error("Booking creation failed:", {
+          status: response.status,
+          statusText: response.statusText,
+          error: data,
+        });
+  
+        if (data.message?.includes("car type")) {
+          throw new Error("Please select a valid car type for your booking");
         }
+  
+        throw new Error(data.message || `Failed to create booking: ${response.statusText}`);
       }
-
-      try {
-        const response = await axios.post("/api/visit", visitor)
-        console.log("Visitor data posted successfully:", response.data)
-      } catch (apiError) {
-        console.error("Error posting visitor data:", apiError)
-      }
-
+  
+      console.log("📦 Booking created:", data)
+      console.log("📄 Booking ID from response:", data.bookingId) // ✅ This will now work
+  
       localStorage.setItem("trip", JSON.stringify(visitor))
-      router.push("/Booking")
+  
+      router.push(
+        `/Booking?tripType=${encodeURIComponent(formData.user_trip_type)}&pickup=${encodeURIComponent(formData.user_pickup)}&drop=${encodeURIComponent(formData.user_drop)}&date=${encodeURIComponent(formData.date)}&return_date=${encodeURIComponent(formData.return_date)}&bookingId=${encodeURIComponent(id)}`
+      );
+  
     } catch (error) {
-      console.error("Error during route calculation or API post:", error)
-      setError("An error occurred while processing your request. Please try again.")
+      console.error("Error creating booking:", error);
+      alert(error instanceof Error ? error.message : "Something went wrong while creating the booking.");
     } finally {
       setLoading(false)
     }
   }
+  
+
 
   return (
-
-    <div className="relative w-full min-h-screen  " id="home">
- <div 
-      className="absolute inset-0 bg-fixed bg-cover bg-center z-0"
-      style={{ backgroundImage: 'url("/images/carr.jpg")' }}
-    >
-      <div className="absolute inset-0 bg-black opacity-30"></div>
-      
-    </div>
-        <div className="fixed top-0 left-0 w-full z-50">
-          <Navbar />
-        </div>
-<div className="relative z-10  top-12 w-full flex flex-col lg:flex-row p-0 m-0 min-h-screen">
-        {/* Left side: Carousel/Promo Section (now transparent) */}
-        <div className="w-full lg:w-1/2 bg-transparent" >
-          <div id="carouselExampleIndicators" className="carousel slide h-full" >
-            <div className="carousel-inner relative h-full">
-              <div className="carousel-item active h-full" >
-                <div className="text-center min-h-[60vh] lg:min-h-screen py-16 px-8 flex flex-col justify-center">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 animate__animated animate__fadeIn animate__delay-1s relative z-10">
-                    15% off on One Way & Round Trips
-                  </h2>
-                  <div className="flex justify-center items-center gap-4 relative z-10">
-                    <span className="border border-[#76453B] px-6 py-3 text-[#F3B664] bg-[#0F0E0E] font-semibold text-lg rounded-md animate__animated animate__fadeInUp animate__delay-1s">
-                      AIMNEW15
-                    </span>
-                    <button
-                      className="px-6 py-3 bg-opacity-0 border border-white text-white font-semibold rounded-md transform transition duration-300 ease-in-out animate__animated animate__fadeInUp animate__delay-2s hover:bg-white hover:text-[#0F0E0E]"
-                      onClick={() => navigator.clipboard.writeText("AIMNEW15")}
-                    >
-                      Copy
-                    </button>
-                  </div>
+    <div className="relative z-10 top-12 w-full flex flex-col lg:flex-row p-0 m-0 min-h-screen">
+      {/* Promo Section */}
+      <div className="w-full lg:w-1/2 bg-transparent">
+        <div className="carousel slide h-full">
+          <div className="carousel-inner relative h-full">
+            <div className="carousel-item active h-full">
+              <div className="text-center min-h-[60vh] lg:min-h-screen py-16 px-8 flex flex-col justify-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 animate__animated animate__fadeIn animate__delay-1s">
+                  15% off on One Way & Round Trips
+                </h2>
+                <div className="flex justify-center items-center gap-4">
+                  <span className="border border-[#76453B] px-6 py-3 text-[#F3B664] bg-[#0F0E0E] font-semibold text-lg rounded-md animate__animated animate__fadeInUp animate__delay-1s">
+                    AIMNEW15
+                  </span>
+                  <button
+                    className="px-6 py-3 border border-white text-white font-semibold rounded-md hover:bg-white hover:text-[#0F0E0E] transition duration-300 animate__animated animate__fadeInUp animate__delay-2s"
+                    onClick={() => navigator.clipboard.writeText("AIMNEW15")}
+                  >
+                    Copy
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-    
-        {/* Right side: Booking Form (now with glass morphism effect) */}
-        <div className="w-full  lg:w-1/2 p-4 min-h-screen flex items-center justify-center">
-              <div className="w-full max-w-lg bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 shadow-2xl">
-                <LoadScript googleMapsApiKey="AIzaSyCelDo4I5cPQ72TfCTQW-arhPZ7ALNcp8w" libraries={["places"]}>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <h2 className="text-center text-3xl font-bold text-[#F3B664] mb-6">BOOK A CAB NOW</h2>
-    
-                    {/* Trip Type Selection */}
-                    <div className="mb-6">
-      <label className="block text-white text-sm font-medium mb-2">Trip Type</label>
-      <div className="flex flex-col sm:flex-row gap-4">
-        {[
-          { value: "One Way", label: "One Way Trip" },
-          { value: "Round", label: "Round Trip" },
-          { value: "Rental", label: "Rental" }
-        ].map((option) => (
-          <label key={option.value} className="inline-flex items-center">
-            <input
-              type="radio"
-              className="form-radio h-5 w-5 text-[#F3B664] focus:ring-[#F3B664] border-2 border-[#F3B664] bg-[#0F0E0E]/80"
-              name="trip"
-              value={option.value}
-              checked={tripType === option.value}
-              onChange={handleSelectChange}
-              required
-            />
-            <span className="ml-2 text-white">{option.label}</span>
-          </label>
-        ))}
       </div>
-    </div>
-    
-                    {/* Location Inputs */}
-                    <div className="flex flex-col sm:flex-row gap-4">
-      <div className="flex-1">
-        <Autocomplete
-          onLoad={(ref) => (pickupRef.current = ref)}
-          onPlaceChanged={() => handlePlaceChanged(pickupRef.current)}
-        >
-          <input
-            className="w-full p-2 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-            name="from"
-            type="text"
-            placeholder="Pickup Location"
-            value={formData.from}
-            onChange={handleChange}
-            required
-          />
-        </Autocomplete>
-      </div>
-      <div className="flex-1">
-        <Autocomplete
-          onLoad={(ref) => (dropRef.current = ref)}
-          onPlaceChanged={() => handlePlaceChanged(dropRef.current)}
-        >
-          <input
-            className="w-full p-2 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-            name="to"
-            type="text"
-            placeholder="Drop Location"
-            value={formData.to}
-            onChange={handleChange}
-            required
-          />
-        </Autocomplete>
-      </div>
-    </div>
-    
-                    {/* Date and Time Inputs */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-white text-sm font-medium mb-2">Pickup Date</label>
-                        <input
-                          className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                          name="date"
-                          type="date"
-                          value={formData.date}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-white text-sm font-medium mb-2">Pickup Time</label>
-                        <input
-                          className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                          name="time"
-                          type="time"
-                          value={formData.time}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                    </div>
-    
-                    {/* Conditional Fields */}
-                    {tripType === "Round" && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-white text-sm font-medium mb-2">Return Date</label>
-                          <input
-                            className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                            name="dateend"
-                            type="date"
-                            value={formData.dateend}
-                            onChange={handleChange}
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-white text-sm font-medium mb-2">Return Time</label>
-                          <input
-                            className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                            name="timeend"
-                            type="time"
-                            value={formData.timeend}
-                            onChange={handleChange}
-                            required
-                          />
-                        </div>
-                      </div>
-                    )}
-    
-                    {tripType === "Rental" && (
-                      <div>
-                        <label className="block text-white text-sm font-medium mb-2">Package</label>
-                        <select
-                          className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                          name="selectPackage"
-                          value={formData.selectPackage}
-                          onChange={handleChange}
-                        >
-                          <option value="4">4 Hours / 40 Kms</option>
-                          <option value="6">6 Hours / 60 Kms</option>
-                          <option value="8">8 Hours / 80 Kms</option>
-                        </select>
-                      </div>
-                    )}
-    
-                     {/* Personal Details Inputs */}
-                  <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-4 mb-4">
-                    <div className="w-full lg:w-1/3">
+
+      {/* Booking Form */}
+      <div className="w-full lg:w-1/2 p-4 min-h-screen flex items-center justify-center">
+        <div className="w-full max-w-lg bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 shadow-2xl">
+          <LoadScript googleMapsApiKey="AIzaSyCelDo4I5cPQ72TfCTQW-arhPZ7ALNcp8w" libraries={["places"]}>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <h2 className="text-center text-3xl font-bold text-[#F3B664] mb-6">BOOK A CAB NOW</h2>
+
+              {/* Trip Type */}
+              <div>
+                <label className="block text-white text-sm font-medium mb-2">Trip Type</label>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  {["One Way", "Round Trip", "Rental"].map((type) => (
+                    <label key={type} className="inline-flex items-center">
                       <input
-                        className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                        name="name"
-                        type="text"
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={handleChange}
+                        type="radio"
+                        name="tripType"
+                        value={type} // ✅ Set correct value for each radio
+                        checked={tripType === type}
+                        onChange={handleSelectChange}
+                        className="form-radio h-5 w-5 text-[#F3B664] border-2 bg-[#0F0E0E]/80"
                         required
                       />
-                    </div>
-                    <div className="w-full lg:w-1/3">
-                      <input
-                        className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                        name="phone"
-                        type="tel"
-                        placeholder="Your Phone Number"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="w-full lg:w-1/3">
-                      <input
-                        className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
-                        name="email"
-                        type="email"
-                        placeholder="Your Email ID"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>  
-    
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      className="w-full py-4 px-6 bg-[#2B2B2B] text-[#D5D5D5] hover:bg-[#0F0E0E]  hover:text-[#F3B664] font-bold text-lg rounded-lg border-2 border-[#F3B664] transition duration-300 flex justify-center items-center"
-                      disabled={loading}
-                    >
-                      {loading ? (
-                        <>
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0F0E0E]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Processing...
-                        </>
-                      ) : (
-                        "BOOK NOW"
-                      )}
-                    </button>
-                  </form>
-                </LoadScript>
+                      <span className="ml-2 text-white">{type}</span>
+                    </label>
+                  ))}
+
+                </div>
               </div>
-            </div>
+
+              {/* From & To */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Autocomplete
+                  onLoad={(ref) => (pickupRef.current = ref)}
+                  onPlaceChanged={() => handlePlaceChanged(pickupRef.current, "user_pickup")}
+                >
+                  <input
+                    type="text"
+                    name="user_pickup"
+                    placeholder="Pickup Location"
+                    value={formData.user_pickup}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg"
+                    required
+                  />
+                </Autocomplete>
+                <Autocomplete
+                  onLoad={(ref) => (dropRef.current = ref)}
+                  onPlaceChanged={() => handlePlaceChanged(dropRef.current, "user_drop")}
+                >
+                  <input
+                    type="text"
+                    name="user_drop"
+                    placeholder="Drop Location"
+                    value={formData.user_drop}
+                    onChange={handleChange}
+                    className="w-full p-2 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg"
+                    required
+                  />
+                </Autocomplete>
+              </div>
+
+              {/* Date & Time */}
+              <div className="grid  grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-white text-sm font-medium mb-2">Pickup Date</label>
+                  <input
+                    className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
+                    name="date"
+                    type="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-white text-sm font-medium mb-2">Pickup Time</label>
+                  <input
+                    className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
+                    type="time"
+                    name="time"
+                    value={formData.time}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Round Trip */}
+              {tripType === "Round Trip" && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-white text-sm font-medium mb-2">Return Date</label>
+                    <input
+                      className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
+                      type="date"
+                      name="return_date"
+                      value={formData.return_date}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-white text-sm font-medium mb-2">Return Time</label>
+
+                    <input
+                      className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg focus:ring-2 focus:ring-[#F3B664] focus:border-[#F3B664]"
+                      type="time"
+                      name="time_end"
+                      value={formData.time_end}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Rental Package */}
+              {tripType === "Rental" && (
+                <div>
+                  <label className="block text-white text-sm font-medium mb-2">Package</label>
+                  <select
+                    name="package_type"
+                    value={formData.package_type}
+                    onChange={handleChange}
+                    className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg"
+                  >
+                    <option value="4">4 Hours / 40 Kms</option>
+                    <option value="6">6 Hours / 60 Kms</option>
+                    <option value="8">8 Hours / 80 Kms</option>
+                  </select>
+                </div>
+              )}
+
+              {/* Personal Info */}
+              <div className="flex flex-col lg:flex-row gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg"
+                  required
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email ID"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[#0F0E0E]/80 text-white border-2 border-[#F3B664] rounded-lg"
+                  required
+                />
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full py-4 bg-[#cfc126] hover:bg-[#0F0E0E] text-[#0F0E0E] hover:text-[#F3B664] font-bold rounded-lg border-2 border-[#F3B664] transition duration-300 flex justify-center"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0F0E0E]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    Processing...
+                  </>
+                ) : (
+                  "BOOK NOW"
+                )}
+              </button>
+            </form>
+          </LoadScript>
+        </div>
       </div>
+
+
+
     </div>
-   
-  ) 
+  )
 }
 
-export default BookingForm 
+export default BookingForm

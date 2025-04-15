@@ -49,7 +49,7 @@ const page = () => {
   ))}
   return (
     <>
-      <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold">
+      <div className=" font-semibold">
         <Navbar/>
            {/* Header */}
         <header className="relative bg-gradient-to-r from-[#76453B] to-[#F3B664] font-semibold text-[#573027] py-12 md:py-20 text-center overflow-hidden">
