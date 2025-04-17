@@ -30,6 +30,7 @@ const page = () => {
     }, []);
   return (
     <>
+     <Navbar/>
       <div>
         <Head>
         <title>Pune to Chiplun Cab | Affordable & Comfortable Taxi Ride</title>

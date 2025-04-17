@@ -30,6 +30,7 @@ const page = () => {
       }, []);
   return (
     <div>
+       <Navbar/>
       <head>
         <title>Pune to Goa Cab | Book Affordable & Reliable Taxi</title>
         <meta name="description" content="Book a Pune to Goa cab with Aim Cab for a safe, comfortable & affordable ride. Enjoy hassle-free taxi service with professional drivers at the best fares." />

@@ -30,6 +30,7 @@ const Page = () => {
        }, []);
   return (
     <>
+     <Navbar/>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Pune to Ganpatipule Cab | Best Taxi Service at Low Fare</title>

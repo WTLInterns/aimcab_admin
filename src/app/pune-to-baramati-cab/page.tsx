@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Footer from "../../container/component/Footer";
 import About_Aimcab from '../../components/About_Aimcab';
+import Navbar from '../../container/component/Navbar';
 const styles = {
   container: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
   section: "bg-white rounded-lg shadow-lg p-6 mb-8",
@@ -56,7 +57,7 @@ const Page = () => {
   return (
     <div >
     
-
+    <Navbar/>
 
                 {/* Header */}
              <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden">

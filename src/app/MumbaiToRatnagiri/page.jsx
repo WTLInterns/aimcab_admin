@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Navbar from '../../container/component/Navbar'
 import Footer from '../../container/component/Footer';
-
+import About_Aimcab from '../../components/About_Aimcab';
 const page = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -29,6 +29,7 @@ const page = () => {
       
   return (
     <div>
+      <Navbar />
       <Head>
         <title>Mumbai to Ratnagiri Cab | Book Safe & Quick Ride</title>
         <meta name="description" content="Book Mumbai to Ratnagiri cab with Aim Cab for safe, reliable & affordable travel. Enjoy one-way, round trip, or shared cabs with professional drivers." />
@@ -67,7 +68,7 @@ const page = () => {
       <BookingForm />
       
       {/* Introduction Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
+      <section className="bg-gradient-to-r from-blue-50 mt-24 to-indigo-50 p-8 rounded-xl shadow-md">
         <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Trusted Travel Partner</h3>
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -385,40 +386,7 @@ const page = () => {
       </section>
 
       {/* About Us */}
-      <section className="bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white p-8 rounded-xl shadow-md mt-8">
-        <h4 className="text-2xl font-bold mb-6">🏢 About Us – Aimcab</h4>
-        
-        <div className="text-white">
-          <p className="mb-4">
-            Aimcab is a leading cab service provider based in Pune, with over 20 years of experience in the transportation industry. We are committed to offering reliable, safe, and comfortable intercity travel services. Our network includes over 500 registered cabs, and we've successfully completed more than 3,000 outstation trips. With a customer base of over 200,000 satisfied travelers, Aimcab is your trusted choice for intercity travel.
-          </p>
-        </div>
-        
-        <div className="mt-8 grid md:grid-cols-4 gap-4">
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">50+</div>
-            <div>Personal Cabs</div>
-          </div>
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">500+</div>
-            <div>Registered Cabs</div>
-          </div>
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">2 Lakh+</div>
-            <div>Happy Customers</div>
-          </div>
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">3,000+</div>
-            <div>Outstation Trips</div>
-          </div>
-        </div>
-        
-        <div className="mt-8 text-center">
-          <a href="https://aimcab.com" className="inline-block bg-white hover:bg-gray-100 text-[#76453B] font-bold py-3 px-8 rounded-lg transition-colors">
-            Book Your Cab Now
-          </a>
-        </div>
-      </section>
+      <About_Aimcab/>
 
       <Footer />
     </div>

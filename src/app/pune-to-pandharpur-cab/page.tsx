@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Footer from "../../container/component/Footer";
 import About_Aimcab from '../../components/About_Aimcab';
+import Navbar from '../../container/component/Navbar';
 const page = () => {
    const headingRef = useRef(null);
     const paragraphRef = useRef(null);
@@ -30,6 +31,7 @@ const page = () => {
     }, []);
   return (
     <>
+    <Navbar/>
       <div>
    
                 {/* Header */}

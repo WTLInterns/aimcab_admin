@@ -7,7 +7,7 @@ import BookingForm from "../../components/BookingForm";
 import { gsap } from 'gsap';
 import Footer from "../../container/component/Footer";
 import About_Aimcab from '../../components/About_Aimcab';
-
+import Navbar from '../../container/component/Navbar';
 const Page = () => {
   const headingRef = useRef(null);
     const paragraphRef = useRef(null);
@@ -31,6 +31,7 @@ const Page = () => {
     }, []);
   return (
     <>
+     <Navbar/>
       <Head>
         <title>Pune to Ratnagiri Cab Service | Hassle-Free Taxi Booking</title>
         <meta name="description" content="Book a reliable Pune to Ratnagiri cab service with Aim Cab. Affordable fares, professional drivers & hassle-free taxi booking for a comfortable journey."/>
@@ -392,7 +393,7 @@ const Page = () => {
 <About_Aimcab/>
 
 {/* CTA Section */}
-<section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white rounded-xl shadow-2xl p-8 mb-8">
+<section className="bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white rounded-xl shadow-2xl p-8 mb-8">
   <div className=" mx-auto text-center">
     <h4 className="text-2xl md:text-3xl font-bold mb-6">Book Your Pune to Ratnagiri Cab Now!</h4>
     <p className="text-xl mb-8">Ready to travel? Book your Pune to Ratnagiri cab service today with Aim Cab. Enjoy a safe, comfortable, and budget-friendly ride with us!</p>

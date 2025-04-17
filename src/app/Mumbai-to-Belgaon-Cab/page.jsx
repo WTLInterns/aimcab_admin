@@ -30,6 +30,7 @@ const Booking = () => {
       
   return (
     <div>
+      <Navbar />
       <Head>
         <title>Mumbai to Belgaon Cab Services | Aim Cab Booking</title>
         <meta name="description" content="Book Mumbai to Belgaon cab services with Aim Cab. Enjoy safe, private, one-way taxi rides and airport transfers at budget-friendly prices." />
@@ -68,7 +69,7 @@ const Booking = () => {
       <BookingForm />
       
       {/* Introduction Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
+      <section className="bg-gradient-to-r mt-24 from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
         <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Trusted Travel Partner</h3>
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-lg text-gray-700 leading-relaxed">

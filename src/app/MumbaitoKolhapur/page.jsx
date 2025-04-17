@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Navbar from '../../container/component/Navbar'
 import Footer from '../../container/component/Footer';
-
+import About_Aimcab from '../../components/About_Aimcab';
 const page = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -29,6 +29,7 @@ const page = () => {
       
   return (
     <div>
+      <Navbar/>
       <Head>
         <title>Mumbai to Kolhapur Cab | Affordable Taxi Service</title>
         <meta name="description" content="Book a Mumbai to Kolhapur cab with Aim Cab for a safe, comfortable, and affordable ride. Enjoy one-way & round-trip cabs with professional drivers." />
@@ -67,7 +68,7 @@ const page = () => {
       <BookingForm />
       
       {/* Introduction Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md mt-24">
         <h3 className="text-3xl font-bold text-[#76453B] mb-6">Mumbai to Kolhapur Cab – The Ultimate Guide for a Comfortable Journey</h3>
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -383,43 +384,7 @@ const page = () => {
       </section>
 
       {/* About Us */}
-      <section className="bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white p-8 rounded-xl shadow-md mt-8">
-        <h4 className="text-2xl font-bold mb-6">🏢 About Aimcab</h4>
-        
-        <div className="text-white">
-          <p className="mb-4">
-            Aimcab is a trusted cab service provider based in Pune, serving customers across India since 2001. With a fleet of over 500 registered cabs and a network of 50+ personal cabs, we have successfully completed over 3,000 outstation trips.
-          </p>
-          <p>
-            Our commitment to providing reliable, safe, and comfortable intercity cab services has earned us over 2,00,000 satisfied customers. We are known for our punctuality, exceptional customer experience, and always being there for our passengers.
-          </p>
-        </div>
-        
-        <div className="mt-8 grid md:grid-cols-4 gap-4">
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">50+</div>
-            <div>Personal Cabs</div>
-          </div>
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">500+</div>
-            <div>Registered Cabs</div>
-          </div>
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">2 Lakh+</div>
-            <div>Happy Customers</div>
-          </div>
-          <div className="bg-white bg-opacity-20 p-4 rounded-lg text-center">
-            <div className="text-2xl font-bold">3,000+</div>
-            <div>Outstation Trips</div>
-          </div>
-        </div>
-        
-        <div className="mt-8 text-center">
-          <a href="https://aimcab.com" className="inline-block bg-white hover:bg-gray-100 text-[#76453B] font-bold py-3 px-8 rounded-lg transition-colors">
-            Book Your Cab Now
-          </a>
-        </div>
-      </section>
+      <About_Aimcab/>
 
       <Footer />
     </div>

@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Footer from '../../container/component/Footer';
 import About_Aimcab from '../../components/About_Aimcab';
+import Navbar from '../../container/component/Navbar';
 const page = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -30,6 +31,7 @@ const page = () => {
   return (
     
     <div>
+      <Navbar/>
     <Head>
     <title>Pune to Panchgani Cabs | Affordable Taxi Service</title>
     <meta name="description" content="Book Pune to Panchgani cabs with Aim Cab for a smooth ride. Enjoy one-way, round-trip & shared taxi services at the best fares. Easy online cab booking!" />
@@ -39,7 +41,7 @@ const page = () => {
     <meta name="robots" content="index, follow"></meta>
     </Head>
       {/* Header */}
-
+ 
       {/* Header */}
       <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>

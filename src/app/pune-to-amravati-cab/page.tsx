@@ -31,6 +31,7 @@ const page = () => {
       }, []);
   return (
     <div>
+       <Navbar/>
       <Head>
       <title>Pune to Amravati Cab | Affordable & Reliable Taxi</title>
       <meta name="description" content="Book Pune to Amravati cab services with Aim Cab for a comfortable journey. Affordable fares, expert drivers & 24/7 service for a smooth travel experience." />

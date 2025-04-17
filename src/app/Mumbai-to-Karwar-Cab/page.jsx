@@ -6,7 +6,7 @@ import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
 import Navbar from '../../container/component/Navbar';
 import Footer from '../../container/component/Footer';
-
+import About_Aimcab from '../../components/About_Aimcab';
 const Page = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -29,6 +29,7 @@ const Page = () => {
 
   return (
     <>
+      <Navbar />
       <Head>
         <title>Mumbai to Karwar Cab | Affordable Taxi Services</title>
         <meta name="description" content="Book Mumbai to Karwar cab with Aim Cab for a safe and affordable ride. Get one-way, round-trip cab services with professional drivers and best fares." />
@@ -321,7 +322,7 @@ const Page = () => {
             </div>
           </div>
         </section>
-
+        <About_Aimcab/>
         {/* Call to Action */}
         <section className="mb-12">
           <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] rounded-xl shadow-lg p-6 text-center">

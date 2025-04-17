@@ -29,6 +29,7 @@ const page = () => {
     }, []);
   return (
     <div>
+       <Navbar/>
       <head>
       <title>Pune to Karwar Cab | Affordable & Safe Taxi Service</title>
       <meta name="description" content="Book Pune to Karwar cab services with Aim Cab for a smooth, reliable & affordable ride. 24/7 booking, experienced drivers & comfortable travel experience." />

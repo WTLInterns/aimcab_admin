@@ -30,6 +30,7 @@ const page = () => {
     }, []);
   return (
     <>
+     <Navbar/>
       <div>
         <Head>
         <title>Pune to Hubali Cab | Affordable & Reliable Taxi Service</title>

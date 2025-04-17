@@ -36,6 +36,7 @@ export default function MumbaiToMalvan() {
 
   return (
     <>
+      <Navbar />
       <Head>
         <title>Mumbai to Malvan Cab | Safe & Budget-Friendly Taxi</title>
         <meta name="description" content="Book Mumbai to Malvan cab with Aim Cab for a comfortable and affordable travel experience. Enjoy one-way & round-trip taxi service with expert drivers." />
@@ -70,7 +71,7 @@ export default function MumbaiToMalvan() {
 
         {/* Service Description */}
         <section className="mt-8">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
+          <div className="bg-white rounded-xl mt-24 shadow-lg overflow-hidden border border-blue-100">
             <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] p-4">
               <h3 className="text-2xl font-bold text-white flex items-center">
                 <span className="mr-2">🚖</span> Service Options

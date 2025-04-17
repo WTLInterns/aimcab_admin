@@ -118,7 +118,7 @@ const AboutSection = () => {
                   href="/book"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-block mt-8 px-8 py-3 bg-[#F3B664] text-gray-900 font-semibold rounded-lg shadow-lg hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all duration-300"
+                  className="w-full py-3 bg-[#2B2B2B] text-[#D5D5D5] font-semibold rounded-lg duration-300 border-2 border-[#F3B664]  text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
                 >
                   Book Your Ride
                 </motion.a>
@@ -160,12 +160,12 @@ const AboutSection = () => {
                       href="/services"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center px-6 py-3 bg-[#0F0E0E] text-white font-medium rounded-lg shadow hover:bg-[#F3B664] hover:text-[#0F0E0E] transition-all duration-300"
+                      className="w-full py-3 bg-[#2B2B2B] text-[#D5D5D5] font-semibold rounded-lg duration-300 border-2 border-[#F3B664]  text-center block hover:bg-[#0F0E0E] hover:text-[#F3B664] transition-all"
                     >
                       Explore All Services
-                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      {/* <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                      </svg>
+                      </svg> */}
                     </motion.a>
                   </div>
                 </div>

@@ -40,7 +40,7 @@ const page = () => {
       <meta name="robots" content="index, follow" />
 
         </Head>
-
+ <Navbar/>
         {/* Header */}
         <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center ">
         <div className="absolute inset-0 bg-black opacity-10"></div>

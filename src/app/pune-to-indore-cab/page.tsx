@@ -29,6 +29,7 @@ const page = () => {
     }, []);
   return (
     <div>
+       <Navbar/>
       <head>
         <title>Pune to Indore Cab | Affordable & Hassle-Free Taxi</title>
         <meta name="description" content="Book a Pune to Indore cab with Aim Cab for a comfortable & budget-friendly ride. Enjoy reliable taxi service with professional drivers at the best fares." />

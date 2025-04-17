@@ -1,400 +1,380 @@
 "use client"
-
-import { useState } from "react"
-import { motion } from "framer-motion"
+import React from 'react'
+import Head from 'next/head';
+import BookingForm from '../../components/BookingForm';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import Navbar from '../../container/component/Navbar'
+import Footer from '../../container/component/Footer';
+import About_Aimcab from '../../components/About_Aimcab';
 import { FaCar, FaRoute, FaMapMarkedAlt, FaMoneyBillWave, FaQuestionCircle, FaInfoCircle } from "react-icons/fa"
 import { MdAirportShuttle, MdPayment } from "react-icons/md"
 import { BsFillTelephoneFill } from "react-icons/bs"
 import { HiOutlineGift } from "react-icons/hi"
 
-export default function MumbaiToNippani() {
-  const [activeTab, setActiveTab] = useState("overview")
+const page = () => {
+  const headingRef = useRef(null);
+  const paragraphRef = useRef(null);
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
-  }
-
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    
+    tl.from(headingRef.current, {
+      x: -50,
+      opacity: 0,
+      duration: 0.8
+    })
+    .from(paragraphRef.current, {
+      x: -50,
+      opacity: 0,
+      duration: 0.6
+    }, "+=0.2")
+  }, []);
+      
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] bg-[url('/images/nipani.jpeg')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative container mx-auto px-4 h-full flex items-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white max-w-2xl"
+    <div>
+      <Navbar/>
+      <Head>
+        <title>Mumbai to Nippani Cab | Safe & Affordable Taxi</title>
+        <meta name="description" content="Book Mumbai to Nippani cab with Aim Cab for a reliable and budget-friendly ride. One-way & round-trip taxi services with professional drivers." />
+        <link rel="canonical" href="https://aimcab.com/mumbai-to-nippani-cab" />
+        <meta name="author" content="Aim Cab" />
+        <meta name="keywords" content="mumbai to nippani cab, taxi service in nippani, how to reach nippani from mumbai, mumbai to nippani taxi, mumbai to nippani cab fare, nippani to mumbai cab, cab service from mumbai to nippani" />
+        <meta name="robots" content="index, follow" />
+      </Head>
+      
+      {/* Header */}
+      <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h1 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-bold mb-4"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Mumbai to Nippani Cab</h1>
-            <p className="text-xl mb-8">Your Ultimate Guide for a Comfortable and Convenient Journey</p>
-            <button className="bg-[#FF6B6B] hover:bg-[#FF8E8E] text-white px-8 py-3 rounded-full font-semibold transition-all duration-300">
-              Book Now
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Navigation Tabs */}
-      <div className="sticky top-0 bg-white shadow-md z-10">
-        <div className="container mx-auto px-4">
-          <div className="flex overflow-x-auto">
-            {["overview", "services", "route", "attractions", "pricing", "faq"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-4 font-medium whitespace-nowrap ${
-                  activeTab === tab ? "text-[#FF6B6B] border-b-2 border-[#FF6B6B]" : "text-gray-600"
-                }`}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Content Sections */}
-      <div className="container mx-auto px-4 py-12">
-        {/* Overview Section */}
-        {activeTab === "overview" && (
-          <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Journey Overview</h2>
-            <p className="text-gray-600 mb-6">
-              Traveling from Mumbai to Nippani is a journey that blends comfort, convenience, and a scenic drive. 
-              Whether you're embarking on a business trip, a family vacation, or a personal journey, choosing a 
-              reliable Mumbai to Nippani cab service ensures that your travel experience is smooth and hassle-free.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <FaCar className="text-4xl text-[#FF6B6B] mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Comfortable Rides</h3>
-                <p className="text-gray-600">Premium vehicles for a smooth journey</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <FaRoute className="text-4xl text-[#FF6B6B] mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Scenic Routes</h3>
-                <p className="text-gray-600">Beautiful landscapes along the way</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <MdPayment className="text-4xl text-[#FF6B6B] mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Flexible Payment</h3>
-                <p className="text-gray-600">Multiple payment options available</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Services Section */}
-        {activeTab === "services" && (
-          <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Service Options</h2>
-            <div className="space-y-8">
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="flex items-center mb-4">
-                  <FaCar className="text-2xl text-[#FF6B6B] mr-3" />
-                  <h3 className="text-xl font-semibold">Oneway Cab Service</h3>
-                </div>
-                <p className="text-gray-600">
-                  Our one-way cab service from Mumbai to Nippani is designed for travelers who need a direct, 
-                  one-time journey. This service is perfect for business travelers, tourists, or anyone who 
-                  just needs to travel to Nippani without worrying about a return trip.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="flex items-center mb-4">
-                  <FaRoute className="text-2xl text-[#FF6B6B] mr-3" />
-                  <h3 className="text-xl font-semibold">Roundtrip Cab Service</h3>
-                </div>
-                <p className="text-gray-600">
-                  If you plan to return to Mumbai after your visit to Nippani, our roundtrip cab service is 
-                  the perfect choice. Aimcab's roundtrip service is flexible and affordable, offering a 
-                  convenient way to book both your journey to and from Nippani.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="flex items-center mb-4">
-                  <MdAirportShuttle className="text-2xl text-[#FF6B6B] mr-3" />
-                  <h3 className="text-xl font-semibold">Airport Pickup & Drop</h3>
-                </div>
-                <p className="text-gray-600">
-                  For travelers flying into Mumbai or Nippani, Aimcab's airport pickup and drop service 
-                  ensures a seamless transfer. Whether you're arriving at Chhatrapati Shivaji Maharaj 
-                  International Airport in Mumbai or the nearest airport in Nippani.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Route Section */}
-        {activeTab === "route" && (
-          <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Road Trip Guide</h2>
-            <div className="bg-white p-6 rounded-xl shadow-lg mb-8">
-              <h3 className="text-xl font-semibold mb-4">Route Information</h3>
-              <p className="text-gray-600 mb-4">
-                The most commonly used route from Mumbai to Nippani is via NH 48 and NH 52, which are 
-                well-maintained highways. The journey is about 370 kilometers long and typically takes 
-                between 7 to 9 hours, depending on traffic conditions and stops.
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">Key Stops</h4>
-                  <ul className="list-disc list-inside text-gray-600">
-                    <li>Lonavala and Khandala</li>
-                    <li>Pune</li>
-                    <li>Satara</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">Highway Info</h4>
-                  <ul className="list-disc list-inside text-gray-600">
-                    <li>Well-maintained roads</li>
-                    <li>Regular petrol stations</li>
-                    <li>Rest stops available</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Attractions Section */}
-        {activeTab === "attractions" && (
-          <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Tourist Places & Attractions</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">Along the Route</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    <div>
-                      <h4 className="font-semibold">Lonavala and Khandala</h4>
-                      <p className="text-gray-600">Famous hill stations with cool climate and beautiful surroundings</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    <div>
-                      <h4 className="font-semibold">Pune</h4>
-                      <p className="text-gray-600">Cultural capital with historic sites and landmarks</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">In Nippani</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    <div>
-                      <h4 className="font-semibold">Shree Nagareshwar Temple</h4>
-                      <p className="text-gray-600">Ancient temple dedicated to Lord Shiva</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    <div>
-                      <h4 className="font-semibold">Gokak Falls</h4>
-                      <p className="text-gray-600">Stunning waterfall surrounded by lush greenery</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Pricing Section */}
-        {activeTab === "pricing" && (
-          <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Cab Fare & Pricing</h2>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Cab Type</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Price (₹/KM)</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-600">Best For</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  <tr>
-                    <td className="px-6 py-4">Sedan (Dzire, Etios)</td>
-                    <td className="px-6 py-4">₹11/km</td>
-                    <td className="px-6 py-4">Budget-friendly travel</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4">SUV (Ertiga, Xylo)</td>
-                    <td className="px-6 py-4">₹14/km</td>
-                    <td className="px-6 py-4">Family trips & extra luggage space</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4">Luxury (Innova Crysta)</td>
-                    <td className="px-6 py-4">₹18/km</td>
-                    <td className="px-6 py-4">Premium comfort & business travel</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4">Tempo Traveller</td>
-                    <td className="px-6 py-4">₹25/km</td>
-                    <td className="px-6 py-4">Group trips & office outings</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-8 bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold mb-4">Additional Information</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-center">
-                  <span className="text-[#FF6B6B] mr-2">•</span>
-                  Toll and parking excluded
-                </li>
-                <li className="flex items-center">
-                  <span className="text-[#FF6B6B] mr-2">•</span>
-                  No waiting charges
-                </li>
-                <li className="flex items-center">
-                  <span className="text-[#FF6B6B] mr-2">•</span>
-                  No kilometer limit
-                </li>
-              </ul>
-            </div>
-          </motion.div>
-        )}
-
-        {/* FAQ Section */}
-        {activeTab === "faq" && (
-          <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {[
-                "How can I book a cab from Mumbai to Nippani?",
-                "What is the fare for a Mumbai to Nippani cab?",
-                "Is there a limit on the kilometers?",
-                "Do you offer roundtrip services for Mumbai to Nippani?",
-                "How can I track my ride?"
-              ].map((question, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="flex items-start">
-                    <FaQuestionCircle className="text-[#FF6B6B] text-xl mt-1 mr-3" />
-                    <div>
-                      <h3 className="text-lg font-semibold mb-2">{question}</h3>
-                      <p className="text-gray-600">
-                        {index === 0 && "You can book a cab via our website, by calling our customer support, or through our mobile app."}
-                        {index === 1 && "The fare depends on the type of vehicle you select. Prices start from ₹11/km for budget sedans."}
-                        {index === 2 && "No, there is no limit on the kilometers you can travel."}
-                        {index === 3 && "Yes, we offer roundtrip services for your convenience."}
-                        {index === 4 && "You can track your ride in real-time using our mobile app."}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </div>
-
-      {/* Why Choose Us Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Why Choose Aimcab</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-[#FF6B6B] rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiOutlineGift className="text-white text-2xl" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Complimentary Gift</h3>
-              <p className="text-gray-600">Special gift for first-time users</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-[#FF6B6B] rounded-full flex items-center justify-center mx-auto mb-4">
-                <FaMapMarkedAlt className="text-white text-2xl" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">GPS Tracking</h3>
-              <p className="text-gray-600">Real-time journey tracking</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-              <div className="w-16 h-16 bg-[#FF6B6B] rounded-full flex items-center justify-center mx-auto mb-4">
-                <BsFillTelephoneFill className="text-white text-2xl" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
-              <p className="text-gray-600">Always available to help you</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="flex items-center mb-6">
-              <FaInfoCircle className="text-3xl text-[#FF6B6B] mr-3" />
-              <h2 className="text-3xl font-bold text-gray-800">About Aimcab</h2>
-            </div>
-            <p className="text-gray-600 mb-6">
-              Since 2001, Aimcab has been a trusted name in India's cab service industry. With over 50 personal 
-              cabs and a network of 500+ registered cabs across India, Aimcab provides reliable, safe, and 
-              comfortable intercity travel.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-semibold mb-2">Key Highlights</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    50+ personal cabs across India
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    500+ registered cabs in our network
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    2,00,000+ happy customers
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <h3 className="font-semibold mb-2">Our Achievements</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-center">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    3,000+ successful outstation trips
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    Reliable and safe intercity services
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-[#FF6B6B] mr-2">•</span>
-                    Excellent customer service
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-[#FF6B6B] py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Book Your Journey?</h2>
-          <p className="text-white mb-8 max-w-2xl mx-auto">
-            Experience a safe, comfortable, and hassle-free road trip with Aimcab. Whether it's for a business 
-            meeting, a family outing, or a solo journey, we ensure the best travel experience every time.
+            Mumbai to Nippani Cab Service
+          </h1>
+          
+          <p 
+            ref={paragraphRef}
+            className="text-xl md:text-2xl mb-8 font-light"
+          >
+            Comfortable and Convenient Journey
           </p>
-          <button className="bg-white text-[#FF6B6B] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300">
-            Book Your Cab Now
-          </button>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
+      </header>
+      
+      {/* Main Title */}
+      <h2 className="text-3xl font-bold mt-4 text-center text-[#76453B]">
+        Mumbai to Nippani Cab Services - Safe & Comfortable Journey
+      </h2>
+
+      <BookingForm />
+      
+      {/* Introduction Section */}
+      <section className="bg-gradient-to-r from-blue-50 mt-24 to-indigo-50 p-8 rounded-xl shadow-md">
+        <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Trusted Travel Partner</h3>
+        <div className="bg-white p-6 rounded-lg shadow-sm">
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Welcome to Aimcab, your trusted partner for a seamless and comfortable journey from Mumbai to Nippani. Whether you're planning a short getaway, a weekend trip, or a long vacation, we offer the most reliable Mumbai to Nippani cab services tailored to meet your specific travel needs. Known for its serene beauty and cultural significance, Nippani is a wonderful destination in Karnataka. With our dedicated and well-maintained fleet, you can enjoy the scenic drive in style and comfort.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed mt-4">
+            This comprehensive guide will take you through our Mumbai to Nippani taxi services, the journey experience, booking options, and much more. Let's explore how Aimcab ensures you get the best out of your trip from Mumbai to Nippani.
+          </p>
         </div>
       </section>
+      
+      {/* Service Options */}
+      <section className="bg-white p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] border-b-2 border-indigo-200 pb-3 mb-6">🧭 Service Options</h4>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-blue-50 p-5 rounded-lg hover:shadow-md transition-shadow">
+            <h5 className="font-bold text-lg text-[#76453B] mb-3">Oneway Cab Service</h5>
+            <p className="text-gray-600">
+              Our one-way cab service from Mumbai to Nippani is designed for travelers who need a direct, one-time journey. This service is perfect for business travelers, tourists, or anyone who just needs to travel to Nippani without worrying about a return trip.
+            </p>
+          </div>
+          
+          <div className="bg-blue-50 p-5 rounded-lg hover:shadow-md transition-shadow">
+            <h5 className="font-bold text-lg text-[#76453B] mb-3">Roundtrip Cab Service</h5>
+            <p className="text-gray-600">
+              If you plan to return to Mumbai after your visit to Nippani, our roundtrip cab service is the perfect choice. Aimcab's roundtrip service is flexible and affordable, offering a convenient way to book both your journey to and from Nippani.
+            </p>
+          </div>
+          
+          <div className="bg-blue-50 p-5 rounded-lg hover:shadow-md transition-shadow">
+            <h5 className="font-bold text-lg text-[#76453B] mb-3">Airport Pickup & Drop</h5>
+            <p className="text-gray-600">
+              For travelers flying into Mumbai or Nippani, Aimcab's airport pickup and drop service ensures a seamless transfer. Whether you're arriving at Chhatrapati Shivaji Maharaj International Airport in Mumbai or the nearest airport in Nippani.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Process */}
+      <section className="bg-gradient-to-r from-indigo-50 to-blue-50 p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] mb-6">🛒 Booking Process</h4>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white p-5 rounded-lg shadow-sm">
+            <h5 className="font-bold text-lg text-[#76453B] mb-3">Book Online via Website</h5>
+            <p className="text-gray-600">
+              Our user-friendly website is the easiest way to book your Mumbai to Nippani cab. You can easily choose your pickup and drop-off locations, select your preferred cab type, and make secure payments. The process is quick and easy, with instant booking confirmation sent to your email or phone.
+            </p>
+          </div>
+          
+          <div className="bg-white p-5 rounded-lg shadow-sm">
+            <h5 className="font-bold text-lg text-[#76453B] mb-3">Book On Call</h5>
+            <p className="text-gray-600">
+              For customers who prefer personal assistance, we offer a Mumbai to Nippani taxi booking service over the phone. Our customer service team is available to guide you through the booking process, answer any questions, and confirm your ride.
+            </p>
+          </div>
+          
+          <div className="bg-white p-5 rounded-lg shadow-sm">
+            <h5 className="font-bold text-lg text-[#76453B] mb-3">Book through App</h5>
+            <p className="text-gray-600">
+              For those who prefer to book on-the-go, the Aimcab mobile app is a great option. Available for both Android and iOS devices, the app allows you to book your Mumbai to Nippani cab with just a few taps.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Road Trip Guide */}
+      <section className="bg-white p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] mb-6">🛣️ Road Trip Guide</h4>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Route from Mumbai to Nippani</h5>
+            <p className="text-gray-700 mb-4">
+              The most common route for traveling from Mumbai to Nippani is via NH 48 and NH 52, which covers a distance of about <strong>370 km</strong> and takes approximately <strong>7 to 9 hours</strong>, depending on traffic. The route is well-maintained, and the drive itself is smooth, offering travelers an opportunity to relax and enjoy the journey.
+            </p>
+            <p className="text-gray-700 font-medium mb-4">
+              Mumbai → Lonavala → Pune → Satara → Kolhapur → Nippani
+            </p>
+            <p className="text-gray-700">
+              This route takes you through the popular hill station of Lonavala, the cultural city of Pune, and the historic town of Kolhapur before reaching Nippani. The roads are wide, and the drive is mostly smooth, with clear signs and facilities available along the way.
+            </p>
+            
+            <h5 className="text-xl font-semibold text-[#76453B] mt-6 mb-3">Travel Experience</h5>
+            <p className="text-gray-700">
+              As you drive from Mumbai to Nippani, you'll be treated to breathtaking views of the Western Ghats, especially as you near Pune and Satara. The winding roads offer spectacular views of the valleys, hills, and rivers, making the journey enjoyable and relaxing.
+            </p>
+          </div>
+          
+          <div className="bg-indigo-100 p-6 rounded-lg flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-[#76453B]">370 km</div>
+              <div className="text-gray-600 mt-2">Distance</div>
+            </div>
+            <div className="mx-8 text-gray-400">|</div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-[#76453B]">7-9 hrs</div>
+              <div className="text-gray-600 mt-2">Travel Time</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tourist Attractions */}
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] mb-6">🏞️ Tourist Places & Attractions</h4>
+        
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Places to Visit Between Mumbai and Nippani</h5>
+            <div className="space-y-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h6 className="font-bold text-[#76453B]">Lonavala and Khandala</h6>
+                <p className="text-gray-600">Famous hill stations with cool climate and beautiful surroundings, known for their viewpoints and waterfalls.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h6 className="font-bold text-[#76453B]">Pune</h6>
+                <p className="text-gray-600">Cultural capital with historic sites, landmarks, and vibrant food scene.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h6 className="font-bold text-[#76453B]">Kolhapur</h6>
+                <p className="text-gray-600">Known for its historic temples, especially the Mahalaxmi Temple, and delicious Kolhapuri cuisine.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h5 className="text-xl font-semibold text-[#76453B] mb-3">Must-Visit Spots in Nippani</h5>
+            <div className="space-y-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h6 className="font-bold text-[#76453B]">Shree Nagareshwar Temple</h6>
+                <p className="text-gray-600">Ancient temple dedicated to Lord Shiva, known for its beautiful architecture and spiritual significance.</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h6 className="font-bold text-[#76453B]">Gokak Falls</h6>
+                <p className="text-gray-600">Stunning waterfall surrounded by lush greenery, often called the "Niagara of Karnataka".</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h6 className="font-bold text-[#76453B]">Hidkal Dam</h6>
+                <p className="text-gray-600">Picturesque dam offering beautiful views and a peaceful environment for relaxation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Table */}
+      <section className="bg-white p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] mb-6">💰 Cab Fare & Pricing</h4>
+        
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white rounded-lg overflow-hidden">
+            <thead className="bg-gradient-to-r from-[#76453B] to-[#F3B664] text-white">
+              <tr>
+                <th className="py-3 px-4 text-left">Cab Type</th>
+                <th className="py-3 px-4 text-left">Price (₹/KM)</th>
+                <th className="py-3 px-4 text-left">Best For</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              <tr className="hover:bg-blue-50">
+                <td className="py-3 px-4"><strong>Sedan (Dzire, Etios)</strong></td>
+                <td className="py-3 px-4 font-semibold text-[#76453B]">₹11/km</td>
+                <td className="py-3 px-4">Budget-friendly travel</td>
+              </tr>
+              <tr className="hover:bg-blue-50">
+                <td className="py-3 px-4"><strong>SUV (Ertiga, Xylo)</strong></td>
+                <td className="py-3 px-4 font-semibold text-[#76453B]">₹14/km</td>
+                <td className="py-3 px-4">Family trips & extra luggage space</td>
+              </tr>
+              <tr className="hover:bg-blue-50">
+                <td className="py-3 px-4"><strong>Luxury (Innova Crysta)</strong></td>
+                <td className="py-3 px-4 font-semibold text-[#76453B]">₹18/km</td>
+                <td className="py-3 px-4">Premium comfort & business travel</td>
+              </tr>
+              <tr className="hover:bg-blue-50">
+                <td className="py-3 px-4"><strong>Tempo Traveller</strong></td>
+                <td className="py-3 px-4 font-semibold text-[#76453B]">₹25/km</td>
+                <td className="py-3 px-4">Group trips & office outings</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+          <h5 className="font-bold text-[#76453B] mb-2">Additional Information:</h5>
+          <ul className="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Toll and parking excluded</li>
+            <li>No waiting charges</li>
+            <li>No kilometer limit</li>
+            <li>Driver's allowance included</li>
+            <li>No night halt charges</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Why Choose Aimcab */}
+      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] mb-6">🚖 Why Choose Aimcab – Our Specialties</h4>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white p-5 rounded-lg flex items-start">
+            <div className="bg-indigo-100 p-2 rounded-full mr-4">
+              <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p className="text-gray-700"><strong className="text-[#76453B]">Always Neat & Clean Cabs:</strong> We ensure that every vehicle in our fleet is clean, sanitized, and well-maintained.</p>
+          </div>
+          
+          <div className="bg-white p-5 rounded-lg flex items-start">
+            <div className="bg-indigo-100 p-2 rounded-full mr-4">
+              <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p className="text-gray-700"><strong className="text-[#76453B]">On-Time Guarantee:</strong> We understand the value of your time. Our drivers are punctual and ensure timely pick-ups and drops.</p>
+          </div>
+          
+          <div className="bg-white p-5 rounded-lg flex items-start">
+            <div className="bg-indigo-100 p-2 rounded-full mr-4">
+              <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p className="text-gray-700"><strong className="text-[#76453B]">Complimentary Gift for New Users:</strong> As a token of appreciation, new customers receive a complimentary gift.</p>
+          </div>
+          
+          <div className="bg-white p-5 rounded-lg flex items-start">
+            <div className="bg-indigo-100 p-2 rounded-full mr-4">
+              <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p className="text-gray-700"><strong className="text-[#76453B]">GPS Tracking in All Cabs:</strong> For added safety and convenience, all of our vehicles are equipped with GPS tracking.</p>
+          </div>
+          
+          <div className="bg-white p-5 rounded-lg flex items-start">
+            <div className="bg-indigo-100 p-2 rounded-full mr-4">
+              <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p className="text-gray-700"><strong className="text-[#76453B]">24x7 Helpline Available:</strong> Our customer support team is available round the clock, ensuring that you receive help whenever you need it.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="bg-white p-8 rounded-xl shadow-md mt-8">
+        <h4 className="text-2xl font-bold text-[#76453B] mb-6">🙋 Frequently Asked Questions</h4>
+        
+        <div className="space-y-4">
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">How far is Nippani from Mumbai?</h5>
+            <p className="text-gray-700 mt-1">Nippani is approximately 370 km from Mumbai, and the journey typically takes 7-9 hours by car.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">How can I book a Mumbai to Nippani cab?</h5>
+            <p className="text-gray-700 mt-1">You can book a Mumbai to Nippani taxi online through our website, by calling our helpline, or using the Aimcab mobile app.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">What is the cost of a one-way trip from Mumbai to Nippani?</h5>
+            <p className="text-gray-700 mt-1">The price depends on the type of vehicle you choose, with Sedans starting at ₹11/km.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">Can I book a round-trip taxi from Nippani to Mumbai?</h5>
+            <p className="text-gray-700 mt-1">Yes, we offer round-trip services for your Mumbai to Nippani journey and vice versa.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">Do you provide a taxi service from Mumbai airport to Nippani?</h5>
+            <p className="text-gray-700 mt-1">Yes, we offer Mumbai airport to Nippani taxi services, ensuring a smooth transfer from the airport to your destination.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">Are there any hidden charges?</h5>
+            <p className="text-gray-700 mt-1">No, there are no hidden charges. Our pricing is transparent with no additional fees, except for tolls and parking.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">What are the best tourist spots in Nippani?</h5>
+            <p className="text-gray-700 mt-1">Some of the must-visit places in Nippani include Shree Nagareshwar Temple, Gokak Falls, and Hidkal Dam.</p>
+          </div>
+          
+          <div className="border-b border-gray-200 pb-4">
+            <h5 className="font-bold text-[#76453B]">Do you provide taxis for group trips?</h5>
+            <p className="text-gray-700 mt-1">Yes, we offer Tempo Traveller services, which are perfect for group trips.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us */}
+      <About_Aimcab  />
+
+      <Footer />
     </div>
   )
 }
+
+export default page;

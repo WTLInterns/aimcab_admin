@@ -8,6 +8,7 @@ import { gsap } from 'gsap';
 import BookingForm from '../../components/BookingForm'
 import About_Aimcab from '../../components/About_Aimcab'
 import Footer from '../../container/component/Footer';
+import Navbar from '../../container/component/Navbar';
 
 
 const Page = () => {
@@ -34,7 +35,7 @@ const Page = () => {
   return (
     <div  >
       
-    
+   <Navbar/>
 
       {/* Header */}
       <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-yellow-500 py-12 md:py-20 text-center overflow-hidden">

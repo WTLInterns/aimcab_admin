@@ -5,6 +5,7 @@ import BookingForm from "../../components/BookingForm";
 import { useEffect, useRef } from 'react';
 import Footer from "../../container/component/Footer";
 import About_Aimcab from '../../components/About_Aimcab';
+import Navbar from '../../container/component/Navbar';
 import { gsap } from 'gsap';
 const Page = () => {
    const headingRef = useRef(null);
@@ -29,6 +30,7 @@ const Page = () => {
       }, []);
   return (
     <>
+     <Navbar/>
       <Head>
         <title>Pune to Thane Cab Service | Safe & Affordable Taxi</title>
         <meta

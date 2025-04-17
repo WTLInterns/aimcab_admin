@@ -4,6 +4,7 @@ import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Footer from '../../container/component/Footer'
+import Navbar from '../../container/component/Navbar';
 import About_Aimcab from '../../components/About_Aimcab';
 const Page = () => {
     const headingRef = useRef(null);
@@ -29,7 +30,7 @@ const Page = () => {
   return (
     <div>
       {/* Header */}
-
+      <Navbar/>
       <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
@@ -58,7 +59,7 @@ const Page = () => {
       </h2>
       <BookingForm />
 
-<div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg mb-8">
+<div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-lg mt-24 mb-8">
   <div className="flex items-center gap-3 mb-4">
     <div className="bg-blue-100 p-2 rounded-full">
       <span className="text-blue-600 text-xl">🚖</span>

@@ -6,7 +6,7 @@ import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
 import Navbar from '../../container/component/Navbar';
 import Footer from '../../container/component/Footer';
-
+import About_Aimcab from '../../components/About_Aimcab';
 const Page = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -71,7 +71,7 @@ const Page = () => {
 
         {/* Service Description */}
         <section className="mt-8">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
+          <div className="bg-white rounded-xl mt-24 shadow-lg overflow-hidden border border-blue-100">
             <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] p-4">
               <h3 className="text-2xl font-bold text-white flex items-center">
                 <span className="mr-2">🧭</span> Service Options
@@ -406,26 +406,7 @@ const Page = () => {
         </section>
 
         {/* About Us */}
-        <section className="mt-6 mb-12">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
-            <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] p-4">
-              <h3 className="text-2xl font-bold text-white flex items-center">
-                <span className="mr-2">🏢</span> About Us – Aimcab
-              </h3>
-            </div>
-            <div className="p-6">
-              <p className="text-gray-700 mb-4">
-                Aimcab has been a trusted and reliable provider of intercity travel services since 2001. Based in Pune, we offer a range of services including Mumbai to Sangli cab services. With a fleet of over 500 registered cabs and more than 50 personal vehicles, Aimcab has successfully completed over 3,000 outstation trips. Our dedication to excellent customer service, punctuality, and safety has earned us the trust of over 200,000 satisfied customers.
-              </p>
-              <p className="text-gray-700">
-                We are committed to ensuring that each of our passengers has a seamless, enjoyable experience, whether they are traveling for business or leisure. Aimcab's professional drivers, well-maintained vehicles, and customer-first approach make us the go-to choice for Mumbai to Sangli cab services.
-              </p>
-              <p className="text-gray-700 mt-4">
-                With Aimcab, you can be assured of a smooth, safe, and comfortable journey. Book your Mumbai to Sangli cab today and experience a reliable service that you can trust! Whether you are traveling for business, leisure, or need airport transfers, we're here to make your journey effortless and enjoyable.
-              </p>
-            </div>
-          </div>
-        </section>
+        <About_Aimcab/>
 
         {/* Call to Action */}
         <section className="mb-12">

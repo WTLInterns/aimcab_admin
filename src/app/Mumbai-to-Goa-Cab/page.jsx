@@ -35,6 +35,8 @@ export default function MumbaiToGoa() {
 
   return (
     <div>
+      
+      {/* Meta Tags */}
       <Head>
         <title>Mumbai to Goa Cab Service | Aim Cab Booking</title>
         <meta name="description" content="Book Mumbai to Goa cab with Aim Cab for a smooth, budget-friendly ride. One-way & round-trip taxi service with expert drivers available." />
@@ -75,7 +77,7 @@ export default function MumbaiToGoa() {
       <BookingForm />
       
       {/* Introduction Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
+      <section className="bg-gradient-to-r mt-24 from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
         <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Reliable Travel Partner</h3>
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-lg text-gray-700 leading-relaxed">

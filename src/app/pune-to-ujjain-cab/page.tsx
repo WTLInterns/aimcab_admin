@@ -30,6 +30,7 @@ const page = () => {
       }, []);
   return (
     <div>
+       <Navbar/>
       <Head>
       <title>Pune to Ujjain Cab | Safe & Affordable Taxi Service</title>
       <meta name="description" content="Book Pune to Ujjain cab services with Aim Cab for a hassle-free journey. Affordable fares, expert drivers & 24/7 service for a smooth travel experience." />

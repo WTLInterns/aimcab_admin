@@ -7,6 +7,8 @@ import BookingForm from "../../components/BookingForm";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Navbar from '../../container/component/Navbar'
+import Footer from '../../container/component/Footer';
+import About_Aimcab from '../../components/About_Aimcab';
 const page = () => {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -52,7 +54,7 @@ const page = () => {
       <div className=" font-semibold">
         <Navbar/>
            {/* Header */}
-        <header className="relative bg-gradient-to-r from-[#76453B] to-[#F3B664] font-semibold text-[#573027] py-12 md:py-20 text-center overflow-hidden">
+        <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-[#573027] py-12 md:py-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 
@@ -71,7 +73,7 @@ const page = () => {
           
        
         </div>
-        <div className="absolute  bottom-0 left-0 right-0 h-16 bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold transform skew-y-2 origin-bottom"></div>
+        <div className="absolute  bottom-0 left-0 right-0 h-16 bg-white font-semibold transform skew-y-2 origin-bottom"></div>
       </header>
       
     
@@ -80,7 +82,7 @@ const page = () => {
       
 
         {/* Main Title */}
-        <div className=" mx-auto px-4 bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold">
+        <div className=" mx-auto px-4 font-semibold">
           <h2 className="text-3xl font-bold mt-8 mb-6 text-center text-[#76453B]">
             Pune to Mumbai Cab Service - Affordable & Reliable Taxi Booking
           </h2>
@@ -512,235 +514,10 @@ const page = () => {
 </section>
 
 {/* About Aim Cab - Card Version */}
-<section className="mt-8 mb-12">
-  <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-sky-100">
-    <div className="bg-[#76453B] p-4">
-      <h3 className="text-2xl font-bold text-white flex items-center">
-        <span className="mr-2">🏅</span> About Aim Cab
-      </h3>
-    </div>
-    <div className="p-6">
-      <div className="flex items-start mb-6">
-        <div className="bg-sky-100 p-2 rounded-lg mr-4">
-          <svg className="w-6 h-6 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-          </svg>
-        </div>
-        <div>
-          <h4 className="font-bold text-lg mb-2">Trusted Since 2001</h4>
-          <p className="text-gray-700">With over two decades of experience, Aim Cab has built a reputation as the most reliable and customer-friendly cab service in Pune.</p>
-        </div>
-      </div>
-      
-      <div className="mb-6">
-        <h4 className="font-bold text-lg mb-3 flex items-center">
-          <svg className="w-5 h-5 text-[#76453B] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-          </svg>
-          Expansive Fleet & Network
-        </h4>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="bg-sky-50 p-3 rounded-lg">
-            <p className="font-medium text-sky-800">50+ Personal Cabs</p>
-            <p className="text-sm text-gray-600">Across India</p>
-          </div>
-          <div className="bg-sky-50 p-3 rounded-lg">
-            <p className="font-medium text-sky-800">500+ Registered Cabs</p>
-            <p className="text-sm text-gray-600">For intercity trips</p>
-          </div>
-          <div className="bg-sky-50 p-3 rounded-lg">
-            <p className="font-medium text-sky-800">2,00,000+ Customers</p>
-            <p className="text-sm text-gray-600">Happy travelers</p>
-          </div>
-          <div className="bg-sky-50 p-3 rounded-lg">
-            <p className="font-medium text-sky-800">3,000+ Trips</p>
-            <p className="text-sm text-gray-600">Completed</p>
-          </div>
-        </div>
-      </div>
-      
-      <div className="space-y-4">
-        <div className="flex items-start">
-          <div className="bg-sky-100 p-1 rounded-full mr-3 mt-1">
-            <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <p className="text-gray-700"><strong className="text-sky-800">Our Mission:</strong> To make travel affordable, accessible, and hassle-free for everyone.</p>
-        </div>
-        
-        <div className="flex items-start">
-          <div className="bg-sky-100 p-1 rounded-full mr-3 mt-1">
-            <svg className="w-4 h-4 text-[#76453B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
-          </div>
-          <p className="text-gray-700"><strong className="text-sky-800">Our Promise:</strong> Reliable, Affordable & Safe Travel – That's Aim Cab!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<About_Aimcab/>
         </div>
         {/* Footer */}
-        <div>
-          {/* Redesigned Responsive Footer */}
-          <div className="bg-gradient-to-r from-[#F3B664] to-[#76453B] font-semibold text-white py-8 sm:py-10">
-            {/* Footer content area */}
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                {/* Additional footer columns can be added here */}
-              </div>
-            </div>
-
-            {/* Popular Cities Section */}
-            <div className="container mx-auto px-4 text-center mb-6">
-              <b className="text-sky-200 text-lg transition-all duration-300 ease-in-out hover:text-white">
-                POPULAR CITIES:
-              </b>
-              <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-4 flex-wrap gap-4">
-                {/* Pune Button */}
-                <a
-                  href="/Pune"
-                  className="relative inline-block px-8 sm:px-16 py-3 rounded-full 
-                         bg-white text-[#76453B] font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-sky-100 hover:shadow-lg"
-                >
-                  Pune
-                </a>
-
-                {/* Mumbai Button */}
-                <a
-                  href="/Mumbai"
-                  className="relative inline-block px-8 sm:px-16 py-3 rounded-full 
-                         bg-white text-[#76453B] font-bold uppercase shadow-md 
-                         transform transition-all duration-500 ease-in-out 
-                         hover:scale-105 hover:bg-sky-100 hover:shadow-lg"
-                >
-                  Mumbai
-                </a>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-sky-600 my-8 max-w-4xl mx-auto opacity-30" />
-
-            {/* Quick Links Section */}
-            <div className="container mx-auto px-4 text-center mb-8">
-              <b className="text-sky-200 transition-all duration-300 ease-in-out hover:text-white">QUICK LINKS:</b>
-              <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2">
-                {[
-                  "HOME",
-                  "UPDATES",
-                  "ABOUT",
-                  "SERVICES",
-                  "CONTACT US",
-                  "CAREER",
-                  "FAQ's",
-                  "PRIVACY POLICY",
-                  "TERMS & CONDITIONS",
-                ].map((link, i) => (
-                  // eslint-disable-next-line @next/next/no-html-link-for-pages
-                  <a
-                    key={i}
-                    href="/"
-                    className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-sky-200"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Divider */}
-            <hr className="border-sky-600 my-8 max-w-4xl mx-auto opacity-30" />
-
-            {/* Designed by Section */}
-            <div className="container mx-auto px-4 text-center mb-8">
-              <h4 className="text-sky-200 transition-all duration-300 ease-in-out hover:text-white">DESIGNED BY</h4>
-              <a
-                href="https://cobaztech.com"
-                target="_blank"
-                className="text-white transition-all duration-300 ease-in-out font-semibold block mt-2 hover:text-sky-200 hover:scale-105"
-                rel="noreferrer"
-              >
-                COBAZTECH
-              </a>
-            </div>
-
-            {/* Social Media Section */}
-            <div className="container mx-auto px-4 text-center mt-6">
-              <span className="flex justify-center flex-wrap gap-4">
-                <a
-                  href="https://wa.me/9130030054"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/whatsapp.png" alt="WhatsApp" />
-                </a>
-                <a
-                  href="https://www.facebook.com/Aimcab"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/facebook.png" alt="Facebook" />
-                </a>
-                <a
-                  href="https://www.youtube.com/@AimCab"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/youtube.png" alt="YouTube" />
-                </a>
-                <a
-                  href="https://twitter.com/aim_cab"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/twitter.png" alt="Twitter" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/aim-cab-77356b208/"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/linked-in.png" alt="LinkedIn" />
-                </a>
-                <a
-                  href="https://join.skype.com/invite/sRT2FTyb7d1H"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/skype.png" alt="Skype" />
-                </a>
-                <a
-                  href="https://www.instagram.com/aimcabs/"
-                  target="_blank"
-                  className="transition-all duration-300 ease-in-out hover:scale-110 bg-white p-2 rounded-full"
-                  rel="noreferrer"
-                >
-                  <img className="w-6 h-6" src="images/instagram.png" alt="Instagram" />
-                </a>
-              </span>
-            </div>
-          </div>
-
-          {/* Copyright Section */}
-          <div className="bg-sky-950 text-white py-4">
-            <div className="container mx-auto px-4 text-center">
-              <p className="transition-all duration-300 ease-in-out hover:text-sky-300">
-                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </div>
+       <Footer/>
       </div>
     </>
   )

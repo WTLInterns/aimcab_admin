@@ -110,9 +110,18 @@ const BookingForm = () => {
 
 
   return (
+    
     <div className="relative z-10 top-12 w-full flex flex-col lg:flex-row p-0 m-0 min-h-screen">
+      
       {/* Promo Section */}
       <div className="w-full lg:w-1/2 bg-transparent">
+      <div 
+      className="absolute inset-0 bg-fixed bg-cover bg-center z-0"
+      style={{ backgroundImage: 'url("/images/car5.jpg")' }}
+    >
+      <div className="absolute inset-0 bg-black opacity-30"></div>
+      
+    </div>
         <div className="carousel slide h-full">
           <div className="carousel-inner relative h-full">
             <div className="carousel-item active h-full">

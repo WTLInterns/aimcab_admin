@@ -30,6 +30,7 @@ const Page = () => {
     }, []);
   return (
     <>
+     <Navbar/>
       <Head>
       <title>Pune to Dhule Cab | Affordable & Safe Taxi Service</title>
       <meta name="description" content="Book Pune to Dhule cab services with Aim Cab for a hassle-free journey. Affordable fares, professional drivers & 24/7 service for a smooth travel experience." />

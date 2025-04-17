@@ -1,398 +1,502 @@
-"use client"
 import React from 'react'
 import BookingForm from '../../components/BookingForm';
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import Navbar from '../../container/component/Navbar'
-import Footer from '../../container/component/Footer';
-import About_Aimcab from '../../components/About_Aimcab';
-const page = () => {
-  const headingRef = useRef(null);
-      const paragraphRef = useRef(null);
-      const buttonsRef = useRef(null);
-    
-      useEffect(() => {
-        // Create a timeline for sequential animations
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        
-        // Animate elements one by one
-        tl.from(headingRef.current, {
-          x: -50,
-          opacity: 0,
-          duration: 0.8
-        })
-        .from(paragraphRef.current, {
-          x: -50,
-          opacity: 0,
-          duration: 0.6
-        }, "+=0.2") // starts 0.2s after previous animation ends
-      }, []);
 
+const page = () => {
   return (
     <div>
       <head>
-        <title>Pune to Tuljapur Cab | Affordable & Safe Taxi Service</title>
-        <meta name="description" content="Book a Pune to Tuljapur cab with Aim Cab. Enjoy a comfortable and safe ride with expert drivers at the best fares. Hassle-free online booking available." />
-        <link rel="canonical" href="https://aimcab.com/pune-to-tuljapur-cab" />
+        <title>Pune to Surat Cab – Book Your Ride with Aim Cab</title>
+        <meta name="description" content="Looking for a reliable Pune to Surat cab service? Aim Cab offers comfortable and budget-friendly rides from Pune to Surat. Book online now!" />
+        <link rel="canonical" href="https://aimcab.com/pune-to-surat-cab" />
         <meta name="author" content="Aim Cab" />
-        <meta name="keywords" content="pune to tuljapur cab fare, pune to tuljapur cab, cab booking from pune to tuljapur, pune to tuljapur cab innova" />
+        <meta name="keywords" content="pune to surat cab, cab booking from pune to surat, pune to surat cab fare" />
         <meta name="robots" content="index, follow" />
       </head>
 
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center ">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <h1 
-            ref={headingRef}
-            className="text-4xl md:text-5xl font-bold mb-4 "
-          >
-            AIMCAB Pune Routes
-          </h1>
-          
-          <p 
-            ref={paragraphRef}
-            className="text-xl md:text-2xl mb-8 font-light"
-          >
-            Book your cab and explore Pune with ease
-          </p>
-          
-       
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white transform skew-y-2 origin-bottom"></div>
-      </header> 
+      <header className="bg-green-500 text-white py-4 text-center">
+        <h1 className="text-3xl font-bold">AIMCAB Pune Routes</h1>
+        <p className="mt-2 text-lg">Book your cab and explore Pune with ease</p>
+      </header>
       
       {/* Main Title */}
       <h2 className="text-3xl font-bold mt-4 text-center">
-        Pune to Tuljapur Cab – Affordable & Comfortable Travel with Aim Cab
+        Pune to Surat Cab – Book Your Ride with Aim Cab
       </h2>
 
       <BookingForm />
-
-      {/* Hero Section */}
-<section className="mt-8 p-6 bg-gradient-to-r from-[#76453B] to-[#F3B664] rounded-xl text-white shadow-lg">
-  <h3 className="text-3xl font-bold mb-4">
-    Book Your Pune to Tuljapur Cab with Aim Cab – Reliable & Budget-Friendly Service
+      
+      {/* Service Description */}
+<section className="mt-10 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md">
+  <h3 className="text-3xl font-bold text-indigo-700 mb-6">
+    Pune to Surat Cab – Comfortable & Affordable Travel
   </h3>
-  <div className="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
-    <p className="text-lg leading-relaxed">
-      If you are planning a trip from Pune to Tuljapur, Aim Cab provides the best and most affordable cab services. Whether you need a one-way cab, round-trip cab, or a premium Innova cab, we ensure a seamless travel experience. With our well-maintained vehicles and professional drivers, your journey to the holy town of Tuljapur will be comfortable and safe.
+  <div className="bg-white p-6 rounded-lg shadow-sm">
+    <p className="text-lg text-gray-700 leading-relaxed">
+      Looking for a reliable Pune to Surat cab service? Aim Cab offers the most comfortable and budget-friendly cab rides from Pune to Surat. Whether you're traveling for business, leisure, or family trips, our professional drivers and well-maintained cabs ensure a hassle-free journey.
     </p>
   </div>
 </section>
 
-{/* Why Choose Us */}
-<section className="mt-10 p-8 bg-white rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6 border-b-2 border-purple-100 pb-3">Why Choose Aim Cab for Pune to Tuljapur Travel?</h4>
+{/* Why Choose Aim Cab */}
+<section className="mt-12 p-8 bg-white rounded-xl shadow-md">
+  <h4 className="text-3xl font-bold text-indigo-700 mb-8 border-b-2 border-indigo-100 pb-4">Why Choose Aim Cab for Pune to Surat Travel?</h4>
   
   <div className="grid md:grid-cols-2 gap-6">
-    <div className="bg-purple-50 p-6 rounded-lg hover:shadow-lg transition-all">
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-lg transition-all">
       <ul className="space-y-4 text-lg">
         <li className="flex items-start">
-          <span className="bg-[#76453B] text-white p-1 rounded-full mr-3 mt-1">✓</span>
-          <span><strong className="text-[#76453B]">Lowest Price Guarantee:</strong> We offer the most competitive fares in the market.</span>
+          <span className="bg-indigo-600 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+          <span><strong className="text-indigo-700">Affordable Pricing:</strong> Enjoy the lowest fares in the market.</span>
         </li>
         <li className="flex items-start">
-          <span className="bg-[#76453B] text-white p-1 rounded-full mr-3 mt-1">✓</span>
-          <span><strong className="text-[#76453B]">Transparent Pricing:</strong> No hidden charges; pay what you see.</span>
+          <span className="bg-indigo-600 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+          <span><strong className="text-indigo-700">Reliable Services:</strong> On-time pickup and drop services.</span>
         </li>
         <li className="flex items-start">
-          <span className="bg-[#76453B] text-white p-1 rounded-full mr-3 mt-1">✓</span>
-          <span><strong className="text-[#76453B]">Professional Drivers:</strong> Our experienced drivers ensure a safe journey.</span>
+          <span className="bg-indigo-600 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+          <span><strong className="text-indigo-700">Experienced Drivers:</strong> Professional and courteous drivers.</span>
         </li>
       </ul>
     </div>
     
-    <div className="bg-purple-50 p-6 rounded-lg hover:shadow-lg transition-all">
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-lg transition-all">
       <ul className="space-y-4 text-lg">
         <li className="flex items-start">
-          <span className="bg-[#76453B] text-white p-1 rounded-full mr-3 mt-1">✓</span>
-          <span><strong className="text-[#76453B]">Flexible Booking:</strong> One-way, round-trip, and multi-stop travel options available.</span>
+          <span className="bg-indigo-600 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+          <span><strong className="text-indigo-700">Wide Fleet Options:</strong> Choose from hatchbacks, sedans, SUVs, and luxury cars.</span>
         </li>
         <li className="flex items-start">
-          <span className="bg-[#76453B] text-white p-1 rounded-full mr-3 mt-1">✓</span>
-          <span><strong className="text-[#76453B]">Multiple Car Options:</strong> Choose from hatchbacks, sedans, SUVs, and luxury cars like Innova.</span>
-        </li>
-        <li className="flex items-start">
-          <span className="bg-[#76453B] text-white p-1 rounded-full mr-3 mt-1">✓</span>
-          <span><strong className="text-[#76453B]">24/7 Customer Support:</strong> We're always available to assist you.</span>
+          <span className="bg-indigo-600 text-white p-1 rounded-full mr-3 mt-1">✓</span>
+          <span><strong className="text-indigo-700">Transparent Pricing:</strong> No hidden charges, what you see is what you pay.</span>
         </li>
       </ul>
     </div>
   </div>
-  
-  <div className="mt-8 bg-purple-100 p-5 rounded-lg text-center">
-    <h4 className="text-2xl font-bold text-[#76453B]">Experience a hassle-free ride with Aim Cab!</h4>
+
+  <div className="mt-10 space-y-8">
+    <div className="bg-indigo-50 p-6 rounded-lg">
+      <h4 className="text-2xl font-bold text-indigo-700 mb-4">Surat to Pune Cab – Hassle-Free Return Journey</h4>
+      <p className="text-lg text-gray-700">
+        If you're in Surat and need a cab back to Pune, Aim Cab offers Surat to Pune cab services at the best rates. Book a one-way or round-trip ride at competitive prices.
+      </p>
+    </div>
+    
+    <div className="bg-indigo-50 p-6 rounded-lg">
+      <h4 className="text-2xl font-bold text-indigo-700 mb-4">Cab from Surat to Pune – One-Way & Round Trip</h4>
+      <p className="text-lg text-gray-700">
+        We offer one-way cab services as well as round-trip options between Pune and Surat. Our flexible booking options allow you to travel conveniently at your own schedule.
+      </p>
+    </div>
   </div>
 </section>
 
-{/* Pricing Section */}
-<section className="mt-10 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">Pune to Tuljapur Cab Fare – Affordable Pricing & Flexible Options</h4>
-  
+{/* Cab Charges */}
+<section className="mt-12 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md">
+  <h4 className="text-3xl font-bold text-indigo-700 mb-6">Pune to Surat Cab Charges – Best in the Market</h4>
   <div className="bg-white p-6 rounded-lg shadow-sm">
+    <p className="text-lg text-gray-700 mb-6">
+      Our Pune to Surat cab charges are designed to fit your budget. We provide cost-effective rates while ensuring a high-quality travel experience.
+    </p>
+    
     <div className="overflow-x-auto">
       <table className="w-full border-collapse">
         <thead>
-          <tr className="bg-[#76453B] text-white">
+          <tr className="bg-indigo-600 text-white">
             <th className="p-4 text-left rounded-tl-lg">Cab Type</th>
-            <th className="p-4 text-left rounded-tr-lg">Fare (Approx.)</th>
+            <th className="p-4 text-left rounded-tr-lg">Price (Approx.)</th>
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-200 hover:bg-purple-50">
-            <td className="p-4 font-medium">Hatchback (Swift, Alto)</td>
-            <td className="p-4">₹2,999</td>
+          <tr className="border-b border-gray-200 hover:bg-blue-50">
+            <td className="p-4 font-medium">Hatchback</td>
+            <td className="p-4">₹11/km</td>
           </tr>
-          <tr className="border-b border-gray-200 hover:bg-purple-50">
-            <td className="p-4 font-medium">Sedan (Dzire, Etios)</td>
-            <td className="p-4">₹3,999</td>
+          <tr className="border-b border-gray-200 hover:bg-blue-50">
+            <td className="p-4 font-medium">Sedan</td>
+            <td className="p-4">₹12/km</td>
           </tr>
-          <tr className="border-b border-gray-200 hover:bg-purple-50">
-            <td className="p-4 font-medium">SUV (Ertiga, Xylo)</td>
-            <td className="p-4">₹5,499</td>
+          <tr className="border-b border-gray-200 hover:bg-blue-50">
+            <td className="p-4 font-medium">SUV</td>
+            <td className="p-4">₹14/km</td>
           </tr>
-          <tr className="hover:bg-purple-50">
-            <td className="p-4 font-medium">Innova (7-Seater)</td>
-            <td className="p-4">₹6,999</td>
+          <tr className="hover:bg-blue-50">
+            <td className="p-4 font-medium">Innova</td>
+            <td className="p-4">₹16/km</td>
           </tr>
         </tbody>
       </table>
     </div>
-    
-    <p className="mt-6 text-lg text-gray-700">
-      Our fare includes driver charges, tolls, and state taxes. For the latest offers and discounts, contact us at <a href="tel:+9191305454491" className="text-[#76453B] font-medium underline">+91 91305454491</a>.
-    </p>
-  </div>
-</section>
-
-{/* Travel Info */}
-<section className="mt-10 p-8 bg-white rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">Pune to Tuljapur Cab – Hassle-Free Booking & Comfortable Travel</h4>
-  
-  <div className="bg-purple-50 p-6 rounded-lg">
-    <p className="text-lg text-gray-700">
-      Tuljapur, located in Osmanabad district, is famous for the Tulja Bhavani Temple, one of Maharashtra's most revered pilgrimage sites. The distance from Pune to Tuljapur is approximately 295 km, and the travel time is around 5-6 hours via NH65. Booking a cab from Pune to Tuljapur with Aim Cab ensures a comfortable and convenient journey, whether you're traveling solo, with family, or in a group.
-    </p>
   </div>
 </section>
 
 {/* Booking Steps */}
-<section className="mt-10 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">How to Book Your Pune to Tuljapur Cab?</h4>
+<section className="mt-12 p-8 bg-white rounded-xl shadow-md">
+  <h4 className="text-3xl font-bold text-indigo-700 mb-8 border-b-2 border-indigo-100 pb-4">Book Your Pune to Surat Cab in Easy Steps</h4>
   
-  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
-      <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
-        <span className="text-[#76453B] text-2xl font-bold">1</span>
-      </div>
-      <p className="font-medium"><strong>Online Booking:</strong> Visit our website <a href="https://aimcab.com" className="text-blue-600 underline">aimcab.com</a></p>
+  <div className="grid md:grid-cols-5 gap-4">
+    <div className="bg-indigo-100 p-4 rounded-lg text-center hover:shadow-md transition-all">
+      <div className="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-3 font-bold">1</div>
+      <p className="font-medium"><strong>Visit Our Website:</strong> Go to <a href="https://aimcab.com" className="text-blue-600 underline">AimCab.com</a></p>
     </div>
     
-    <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
-      <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
-        <span className="text-[#76453B] text-2xl font-bold">2</span>
-      </div>
-      <p className="font-medium"><strong>Call Us:</strong> Dial <a href="tel:+9191305454491" className="text-blue-600 underline">+91 91305454491</a></p>
+    <div className="bg-indigo-100 p-4 rounded-lg text-center hover:shadow-md transition-all">
+      <div className="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-3 font-bold">2</div>
+      <p className="font-medium"><strong>Enter Travel Details:</strong> Select pickup and drop locations</p>
     </div>
     
-    <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
-      <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
-        <span className="text-[#76453B] text-2xl font-bold">3</span>
-      </div>
-      <p className="font-medium"><strong>WhatsApp Booking:</strong> Message us for quick assistance</p>
+    <div className="bg-indigo-100 p-4 rounded-lg text-center hover:shadow-md transition-all">
+      <div className="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-3 font-bold">3</div>
+      <p className="font-medium"><strong>Choose Your Cab:</strong> Pick from our wide range</p>
     </div>
     
-    <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
-      <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
-        <span className="text-[#76453B] text-2xl font-bold">4</span>
-      </div>
-      <p className="font-medium"><strong>Mobile App:</strong> Use our app for hassle-free reservations</p>
+    <div className="bg-indigo-100 p-4 rounded-lg text-center hover:shadow-md transition-all">
+      <div className="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-3 font-bold">4</div>
+      <p className="font-medium"><strong>Confirm & Pay:</strong> Secure your booking with online</p>
+    </div>
+    
+    <div className="bg-indigo-100 p-4 rounded-lg text-center hover:shadow-md transition-all">
+      <div className="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center mx-auto mb-3 font-bold">5</div>
+      <p className="font-medium"><strong>Enjoy Your Ride:</strong> Our driver will reach you at the scheduled time.</p>
     </div>
   </div>
 </section>
 
-{/* Car Options */}
-<section className="mt-10 p-8 bg-white rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">Cab Booking from Pune to Tuljapur – Choose Your Preferred Car</h4>
+{/* Places to Visit */}
+<section className="mt-12 p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md">
+  <h4 className="text-3xl font-bold text-indigo-700 mb-6">Places to Visit During Pune to Surat Journey</h4>
   
-  <div className="grid md:grid-cols-2 gap-6">
-    <div className="border-l-4 border-[#76453B] pl-4">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Budget-Friendly</h5>
-      <p className="text-lg">Swift, Alto <span className="font-bold text-[#76453B]">(₹2,999)</span></p>
-    </div>
-    
-    <div className="border-l-4 border-[#76453B] pl-4">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Comfort & Space</h5>
-      <p className="text-lg">Dzire, Etios <span className="font-bold text-[#76453B]">(₹3,999)</span></p>
-    </div>
-    
-    <div className="border-l-4 border-[#76453B] pl-4">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Family & Group Travel</h5>
-      <p className="text-lg">Ertiga, Xylo <span className="font-bold text-[#76453B]">(₹5,499)</span></p>
-    </div>
-    
-    <div className="border-l-4 border-[#76453B] pl-4">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Luxury & Premium Comfort</h5>
-      <p className="text-lg">Innova Crysta <span className="font-bold text-[#76453B]">(₹6,999)</span></p>
-    </div>
-  </div>
-  
-  <div className="mt-6 bg-purple-50 p-4 rounded-lg">
-    <p className="text-lg text-gray-700 text-center">
-      No matter which cab you choose, we guarantee a smooth and enjoyable ride to Tuljapur.
+  <div className="bg-white p-6 rounded-lg shadow-sm">
+    <p className="text-lg text-gray-700 mb-8">
+      A road trip from Pune to Surat covers scenic landscapes, temples, and beaches. Here are some must-visit places along the route:
     </p>
-  </div>
-</section>
-
-{/* Innova Section */}
-<section className="mt-10 p-8 bg-gradient-to-r from-[#76453B] to-[#e09e46] rounded-xl text-white shadow-lg">
-  <h4 className="text-3xl font-bold mb-4">Pune to Tuljapur Cab Innova – Travel in Comfort & Style</h4>
-  <div className="bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-sm">
-    <p className="text-lg leading-relaxed">
-      For a premium experience, book an Innova cab from Pune to Tuljapur. With spacious seating, ample luggage space, and premium comfort, our Innova Crysta is the perfect choice for families and groups.
-    </p>
-  </div>
-  
-  <h4 className="text-2xl font-bold mt-8 mb-4">Why Choose Innova for Pune to Tuljapur Travel?</h4>
-  <div className="grid sm:grid-cols-2 gap-4">
-    <div className="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
-      <span className="text-white mr-2 mt-1">✔️</span>
-      <span>Spacious 7-seater for large families</span>
-    </div>
-    <div className="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
-      <span className="text-white mr-2 mt-1">✔️</span>
-      <span>Extra legroom & comfortable seating</span>
-    </div>
-    <div className="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
-      <span className="text-white mr-2 mt-1">✔️</span>
-      <span>Smooth ride for long-distance travel</span>
-    </div>
-    <div className="flex items-start bg-white bg-opacity-10 p-4 rounded-lg">
-      <span className="text-white mr-2 mt-1">✔️</span>
-      <span>Air-conditioned and well-maintained cars</span>
-    </div>
-  </div>
-</section>
-
-{/* Travel Guide */}
-<section className="mt-10 p-8 bg-white rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">Travel Guide – Must-Visit Places in Tuljapur</h4>
-  
-  <div className="grid md:grid-cols-2 gap-6">
-    <div className="bg-purple-50 p-5 rounded-lg hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] flex items-center mb-2">
-        <span className="mr-2">🛕</span> Tulja Bhavani Temple
-      </h5>
-      <p className="text-gray-700">One of the Shakti Peethas, this temple is a major pilgrimage destination dedicated to Goddess Bhavani.</p>
-    </div>
     
-    <div className="bg-purple-50 p-5 rounded-lg hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Dhakte Tuljapur</h5>
-      <p className="text-gray-700">A scenic and peaceful location, ideal for spiritual seekers.</p>
-    </div>
-    
-    <div className="bg-purple-50 p-5 rounded-lg hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] flex items-center mb-2">
-        <span className="mr-2">🏰</span> Naldurg Fort
-      </h5>
-      <p className="text-gray-700">A historical fort with mesmerizing views, located near Tuljapur.</p>
-    </div>
-    
-    <div className="bg-purple-50 p-5 rounded-lg hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] flex items-center mb-2">
-        <span className="mr-2">🏞️</span> Osmanabad Caves
-      </h5>
-      <p className="text-gray-700">Ancient rock-cut caves perfect for history lovers.</p>
+    <div className="space-y-8">
+      <div className="border-l-4 border-indigo-500 pl-4">
+        <h5 className="text-2xl font-bold text-indigo-700 mb-3">Nashik – The Wine Capital of India</h5>
+        <ul className="space-y-2 ml-4">
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Sula Vineyards</strong> – Famous for wine tasting tours</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Trimbakeshwar Temple</strong> – A significant religious site</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Pandavleni Caves</strong> – Ancient Buddhist caves</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div className="border-l-4 border-indigo-500 pl-4">
+        <h5 className="text-2xl font-bold text-indigo-700 mb-3">Saputara – Gujarat's Only Hill Station</h5>
+        <ul className="space-y-2 ml-4">
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Saputara Lake</strong> – Ideal for boating and scenic views</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Sunset Point</strong> – Offers breathtaking sunset views</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Gira Waterfalls</strong> – A must-visit natural attraction</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div className="border-l-4 border-indigo-500 pl-4">
+        <h5 className="text-2xl font-bold text-indigo-700 mb-3">Surat – Diamond City of India</h5>
+        <ul className="space-y-2 ml-4">
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Dumas Beach</strong> – A beautiful beach with black sand</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Ambika Niketan Temple</strong> – A revered Hindu temple</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Dutch Garden</strong> – A well-maintained historic garden</span>
+          </li>
+          <li className="flex items-start">
+            <span className="text-indigo-600 mr-2">•</span>
+            <span><strong>Surat Castle</strong> – A 16th-century fortress</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 {/* FAQs */}
-<section className="mt-10 p-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-md">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">FAQs – Pune to Tuljapur Cab Booking</h4>
+<section className="mt-12 p-8 bg-white rounded-xl shadow-md">
+  <h4 className="text-3xl font-bold text-indigo-700 mb-8 border-b-2 border-indigo-100 pb-4">Frequently Asked Questions (FAQs)</h4>
   
-  <div className="space-y-4">
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">What is the Pune to Tuljapur cab fare?</h5>
-      <p className="text-gray-700">The fare starts from ₹2,999 for hatchbacks and goes up to ₹6,999 for premium Innova cabs.</p>
+  <div className="space-y-6">
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">How long does it take to travel from Pune to Surat by cab?</h5>
+      <p className="text-gray-700">It takes approximately 6 to 7 hours to cover the 420 km distance, depending on traffic and road conditions.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">How long does it take to travel from Pune to Tuljapur by cab?</h5>
-      <p className="text-gray-700">The journey takes approximately 5-6 hours, depending on road conditions.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">What are the charges for Pune to Surat cab?</h5>
+      <p className="text-gray-700">The charges start at ₹11/km with additional toll and parking fees.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Do you offer one-way cab services from Pune to Tuljapur?</h5>
-      <p className="text-gray-700">Yes, we provide one-way and round-trip cab services.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">Can I book a one-way cab from Surat to Pune?</h5>
+      <p className="text-gray-700">Yes, we offer one-way cab services from Surat to Pune.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">What types of cabs are available?</h5>
-      <p className="text-gray-700">We offer hatchbacks, sedans, SUVs, and luxury cabs like Innova Crysta.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">Do you provide Pune to Surat cab service for corporate bookings?</h5>
+      <p className="text-gray-700">Yes, we offer corporate cab booking services with special discounts.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">How can I book a cab from Pune to Tuljapur?</h5>
-      <p className="text-gray-700">You can book online, call us at <a href="tel:+9191305454491" className="text-[#76453B] underline">+91 91305454491</a>, or message us on WhatsApp.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">What types of cabs are available for Pune to Surat travel?</h5>
+      <p className="text-gray-700">We provide Hatchbacks, Sedans, SUVs, and Luxury Cars.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Are there any toll charges included in the fare?</h5>
-      <p className="text-gray-700">Yes, toll charges are included in the fare.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">Can I book a Pune to Surat cab at night?</h5>
+      <p className="text-gray-700">Yes, we offer 24/7 cab services for Pune to Surat travel.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Do you offer 24/7 customer support?</h5>
-      <p className="text-gray-700">Yes, our support team is available 24/7 to assist you.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">Is it safe to travel from Pune to Surat by cab?</h5>
+      <p className="text-gray-700">Yes, our trained drivers and GPS-enabled cars ensure a safe journey.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Can I book a Pune to Tuljapur cab for a return trip?</h5>
-      <p className="text-gray-700">Yes, we offer round-trip bookings at affordable rates.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">Do you offer discounts for round trips?</h5>
+      <p className="text-gray-700">Yes, we provide special discounts on round-trip bookings.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">Do you provide an Innova cab for Pune to Tuljapur travel?</h5>
-      <p className="text-gray-700">Yes, we have Innova Crysta available for a luxury travel experience.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">What is the cancellation policy?</h5>
+      <p className="text-gray-700">Cancellations made 24 hours before the ride are eligible for a full refund.</p>
     </div>
     
-    <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
-      <h5 className="text-xl font-bold text-[#76453B] mb-2">What are the payment options?</h5>
-      <p className="text-gray-700">We accept online payments, UPI, credit/debit cards, and cash.</p>
+    <div className="bg-blue-50 p-6 rounded-lg hover:shadow-sm transition-all">
+      <h5 className="text-xl font-bold text-indigo-700 mb-2">How can I contact Aim Cab for bookings?</h5>
+      <p className="text-gray-700">You can call us at <a href="tel:+9191305454491" className="text-blue-600 underline">+91 91305454491</a> or visit <a href="https://aimcab.com" className="text-blue-600 underline">AimCab.com</a> for online bookings.</p>
     </div>
   </div>
 </section>
 
+{/* About Aim Cab */}
+<section className="mt-12 p-8 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-xl shadow-md text-white">
+  <h4 className="text-3xl font-bold mb-6">About Aim Cab</h4>
+  <div className="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+    <p className="text-lg leading-relaxed">
+      Established in 2001, Aim Cab has been a trusted name in the cab industry for over two decades. We operate 50+ personal cabs across India and have a network of 500+ registered cabs. With over 2 lakh happy customers and 3000+ successful outstation trips, we continue to provide the best cab services for intercity travel.
+    </p>
+  </div>
+</section>
 
-{/* About Us */}
-<About_Aimcab  /> 
-
-{/* CTA */}
-<section className="mt-10 p-8 bg-white rounded-xl shadow-md text-center">
-  <h4 className="text-3xl font-bold text-[#76453B] mb-6">Ready for Your Spiritual Journey to Tuljapur?</h4>
+{/* Call to Action */}
+<section className="mt-12 p-8 bg-white rounded-xl shadow-md text-center">
+  <h4 className="text-3xl font-bold text-indigo-700 mb-6">Book Your Pune to Surat Cab Today!</h4>
   <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-    Book your comfortable cab now and experience a stress-free pilgrimage.
+    Travel hassle-free with Aim Cab and enjoy a smooth ride from Pune to Surat.
   </p>
   <div className="flex flex-col sm:flex-row justify-center gap-4">
-    <a href="https://aimcab.com" className="bg-[#76453B] hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all shadow-md hover:shadow-lg">
+    <a href="https://aimcab.com" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all shadow-md hover:shadow-lg">
       Book Online Now
     </a>
-    <a href="tel:+9191305454491" className="bg-white hover:bg-gray-100 text-[#76453B] font-bold py-3 px-8 rounded-lg text-lg border-2 border-[#76453B] transition-all shadow-sm hover:shadow-md">
+    <a href="tel:+9191305454491" className="bg-white hover:bg-gray-100 text-indigo-600 font-bold py-4 px-8 rounded-lg text-lg border-2 border-indigo-600 transition-all shadow-sm hover:shadow-md">
       Call +91 91305454491
     </a>
   </div>
 </section>
+      <div>
+            {/* Redesigned Responsive Footer */}
+            <div className="bg-gradient-to-r from-green-600 to-green-500 text-white py-6 sm:py-8">
+              {/* Footer content area */}
+              <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                  {/* You can add additional footer columns here if needed */}
+                </div>
+              </div>
 
-      <div>      
+              {/* Popular Cities Section */}
+              <div className="container mx-auto px-4 text-center mb-4">
+                <b className="text-yellow-400 text-lg transition-all duration-300 ease-in-out hover:text-white">
+                  POPULAR CITIES:
+                </b>
+                <div className="flex justify-center items-center space-x-4 sm:space-x-6 mt-2">
+                  {/* Pune Button */}
+                  <a
+                    href="/Pune"
+                    className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
+                               bg-gradient-to-r from-blue-400 to-yellow-300 
+                               text-gray-800 font-bold uppercase shadow-md 
+                               transform transition-all duration-500 ease-in-out 
+                               hover:scale-105 hover:bg-gradient-to-r hover:from-green-300 hover:to-green-200 hover:shadow-lg hover:text-gray-900"
+                  >
+                    Pune
+                  </a>
 
-            <div> <Footer/></div>
+                  {/* Mumbai Button */}
+                  <a
+                    href="/Mumbai"
+                    className="relative inline-block px-8 sm:px-16 md:px-20 py-4 rounded-full 
+                               bg-gradient-to-r from-blue-400 to-yellow-300 
+                               text-gray-800 font-bold uppercase shadow-md 
+                               transform transition-all duration-500 ease-in-out 
+                               hover:scale-105 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-400 hover:shadow-lg hover:text-white"
+                  >
+                    Mumbai
+                  </a>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <hr className="border-gray-300 my-8" />
+
+              {/* Quick Links Section */}
+              <div className="container mx-auto px-4 text-center mb-8">
+                <b className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
+                  QUICK LINKS:
+                </b>
+                <div className="mt-2 flex flex-wrap justify-center">
+                  {[
+                    "HOME",
+                    "UPDATES",
+                    "ABOUT",
+                    "SERVICES",
+                    "CONTACT US",
+                    "CAREER",
+                    "FAQ's",
+                    "PRIVACY POLICY",
+                    "TERMS & CONDITIONS",
+                  ].map((link, i) => (
+                    <a
+                      key={i}
+                      href="/"
+                      className="text-white transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-black mx-2 mb-2 sm:mb-0"
+                    >
+                      {link}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <hr className="border-gray-300 my-8" />
+
+              {/* Designed by Section */}
+              <div className="container mx-auto px-4 text-center mb-8">
+                <h4 className="text-yellow-400 transition-all duration-300 ease-in-out hover:text-white">
+                  DESIGNED BY
+                </h4>
+                <a
+                  href="https://cobaztech.com"
+                  target="_blank"
+                  className="text-white transition-all duration-300 ease-in-out font-semibold block mt-1 hover:text-black hover:scale-105"
+                >
+                  COBAZTECH
+                </a>
+              </div>
+
+              {/* Social Media Section */}
+              <div className="container mx-auto px-4 text-center mt-6">
+                <span className="flex justify-center flex-wrap">
+                  <a
+                    href="https://wa.me/9130030054"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/whatsapp.png"
+                      alt="WhatsApp"
+                    />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/Aimcab"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/facebook.png"
+                      alt="Facebook"
+                    />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@AimCab"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/youtube.png"
+                      alt="YouTube"
+                    />
+                  </a>
+                  <a
+                    href="https://twitter.com/aim_cab"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/twitter.png"
+                      alt="Twitter"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/aim-cab-77356b208/"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/linked-in.png"
+                      alt="LinkedIn"
+                    />
+                  </a>
+                  <a
+                    href="https://join.skype.com/invite/sRT2FTyb7d1H"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/skype.png"
+                      alt="Skype"
+                    />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/aimcabs/"
+                    target="_blank"
+                    className="mx-2 transition-all duration-300 ease-in-out hover:scale-110"
+                  >
+                    <img
+                      className="w-8 h-8 inline-block mb-2"
+                      src="images/instagram.png"
+                      alt="Instagram"
+                    />
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            {/* Copyright Section */}
+            <div className="container mx-auto px-4 text-center">
+              <p className="transition-all duration-300 ease-in-out hover:text-green-200">
+                &copy; {new Date().getFullYear()} Aim Cab. All rights reserved.
+              </p>
+            </div>
           </div>
-
     </div>
-
-
   )
 }
 

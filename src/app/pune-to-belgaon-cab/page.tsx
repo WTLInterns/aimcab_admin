@@ -31,6 +31,7 @@ const page = () => {
       
   return (
     <>
+     <Navbar/>
       <div>
         <Head>
         <title>Pune to Belgaon Cab | Affordable & Reliable Taxi Service</title>

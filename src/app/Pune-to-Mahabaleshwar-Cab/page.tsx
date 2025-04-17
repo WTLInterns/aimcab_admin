@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import About_Aimcab from '../../components/About_Aimcab';
 import Footer from '../../container/component/Footer';
+import Navbar from '../../container/component/Navbar';
 const Page = () => {
    const headingRef = useRef(null);
     const paragraphRef = useRef(null);
@@ -38,7 +39,7 @@ const Page = () => {
         <meta name="keywords" content="pune to mahabaleshwar cab, cab service in mahabaleshwar, distance between pune and mahabaleshwar, distance between pune to mahabaleshwar, mahabaleshwar trip from pune, how to go mahabaleshwar from pune, mahabaleshwar package from pune, pune to mahabaleshwar cab fare, pune to mahabaleshwar taxi fare, mahabaleshwar one day trip from pune, pune to mahabaleshwar cab packages, pune to mahabaleshwar taxi" />
         <meta name="robots" content="index, follow" />
       </Head>
-
+ <Navbar/>
       {/* Header */}
       <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-yellow-500 py-12 md:py-20 text-center overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -448,7 +449,7 @@ const Page = () => {
     Book Now @ aimcab.com
   </a>
   
-  <p className="mt-6 text-indigo-200">Or call us at: <span className="font-bold text-white">[PHONE NUMBER]</span></p>
+  <p className="mt-6 text-indigo-200">Or call us at: <span className="font-bold text-white">+91 9130030054</span></p>
 </section>
 
 {/* About Aim Cab */}

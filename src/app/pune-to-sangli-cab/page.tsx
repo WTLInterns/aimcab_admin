@@ -30,6 +30,7 @@ const page = () => {
 
   return (
     <div>
+       <Navbar/>
       <head>
         <title>Pune to Sangli Cab | Affordable & Reliable Taxi Service</title>
         <meta name="description" content="Book a Pune to Sangli cab with Aim Cab for a safe, reliable & affordable ride. Hassle-free taxi booking with professional drivers at the best fares." />

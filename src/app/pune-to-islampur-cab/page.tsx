@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import BookingForm from '../../components/BookingForm';
 import { useEffect, useRef } from 'react';
-
+import Navbar from '../../container/component/Navbar';
 import { gsap } from 'gsap';
 import Footer from "../../container/component/Footer";
 import About_Aimcab from '../../components/About_Aimcab';
@@ -30,6 +30,7 @@ const page = () => {
       }, []);
   return (
     <>
+     <Navbar/>
       <div>
         <Head>
         <title>Pune to Islampur Cab | Affordable & Reliable Taxi Service</title>

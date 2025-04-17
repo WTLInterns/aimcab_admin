@@ -10,7 +10,7 @@ export default function FeaturesSection() {
   }, []);
 
   return (
-    <section className="py-10 px-4 bg-gradient-to-r from-white to-gray-50">
+    <section className="py-10 mt-12 px-4 bg-gradient-to-r from-white to-gray-50">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           

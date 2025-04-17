@@ -29,6 +29,7 @@ const page = () => {
       
   return (
     <div>
+      <Navbar />
       <Head>
         <title>Mumbai to Islampur Cab | Fast & Safe Taxi Booking</title>
         <meta name="description" content="Book Mumbai to Islampur cab with Aim Cab for safe, affordable travel. One-way & round-trip cab services with professional drivers at best fares." />
@@ -67,7 +68,7 @@ const page = () => {
       <BookingForm />
       
       {/* Introduction Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-md">
+      <section className="bg-gradient-to-r from-blue-50 mt-24 to-indigo-50 p-8 rounded-xl shadow-md">
         <h3 className="text-3xl font-bold text-[#76453B] mb-6">Welcome to Aimcab - Your Trusted Travel Partner</h3>
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-lg text-gray-700 leading-relaxed">

@@ -29,6 +29,7 @@ const page = () => {
       
   return (
     <div>
+      <Navbar />
       <Head>
         <title>Mumbai to Bhimashankar Cab Services | Aim Cab Ride</title>
         <meta name="description" content="Book Mumbai to Bhimashankar cab services with Aim Cab. Affordable taxi booking from Mumbai to Bhimashankar. Safe ride with verified drivers." />

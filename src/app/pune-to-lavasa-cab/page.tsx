@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Footer from "../../container/component/Footer";
 import About_Aimcab from '../../components/About_Aimcab';
+import Navbar from '../../container/component/Navbar';
 const Page = () => {
   const headingRef = useRef(null);
       const paragraphRef = useRef(null);
@@ -29,6 +30,7 @@ const Page = () => {
       }, []);
   return (
     <>
+     <Navbar/>
       <Head>
         <title>Pune to Lavasa Cab – Hassle-Free and Affordable Travel with Aim Cab</title>
         <meta

@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Navbar from '../../container/component/Navbar'
 import Footer from '../../container/component/Footer';
+import About_Aimcab from '../../components/About_Aimcab';
 
 
 //change according to your structure make attractive eyecaching and do not change their fields and text data
@@ -59,6 +60,7 @@ const Page = () => {
       }, []);
   return (
     <div >
+       <Navbar/>
       <head>
         <title>Pune to Karad Cab Service | Reliable & Affordable Travel</title>
         <meta name="description" content="Book a reliable Pune to Karad cab service with Aim Cab. Enjoy comfortable rides with professional drivers at the best rates. Easy online booking available." />
@@ -71,7 +73,7 @@ const Page = () => {
       {/* Header */}
       <header className="relative bg-gradient-to-r from-[#F3B664] to-[#76453B] text-white py-12 md:py-20 text-center ">
         <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
+        <div className="relative z-10  mx-auto px-4">
           <h1 
             ref={headingRef}
             className="text-4xl md:text-5xl font-bold mb-4 "
@@ -102,7 +104,7 @@ const Page = () => {
 
  {/* Hero Service Description */}
 <section className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-sm">
-  <div className="max-w-4xl mx-auto">
+  <div className=" mx-auto">
     <h3 className="text-3xl font-bold text-[#76453B]">
       🚖 Book Your Pune to Karad Cab with Aim Cab
     </h3>
@@ -114,7 +116,7 @@ const Page = () => {
 
 {/* Why Choose Us - Card Grid */}
 <section className="mt-10 p-6">
-  <div className="max-w-4xl mx-auto">
+  <div className=" mx-auto">
     <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">
       🏆 Why Choose Aim Cab for Your Pune to Karad Trip?
     </h4>
@@ -214,7 +216,7 @@ const Page = () => {
 
 {/* Service Options - Tabs */}
 <section className="mt-10 p-6 bg-gray-50 rounded-xl">
-  <div className="max-w-4xl mx-auto">
+  <div className=" mx-auto">
     <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">
       🚗  Cab Booking Options - One-Way & Round Trip
     </h4>
@@ -271,7 +273,7 @@ const Page = () => {
 
 {/* Distance & Travel */}
 <section className="mt-10 p-6 bg-gray-50 rounded-xl flex justify-center items-center min-h-[60vh]">
-  <div className="max-w-4xl w-full mx-auto">
+  <div className=" w-full mx-auto">
     <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">
       🚗 Distance & Travel Time - Pune to Karad
     </h4>
@@ -304,7 +306,7 @@ const Page = () => {
 
 {/* Pricing Table */}
 <section className="mt-10 p-6">
-  <div className="max-w-4xl mx-auto">
+  <div className=" mx-auto">
     <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">
       🚖 Pune to Karad Cab Fare & Pricing
     </h4>
@@ -351,7 +353,7 @@ const Page = () => {
 
 {/* Attractions Section */}
 <section className="mt-10 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl">
-  <div className="max-w-4xl mx-auto">
+  <div className=" mx-auto">
     <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">
       🏛️ Places to Visit in Karad
     </h4>
@@ -386,7 +388,7 @@ const Page = () => {
 
 {/* FAQ Section - Accordion */}
 <section className="mt-10 p-6">
-  <div className="max-w-4xl mx-auto">
+  <div className=" mx-auto">
     <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">
       ❓ Frequently Asked Questions
     </h4>
@@ -457,38 +459,7 @@ const Page = () => {
 </section>
 
 {/* About Section with Stats */}
-<section className="mt-10 p-6 bg-indigo-50 rounded-xl">
-  <div className="max-w-4xl mx-auto">
-    <h4 className="text-3xl font-bold text-center text-[#76453B] mb-8">🏢 About Aim Cab</h4>
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <p className="text-lg text-gray-700 mb-6">
-        Aim Cab is a leading cab service provider in Maharashtra, known for reliability and customer satisfaction. With years of experience in the transportation industry, we ensure safe and comfortable journeys for all our customers.
-      </p>
-      <div className="text-center bg-gradient-to-r from-[#76453B] to-[#F3B664] p-6 rounded-lg text-white">
-        <h5 className="text-2xl font-bold mb-4">Book Your Pune to Karad Cab Now!</h5>
-        <p className="mb-6 text-indigo-100">
-          Experience a comfortable journey at unbeatable prices.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="tel:+919834577766" className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center">
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {/* Replace with your SVG path */}
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1"></path>
-            </svg>
-            +91 9834577766
-          </a>
-          <a href="https://aimcab.com" target="_blank" className="bg-indigo-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-900 transition-colors flex items-center justify-center">
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {/* Replace with your SVG path */}
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3"></path>
-            </svg>
-            Visit aimcab.com
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <About_Aimcab  />
 
 
   

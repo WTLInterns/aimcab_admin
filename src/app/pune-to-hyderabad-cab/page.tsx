@@ -30,6 +30,7 @@ const page = () => {
       }, []);
   return (
     <div>
+       <Navbar/>
       <head>
         <title>Pune to Hyderabad Cab | Book Affordable & Reliable Cabs</title>
         <meta name="description" content="Book a Pune to Hyderabad cab with Aim Cab for a smooth, safe & affordable ride. Enjoy hassle-free long-distance travel with professional drivers." />

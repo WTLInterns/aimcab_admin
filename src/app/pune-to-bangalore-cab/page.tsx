@@ -32,6 +32,7 @@ const page = () => {
       
   return (
     <div>
+       <Navbar/>
       <Head>
       <title>Pune to Bangalore Cab | Affordable & Reliable Taxi</title>
       <meta name="description" content="Book Pune to Bangalore cab services with Aim Cab for a comfortable, safe & affordable ride. 24/7 service, expert drivers & hassle-free travel experience." />
