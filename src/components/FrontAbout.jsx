@@ -85,9 +85,7 @@ export default function WhoWeArePage() {
         </div>
   
         <p className="text-gray-600 text-lg">
-          Lorem ipsum passages, and more recently with desktop publishing software like aldus pageMaker including
-          versions of all the Lorem Ipsum generators on the Internet tends to repeat predefined chunks as necessary,
-          making this an web evolved over the years, sometimes by accident.
+        From humble beginnings to becoming one of Pune's most trusted cab services, we remain committed to delivering safe, affordable, and comfortable journeys for every traveler.
         </p>
 {/*   
         <a
@@ -130,7 +128,7 @@ export default function WhoWeArePage() {
     <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-xl -z-10"></div>
     <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent"></div>
     <Image
-      src="/images/image.png"
+      src="/images/swift car.jpg"
       alt="BMW Car"
       width={500}
       height={20}

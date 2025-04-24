@@ -66,7 +66,7 @@ const BookingForm = () => {
     const visitor = { ...formData, bookingId: id };
   
     try {
-      const response = await fetch("http://localhost:5000/api/booking/create-booking", {
+      const response = await fetch("https://api.aimcab.com/api/booking/create-booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(visitor),
@@ -117,7 +117,7 @@ const BookingForm = () => {
       <div className="w-full lg:w-1/2 bg-transparent">
       <div 
       className="absolute inset-0 bg-fixed bg-cover bg-center z-0"
-      style={{ backgroundImage: 'url("/images/car5.jpg")' }}
+      style={{ backgroundImage: 'url("/images/frontcar.jpg")' }}
     >
       <div className="absolute inset-0 bg-black opacity-30"></div>
       
